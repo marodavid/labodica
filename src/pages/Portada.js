@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '../modules/components/Button';
-import Typography from '../modules/components/Typography';
+// import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import PortadaLayout from './PortadaLayout';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import losLoquitos from '../images/iglesiaIslaPlana.webp'
@@ -15,7 +16,7 @@ const styles = (theme) => ({
     alignItems: 'center',
   },
   button: {
-    minWidth: 200,
+    minWidth: 150,
     align: 'right',
     position: 'absolute',
     top: theme.spacing(4),
@@ -71,8 +72,8 @@ function Portada(props) {
         La Bodica
       </Typography>
 
-      <Typography variant="h5" align="center" color="inherit" className={classes.more}>
-        Acompañanos en nuestro dia
+      <Typography variant="h4" align="center" color="inherit" className={classes.more}>
+        ¡¡Laura y David se casan!!
       </Typography>
 
       <ExpandMoreIcon className={classes.arrow} />

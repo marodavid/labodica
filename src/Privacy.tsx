@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 import Markdown from './modules/components/Markdown';
 import Typography from './modules/components/Typography';
 import AppAppBar from './modules/views/AppAppBar';
-import AppFooter from './modules/views/AppFooter';
+// import AppFooter from './modules/views/AppFooter';
 import withRoot from './modules/withRoot';
 import privacy from './modules/views/privacy.md';
 
@@ -20,7 +20,7 @@ function Privacy() {
           <Markdown>{privacy}</Markdown>
         </Box>
       </Container>
-      <AppFooter />
+      {/*<AppFooter />*/}
     </React.Fragment>
   );
 }
