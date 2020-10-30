@@ -6,7 +6,15 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
 import salonBelleza from '../images/salonBelleza.jpg'
-import castillitos from '../images/castillitos.jpg'
+import castillitos from '../images/castillitos2.jpg'
+import cartagena from '../images/cartagena2.jpeg'
+import murcia from '../images/murcia.jpeg'
+import kayaks from '../images/kayak.jpeg'
+import restaurantes from '../images/restaurantes.png'
+import laAzohia from '../images/playa-de-la-azohia.jpg'
+import bares from '../images/bares.png'
+import paseosBarco from '../images/barcoTour.jpeg'
+// import bares from '../images/baresLoquitos.jpg'
 
 const styles = (theme) => ({
 	root: {
@@ -91,64 +99,63 @@ function ProductCategories(props) {
 
 	const images = [
 		{
-			url: `${salonBelleza}`,
-				// 'https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400&q=80',
-			title: 'Salones de Belleza',
+			url: `${laAzohia}`,
+			title: 'Playas',
 			width: '40%',
+			href: '#'
 		},
-		// {
-		// 	url:
-		// 		'https://images.unsplash.com/photo-1531299204812-e6d44d9a185c?auto=format&fit=crop&w=400&q=80',
-		// 	title: 'Massage',
-		// 	width: '20%',
-		// },
 		{
-			url:
-				'https://images.unsplash.com/photo-1531299204812-e6d44d9a185c?auto=format&fit=crop&w=400&q=80',
+			url: `${kayaks}`,
+			// 'https://images.unsplash.com/photo-1533727937480-da3a97967e95?auto=format&fit=crop&w=400&q=80',
+			title: 'Kayaks',
+			width: '20%',
+			href: '#'
+		},
+		{
+			url: `${paseosBarco}`,
+			title: 'Paseos en barco',
+			width: '40%',
+			href: 'http://www.solazlines.com/index.php/es/rutas-regulares/desde-mazarron/ruta-acantilados-cabo-tinoso'
+		},
+		{
+			url: `${restaurantes}`,
+				// 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400&q=80',
+			title: 'Restaurantes',
+			width: '40%',
+			href: '#'
+		},
+		{
+			url: `${bares}`,
 			title: 'Bares',
 			width: '20%',
+			href: '#'
+		},
+		{
+			url: `${salonBelleza}`,
+			// 'https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400&q=80',
+			title: 'Salones de Belleza',
+			width: '40%',
+			href: '#'
+		},
+		{
+			url: `${cartagena}`,
+				// 'https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400&q=80',
+			title: 'Cartagena',
+			width: '38%',
+			href: '#'
 		},
 		{
 			url: `${castillitos}`,
-				// 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400&q=80',
+			// 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400&q=80',
 			title: 'Castillitos',
-			width: '40%',
-		},
-		{
-			url:
-				'https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400&q=80',
-			title: 'Tour',
-			width: '38%',
-		},
-		{
-			url:
-				'https://images.unsplash.com/photo-1523309996740-d5315f9cc28b?auto=format&fit=crop&w=400&q=80',
-			title: 'Gastronomy',
-			width: '38%',
-		},
-		{
-			url:
-				'https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=400&q=80',
-			title: 'Shopping',
 			width: '24%',
+			href: '#'
 		},
 		{
-			url:
-				'https://images.unsplash.com/photo-1506941433945-99a2aa4bd50a?auto=format&fit=crop&w=400&q=80',
-			title: 'Walking',
-			width: '40%',
-		},
-		{
-			url:
-				'https://images.unsplash.com/photo-1533727937480-da3a97967e95?auto=format&fit=crop&w=400&q=80',
-			title: 'Fitness',
-			width: '20%',
-		},
-		{
-			url:
-				'https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400&q=80',
-			title: 'Reading',
-			width: '40%',
+			url: `${murcia}`,
+			title: 'Murcia',
+			width: '38%',
+			href: '#'
 		},
 	];
 
@@ -165,6 +172,8 @@ function ProductCategories(props) {
 						style={{
 							width: image.width,
 						}}
+						href={image.href}
+						target='_blank'
 					>
 						<div
 							className={classes.imageSrc}

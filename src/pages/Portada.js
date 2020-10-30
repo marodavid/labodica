@@ -24,12 +24,25 @@ const styles = (theme) => ({
   },
   more: {
     marginTop: theme.spacing(10),
+    textTransform: 'none',
+    opacity: '0.85'
   },
   arrow: {
     position: 'absolute',
     align: 'center',
     bottom: theme.spacing(4),
   },
+  typography: {
+    textTransform: 'none',
+    opacity: '0.95',
+    // fontFamily: {fontHead},
+    // top: theme.spacing(4),
+
+  },
+	loquitos: {
+    opacity: 0.15,
+  }
+
 });
 
 function Portada(props) {
@@ -59,15 +72,20 @@ function Portada(props) {
         color="inherit"
         align="center"
         variant="h1"
+        component="h2"
         marked="center"
+        className={classes.typography}
+        // fontFamily={fontHead}
       >
         Bienvenidos a
       </Typography>
+
       <Typography
         color="inherit"
         align="center"
         variant="h1"
         marked="center"
+        className={classes.typography}
       >
         La Bodica
       </Typography>
