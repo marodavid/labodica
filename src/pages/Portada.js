@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '../modules/components/Button';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import PortadaLayout from './PortadaLayout';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import losLoquitos from '../images/iglesiaIslaPlana.webp'
+import laBodicaLogo from '../images/labodicaOriginal.webp'
 
 const styles = (theme) => ({
+
   background: {
     backgroundImage: `url(${losLoquitos})`,
     backgroundColor: '#7fc7d9', // Average color of the background image.
     backgroundPosition: 'center',
     alignItems: 'center',
+    height: '120%',
   },
   button: {
     minWidth: 150,
@@ -22,25 +24,31 @@ const styles = (theme) => ({
     top: theme.spacing(4),
     right: theme.spacing(10),
   },
-  more: {
-    marginTop: theme.spacing(10),
-    textTransform: 'none',
-    opacity: '0.85'
-  },
   arrow: {
-    position: 'absolute',
-    align: 'center',
-    bottom: theme.spacing(4),
+    bottom: theme.spacing(1),
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    // paddingTop: '20px',
   },
   typography: {
     textTransform: 'none',
     opacity: '0.95',
-    // fontFamily: {fontHead},
-    // top: theme.spacing(4),
-
+  },
+  typographyLauraDavid: {
+    fontFamily: 'Great Vibes',
+    fontStyle: 'italic',
+    textTransform: 'none',
+    opacity: '0.95',
   },
 	loquitos: {
     opacity: 0.15,
+  },
+  bodicaLogo: {
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '30%',
   }
 
 });
@@ -49,11 +57,11 @@ function Portada(props) {
   const { classes } = props;
 
   return (
-
+<>
     <PortadaLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
       <img
-        style={{ display: 'none' }}
+        style={{ display: 'none'}}
         src={losLoquitos}
         alt="increase priority"
       />
@@ -67,7 +75,7 @@ function Portada(props) {
       >
         RSVP
       </Button>
-
+      <div style={{maxWidth: '100%', height: '13.5em'}} />
       <Typography
         color="inherit"
         align="center"
@@ -75,7 +83,6 @@ function Portada(props) {
         component="h2"
         marked="center"
         className={classes.typography}
-        // fontFamily={fontHead}
       >
         Bienvenidos a
       </Typography>
@@ -84,19 +91,34 @@ function Portada(props) {
         color="inherit"
         align="center"
         variant="h1"
+        component="h2"
         marked="center"
         className={classes.typography}
       >
         La Bodica
       </Typography>
 
-      <Typography variant="h4" align="center" color="inherit" className={classes.more}>
-        ¡¡Laura y David se casan!!
+      <img
+        src={laBodicaLogo}
+        alt='laBodica'
+        className={classes.bodicaLogo}
+      />
+
+      <Typography
+        color="inherit"
+        align="center"
+        variant="h2"
+        component="h3"
+        marked="center"
+        className={classes.typographyLauraDavid}
+      >
+        Laura  y  David
       </Typography>
-
-      <ExpandMoreIcon className={classes.arrow} />
-
+      {/*<div style={{paddingTop: '50px'}}>*/}
+      {/*  <ExpandMoreIcon className={classes.arrow} />*/}
+      {/*</div>*/}
     </PortadaLayout>
+    </>
   );
 }
 
