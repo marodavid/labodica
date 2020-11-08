@@ -4,8 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import PortadaLayout from './PortadaLayout';
-// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import losLoquitos from '../images/iglesiaIslaPlana.webp'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import losLoquitos from '../images/iglesia3.png'
+// import losLoquitos from '../images/iglesiaIslaPlana.webp'
 import laBodicaLogo from '../images/labodicaOriginal.webp'
 
 const styles = (theme) => ({
@@ -15,7 +16,7 @@ const styles = (theme) => ({
     backgroundColor: '#7fc7d9', // Average color of the background image.
     backgroundPosition: 'center',
     alignItems: 'center',
-    height: '120%',
+    height: '130%',
   },
   button: {
     minWidth: 150,
@@ -25,10 +26,12 @@ const styles = (theme) => ({
     right: theme.spacing(10),
   },
   arrow: {
+    color: theme.palette.common.white,
     bottom: theme.spacing(1),
     display: 'block',
     marginLeft: 'auto',
     marginRight: 'auto',
+    // size: '150%',
     // paddingTop: '20px',
   },
   typography: {
@@ -114,10 +117,10 @@ function Portada(props) {
       >
         Laura  y  David
       </Typography>
-      {/*<div style={{paddingTop: '50px'}}>*/}
-      {/*  <ExpandMoreIcon className={classes.arrow} />*/}
-      {/*</div>*/}
+
     </PortadaLayout>
+
+    <ExpandMoreIcon className={classes.arrow} />
     </>
   );
 }

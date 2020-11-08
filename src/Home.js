@@ -11,15 +11,17 @@ import withRoot from './modules/withRoot'
 import Portada from "./pages/Portada";
 import PasosASeguir from "./pages/PasosASeguir";
 import Sugerencias from "./pages/Sugerencias";
-// import NuestraHistoria from './pages/NuestraHistoria'
+import NuestraHistoria from './pages/NuestraHistoria'
+import BarraMenu from "./pages/BarraMenu";
 
 function Index() {
   return (
     <React.Fragment>
       {/*<AppAppBar />*/}
       {/*<BarraFrontal />*/}
+      {/*<BarraMenu/>*/}
       <Portada/>
-      {/*<NuestraHistoria/>*/}
+      <NuestraHistoria/>
       {/*<ProductHero />*/}
       {/*<ProductValues />*/}
       <PasosASeguir />
