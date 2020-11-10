@@ -20,6 +20,7 @@ const PhotoAvatar = styled(Avatar)`
 	width: auto; 
 	height: auto;
 	position: flex;
+	opacity: 1;
 	// filter: blur(3px);	
 	
 `;
@@ -27,23 +28,37 @@ const PhotoAvatar = styled(Avatar)`
 const Titulo = styled(Typography)`
 	position: flex; 
 	font-family: Dancing Script; 
-	font-style: italic; 
+	font-style: italic, bold; 
 	text-transform: none;
+	padding-bottom: 1em;
+	color: white;
 `;
 const DivImage = styled.div`
 	background-image: url(${dusseldorf});
   background-position: 'center';
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%; 
+  height: 600px; 
+  display: flex;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  zIndex: -2;
+  width: 100%;
+  // filter: blur(3px);
+  opacity: 0.8;
 `;
 const DivHead = styled.div`
 	flex-grow: 1; 
-	padding-top: 14em;
+	padding-top: 16em;
 	padding-bottom: 1em;
 `;
 
+const Parrafo = styled.p`
+	font-size: 24px;
+	// color: white;
+`;
 // const StoryFirstPart = styled.div``;
 
 export default class NuestraHistoria extends React.Component {
@@ -76,125 +91,69 @@ export default class NuestraHistoria extends React.Component {
 		},
 	}));
 
-
-
-// ,color: tomato; border-color: tomato;`;
 	render() {
 
-		// const classes = this.#useStyles
-
-
 		return (
-			<>
-				{/*<div style={{maxWidth: '100%', height: '13em'}} />*/}
-				<DivImage/>
-				<DivHead>
-					{/*<Titulo*/}
-					{/*	color="inherit"*/}
-					{/*	align="center"*/}
-					{/*	variant="h1"*/}
-					{/*	component="h2"*/}
-					{/*	marked="center"*/}
-					{/*	// style={{position: 'flex', fontFamily: 'Dancing Script', fontStyle: 'italic', textTransform: 'none'}}*/}
-					{/*	// className={classes.typography}*/}
-					{/*>*/}
-					{/*	Nuestra historia*/}
-					{/*</Titulo>*/}
 
+			<DivHead>
+				<DivImage>
 					{/*<img*/}
-					{/*	// style={{ display: 'none'}}*/}
-					{/*	style={{ width: '100%', filter: 'blur(4px)', opacity: 0.85}}*/}
+					{/*	style={{ display: 'none'}}*/}
 					{/*	src={dusseldorf}*/}
 					{/*	alt="increase priority"*/}
-					{/*/>*/}
+					{/*/> */}
 
-					<Grid container spacing={2}
-								direction="row"
-								justify="space-around"
-								alignItems="flex-start"
-					>
-						{/*<Grid item xs={12}>*/}
-						{/*	<Paper className={classes.paper}>xs=12</Paper>*/}
-						{/*</Grid>*/}
-						{/*<Grid item xs={6}>*/}
-						{/*	<Avatar alt="Remy Sharp" src={losLoquitos} />*/}
-						{/*	/!*<Paper className={classes.paper}>xs=6</Paper>*!/*/}
-						{/*</Grid>*/}
-						{/*<Grid item xs={6}>*/}
-						{/*	<Paper className={classes.paper}>xs=6</Paper>*/}
-						{/*</Grid>*/}
-						{/*<Grid item xs={3}>*/}
-						{/*	<Paper className={classes.paper}>xs=3</Paper>*/}
-						{/*</Grid>*/}
-						{/*<Grid item xs={3}>*/}
-						{/*	<Paper className={classes.paper}>xs=3</Paper>*/}
-						{/*</Grid>*/}
-						{/*<Grid item xs={3}>*/}
-						{/*	<Paper className={classes.paper}>xs=3</Paper>*/}
-						{/*</Grid>*/}
-						{/*<Grid item xs={3}>*/}
-						{/*	<Paper className={classes.paper}>xs=3</Paper>*/}
-						{/*</Grid>*/}
-						{/*<Grid item xs={1}/>*/}
-
-						<Grid item xs={1}/>
-						<Grid item xs={3}>
-							<PhotoAvatar alt="Remy Sharp" src={losLoquitos} />
-						</Grid>
-						<Grid item xs={8}>
-							{/*<div>*/}
-								{/*<div style={{float: 'left'}}>*/}
-
-								{/*	<img*/}
-								{/*		src={anillos}*/}
-								{/*		alt="anillos"*/}
-								{/*		// class={classes.image}*/}
-								{/*		style={{width: '20%', size: '30%', height: 'auto', opacity: 0.9, align:'center'}}*/}
-								{/*	/>*/}
-								{/*</div>*/}
-
-								<Titulo
-									color="inherit"
-									align="left"
-									variant="h1"
-									component="h2"
-									marked="center"
-								>
-									Nuestra historia
-								</Titulo>
-
-								<p style={{fontSize: '24px', paddingTop: '1em'}}>
-									En medio de una pandemia, un murciano le preguntó a una panameña si se quería casar con el. Ella
-									dijo SI y ahora ambos celebran sin fin.
-
-								</p>
-								{this.state.displayFullText ?
-								<p style={{fontSize: '24px'}}>
-									A ver bandido, que quieres saber tu, que?
-									A ver bandido, que quieres saber tu, que?
-									A ver bandido, que quieres saber tu, que?
-									A ver bandido, que quieres saber tu, que?
-									A ver bandido, que quieres saber tu, que?
-									A ver bandido, que quieres saber tu, que?
-								</p>
-									: null }
-
-
-								{ this.state.displayFullText ?
-									<Button color="secondary" variant="contained" size="small" component="a" onClick={this.handleHide}>
-										Prefiero no saber tanto
-									</Button>
-									:
-									<Button color="secondary" variant="contained" size="small" component="a" onClick={this.handleShow}>
-										Quieres sabrer mas?
-									</Button>
-								}
-							{/*</div>*/}
-						</Grid>
+				<Grid container spacing={2}
+							direction="row"
+							justify="space-around"
+							alignItems="flex-start"
+				>
+					<Grid item xs={1}/>
+					<Grid item xs={3}>
+						<PhotoAvatar alt="Remy Sharp" src={losLoquitos} />
 					</Grid>
-				</DivHead>
+					<Grid item xs={8}>
+							<Titulo
+								color="inherit"
+								align="left"
+								variant="h1"
+								component="h2"
+								marked="center"
+							>
+								Nuestra historia
+							</Titulo>
+							<Parrafo>
+								En medio de una pandemia, un murciano le preguntó a una panameña si se quería casar con el. Ella
+								dijo SI y ahora ambos celebran sin fin.
+							</Parrafo>
 
-			</>
+							{this.state.displayFullText ?
+								<Parrafo>
+									A ver bandido, que quieres saber tu, que?
+									A ver bandido, que quieres saber tu, que?
+									A ver bandido, que quieres saber tu, que?
+									A ver bandido, que quieres saber tu, que?
+									A ver bandido, que quieres saber tu, que?
+									A ver bandido, que quieres saber tu, que?
+								</Parrafo>
+								: null }
+
+
+							{ this.state.displayFullText ?
+								<Button color="secondary" variant="contained" size="small" component="a" onClick={this.handleHide}>
+									Prefiero no saber tanto
+								</Button>
+								:
+								<Button color="secondary" variant="contained" size="small" component="a" onClick={this.handleShow}>
+									Quieres sabrer mas?
+								</Button>
+							}
+					</Grid>
+				</Grid>
+				</DivImage>
+			</DivHead>
+
+
 		)
 	}
 }
