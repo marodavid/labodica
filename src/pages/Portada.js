@@ -53,9 +53,9 @@ const styles = (theme) => ({
     transitionDuration: '3s',
     transitionDelay: '1s',
   },
-	loquitos: {
-    opacity: 0.15,
-  },
+	// loquitos: {
+  //   opacity: 0.15,
+  // },
   bodicaLogo: {
     display: 'block',
     marginLeft: 'auto',
@@ -65,13 +65,15 @@ const styles = (theme) => ({
 
 });
 
+// eslint-disable-next-line react-hooks/rules-of-hooks
+const delayTypo = ((milisec) => useSpring({opacity: 1, from: {opacity: 0}, delay: milisec, config: config.slow}))
 function Portada(props) {
   const { classes } = props;
-  const miliseconds = 1000
-  const typoProps1 = useSpring({from: {opacity: 0}, to: {opacity: 1, transform:`translate3d(1)`}, delay: miliseconds+1500, config: config.molasses})
-  const typoProps2 = useSpring({opacity: 1, from: {opacity: 0}, delay: miliseconds+2500, config: config.slow})
-  const typoProps3 = useSpring({opacity: 1, from: {opacity: 0}, delay: miliseconds, config: config.slow})
-  const typoProps4 = useSpring({opacity: 1, from: {opacity: 0}, delay: miliseconds+4500, config: config.slow})
+  // const miliseconds = 1000
+  // const typoProps1 = useSpring({from: {opacity: 0}, to: {opacity: 1, transform:`translate3d(1)`}, delay: miliseconds+1500, config: config.molasses})
+  // const typoProps2 = useSpring({opacity: 1, from: {opacity: 0}, delay: miliseconds+2500, config: config.slow})
+  // const typoProps3 = useSpring({opacity: 1, from: {opacity: 0}, delay: miliseconds, config: config.slow})
+  // const typoProps4 = useSpring({opacity: 1, from: {opacity: 0}, delay: miliseconds+4500, config: config.slow})
   return (
 <>
     <PortadaLayout backgroundClassName={classes.background}>
@@ -92,7 +94,7 @@ function Portada(props) {
         RSVP
       </Button>
       <div style={{maxWidth: '100%', height: '13.5em'}} />
-      <animated.div style={typoProps1}>
+      <animated.div style={delayTypo(2500)}>
       <Typography
         color="inherit"
         align="center"
@@ -104,7 +106,7 @@ function Portada(props) {
         Bienvenidos a
       </Typography>
       </animated.div>
-      <animated.div style={typoProps2}>
+      <animated.div style={delayTypo(3500)}>
 
         <Typography
         color="inherit"
@@ -118,20 +120,22 @@ function Portada(props) {
       </Typography>
       </animated.div>
 
-      <animated.div style={typoProps3}>
+      <animated.div style={delayTypo(1000)}>
       <img
         src={laBodicaLogo}
         alt='laBodica'
         className={classes.bodicaLogo}
       />
       </animated.div>
-      <animated.div style={typoProps4}>
+      <animated.div style={delayTypo(5500)}>
+      {/*<animated.div style={typoProps4}>*/}
       <Typography
         color="inherit"
         align="center"
         variant="h1"
         component="h3"
         marked="center"
+        // className={}
         className={classes.typographyLauraDavid}
       >
         Laura  y  David
