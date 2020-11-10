@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {useSpring, animated, config} from 'react-spring'
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -8,9 +9,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import losLoquitos from '../images/iglesia3.png'
 // import losLoquitos from '../images/iglesiaIslaPlana.webp'
 import laBodicaLogo from '../images/labodicaOriginal.webp'
+// import styled from 'styled-components'
+
 
 const styles = (theme) => ({
-
   background: {
     backgroundImage: `url(${losLoquitos})`,
     backgroundColor: '#7fc7d9', // Average color of the background image.
@@ -28,21 +30,28 @@ const styles = (theme) => ({
   arrow: {
     color: theme.palette.common.white,
     bottom: theme.spacing(1),
-    display: 'block',
+    display: 'flex',
     marginLeft: 'auto',
     marginRight: 'auto',
     // size: '150%',
     // paddingTop: '20px',
   },
   typography: {
+    // fontFamily: 'Petit Formal Script',
+    // fontFamily: 'Dancing Script',
+    // fontStyle: 'italic',
     textTransform: 'none',
     opacity: '0.95',
   },
   typographyLauraDavid: {
-    fontFamily: 'Great Vibes',
-    fontStyle: 'italic',
+    fontFamily: 'Dancing Script',
+    // fontStyle: 'italic',
     textTransform: 'none',
+    // fontSize: '70px',
     opacity: '0.95',
+    transitionProperty: 'opacity',
+    transitionDuration: '3s',
+    transitionDelay: '1s',
   },
 	loquitos: {
     opacity: 0.15,
@@ -58,7 +67,11 @@ const styles = (theme) => ({
 
 function Portada(props) {
   const { classes } = props;
-
+  const miliseconds = 1000
+  const typoProps1 = useSpring({from: {opacity: 0}, to: {opacity: 1, transform:`translate3d(1)`}, delay: miliseconds+1500, config: config.molasses})
+  const typoProps2 = useSpring({opacity: 1, from: {opacity: 0}, delay: miliseconds+2500, config: config.slow})
+  const typoProps3 = useSpring({opacity: 1, from: {opacity: 0}, delay: miliseconds, config: config.slow})
+  const typoProps4 = useSpring({opacity: 1, from: {opacity: 0}, delay: miliseconds+4500, config: config.slow})
   return (
 <>
     <PortadaLayout backgroundClassName={classes.background}>
@@ -79,6 +92,7 @@ function Portada(props) {
         RSVP
       </Button>
       <div style={{maxWidth: '100%', height: '13.5em'}} />
+      <animated.div style={typoProps1}>
       <Typography
         color="inherit"
         align="center"
@@ -89,8 +103,10 @@ function Portada(props) {
       >
         Bienvenidos a
       </Typography>
+      </animated.div>
+      <animated.div style={typoProps2}>
 
-      <Typography
+        <Typography
         color="inherit"
         align="center"
         variant="h1"
@@ -100,24 +116,27 @@ function Portada(props) {
       >
         La Bodica
       </Typography>
+      </animated.div>
 
+      <animated.div style={typoProps3}>
       <img
         src={laBodicaLogo}
         alt='laBodica'
         className={classes.bodicaLogo}
       />
-
+      </animated.div>
+      <animated.div style={typoProps4}>
       <Typography
         color="inherit"
         align="center"
-        variant="h2"
+        variant="h1"
         component="h3"
         marked="center"
         className={classes.typographyLauraDavid}
       >
         Laura  y  David
       </Typography>
-
+      </animated.div>
     </PortadaLayout>
 
     <ExpandMoreIcon className={classes.arrow} />
