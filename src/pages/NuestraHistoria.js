@@ -148,7 +148,6 @@ export default class NuestraHistoria extends React.Component {
 									Quieres sabrer mas?
 								</Button>
 							}
-					{/*		*/}
 					</Grid>
 				</Grid>
 				</DivImage>
