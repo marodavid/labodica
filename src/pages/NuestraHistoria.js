@@ -1,7 +1,6 @@
 import React from 'react'
 import Grid from "@material-ui/core/Grid";
 import losLoquitos from '../images/losLoquitos.jpg'
-import pollera from '../images/pollera.jpg'
 import './nuestraHistoria/main.css'
 import Button from "../modules/components/Button";
 import Typography from "@material-ui/core/Typography";
@@ -118,10 +117,10 @@ export default class NuestraHistoria extends React.Component {
 				>
 					<Grid item xs={1}/>
 					<Grid item xs={3}>
-						<PhotoAvatar alt="Remy Sharp" variant="square" src={losLoquitos} />
-						{ this.state.displayFullText ? <PhotoAvatar alt="Remy Sharp" src={pollera} /> : null }
+						<PhotoAvatar alt="Remy Sharp" src={losLoquitos} />
+						{/*{ this.state.displayFullText ? <PhotoAvatar alt="Remy Sharp" src={pollera} /> : null }*/}
 					</Grid>
-					<Grid item xs={4}>
+					<Grid item xs={8}>
 							<Titulo
 								color="inherit"
 								align="left"
@@ -134,27 +133,10 @@ export default class NuestraHistoria extends React.Component {
 							<Parrafo>
 								En medio de una pandemia, un murciano le preguntó a una panameña si se quería casar con el.<br/> Ella
 								dijo SI y ahora ambos celebran sin fin.<br/>
-								A ver bandido, que quieres saber tu, que?<br/>
-								A ver bandido, que quieres saber tu, que?<br/>
-								A ver bandido, que quieres saber tu, que?<br/>
-								A ver bandido, que quieres saber tu, que?<br/>
 							</Parrafo>
 							{this.state.displayFullText ?
 								<Parrafo>
-									A ver bandido, que quieres saber tu, que?<br/>
-									A ver bandido, que quieres saber tu, que?<br/>
-									A ver bandido, que quieres saber tu, que?<br/>
-									A ver bandido, que quieres saber tu, que?<br/>
-									A ver bandido, que quieres saber tu, que?<br/>
-									A ver bandido, que quieres saber tu, que?<br/>
-
-									A ver bandido, que quieres saber tu, que?<br/>
-									A ver bandido, que quieres saber tu, que?<br/>
-									A ver bandido, que quieres saber tu, que?<br/>
-									A ver bandido, que quieres saber tu, que?<br/>
-									A ver bandido, que quieres saber tu, que?<br/>
-									A ver bandido, que quieres saber tu, que?<br/>
-
+									Proximamente. Un poquito de paciencia
 								</Parrafo>
 								: null }
 							{ this.state.displayFullText ?
@@ -167,11 +149,11 @@ export default class NuestraHistoria extends React.Component {
 								</Button>
 							}
 					</Grid>
-					<Grid item xs={3}>
-						<PhotoAvatar alt="Remy Sharp" src={losLoquitos} />
-						{ this.state.displayFullText ? <PhotoAvatar variant="square" alt="Remy Sharp" src={pollera} /> : null }
-					</Grid>
-					<Grid item xs={1}/>
+					{/*<Grid item xs={3}>*/}
+					{/*	<PhotoAvatar alt="Remy Sharp" src={losLoquitos} />*/}
+					{/*	{ this.state.displayFullText ? <PhotoAvatar variant="square" alt="Remy Sharp" src={pollera} /> : null }*/}
+					{/*</Grid>*/}
+					{/*<Grid item xs={1}/>*/}
 
 				</Grid>
 				</DivImage>

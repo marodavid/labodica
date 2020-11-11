@@ -7,6 +7,7 @@ const SeparatorIcon = styled(IoIosArrowDropdownCircle)`
 	display: block;
   margin-left: auto;
   margin-right: auto;
+  color: white;
   // width: 100%;
   // margin-top: -1.25em;
   // width: 50px;
