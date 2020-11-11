@@ -11,7 +11,7 @@ const styles = (theme) => ({
     display: 'flex',
     alignItems: 'center',
     [theme.breakpoints.up('sm')]: {
-      height: '80vh',
+      height: '100vh',
       minHeight: 500,
       maxHeight: 1300,
     },
@@ -31,7 +31,7 @@ const styles = (theme) => ({
     backgroundColor: theme.palette.common.black,
     opacity: 0.3,
     zIndex: -1,
-    height: '130%',
+    height: '100%',
   },
   background: {
     position: 'absolute',
