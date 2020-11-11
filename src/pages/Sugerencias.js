@@ -14,7 +14,6 @@ import restaurantes from '../images/restaurantes.png'
 import laAzohia from '../images/playa-de-la-azohia.jpg'
 import bares from '../images/bares.png'
 import paseosBarco from '../images/barcoTour.jpeg'
-// import bares from '../images/baresLoquitos.jpg'
 
 const styles = (theme) => ({
 	root: {
