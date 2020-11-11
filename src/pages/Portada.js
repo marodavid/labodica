@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import PortadaLayout from './PortadaLayout';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import losLoquitos from '../images/iglesia3.png'
 // import losLoquitos from '../images/iglesiaIslaPlana.webp'
 import laBodicaLogo from '../images/labodicaOriginal.webp'
