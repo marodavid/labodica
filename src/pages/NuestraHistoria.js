@@ -1,18 +1,13 @@
 import React from 'react'
-import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import losLoquitos from '../images/losLoquitos.jpg'
-// import anillos from '../images/weddingRings.png'
-import dusseldorf from '../images/dusseldorf.jpeg'
+import pollera from '../images/pollera.jpg'
 import './nuestraHistoria/main.css'
 import Button from "../modules/components/Button";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
-import makeStyles from '@material-ui/core/styles/makeStyles';
-// import Paper from "@material-ui/core/Paper";
+import CurvyLines from '../themes/appCurvyLines.png'
 import styled from "styled-components"
-
-
 
 const PhotoAvatar = styled(Avatar)`
 	left: theme.spacing(7); 
@@ -21,8 +16,8 @@ const PhotoAvatar = styled(Avatar)`
 	height: auto;
 	position: flex;
 	opacity: 1;
+	// padding-top: 0.5em;
 	// filter: blur(3px);	
-	
 `;
 
 const Titulo = styled(Typography)`
@@ -31,14 +26,15 @@ const Titulo = styled(Typography)`
 	font-style: italic, bold; 
 	text-transform: none;
 	padding-bottom: 1em;
-	color: white;
+	// color: black;
 `;
 const DivImage = styled.div`
-	background-image: url(${dusseldorf});
+	background: #F6F6F6;
+	background-image: url(${CurvyLines});
   background-position: 'center';
   background-repeat: no-repeat;
   background-size: cover;
-  height: 600px; 
+  // 
   display: flex;
   left: 0;
   right: 0;
@@ -48,17 +44,37 @@ const DivImage = styled.div`
   width: 100%;
   // filter: blur(3px);
   opacity: 0.8;
+  padding-top: 1em;
+  flex-grow: 1;
 `;
-const DivHead = styled.div`
-	flex-grow: 1; 
-	padding-top: 16em;
-	padding-bottom: 1em;
-`;
+// const DivHead = styled.div`
+// 	flex-grow: 1;
+// 	// padding-top: 1em;
+// 	// padding-bottom: 1em;
+// `;
 
 const Parrafo = styled.p`
 	font-size: 24px;
+	// font-color: white;
 	// color: white;
 `;
+
+const AnchorSpan = styled.span`
+	display: block;
+	position: relative;
+	height: 10px;
+	width: 100%;
+	visibility: hidden;
+	color: black;
+`;
+
+// const ArrowIcon = styled(ExpandMoreIcon)`
+// 	color: theme.palette.common.black;
+// 	// bottom: theme.spacing(1);
+// 	display: 'flex';
+// 	marginLeft: 'auto';
+// 	marginRight: 'auto';
+// `;
 // const StoryFirstPart = styled.div``;
 
 export default class NuestraHistoria extends React.Component {
@@ -79,24 +95,16 @@ export default class NuestraHistoria extends React.Component {
 		this.setState({displayFullText: false});
 	};
 
-	#useStyles = makeStyles((theme) => ({
-		root: {
-			flexGrow: 1,
-		},
-		paper: {
-			padding: theme.spacing(2),
-			textAlign: 'center',
-			justify: 'flex-start',
-			color: theme.palette.text.primary,
-		},
-	}));
-
 	render() {
-
 		return (
-
-			<DivHead>
+		<>
+			{/*<AnchorSpan><ArrowIcon fontSize='large'/></AnchorSpan>*/}
+			{/*<DivHead>*/}
 				<DivImage>
+					{/*<FondoLineas*/}
+					{/*	src={CurvyLines}*/}
+					{/*	alt="curvy lines"*/}
+					{/*/>*/}
 					{/*<img*/}
 					{/*	style={{ display: 'none'}}*/}
 					{/*	src={dusseldorf}*/}
@@ -110,9 +118,10 @@ export default class NuestraHistoria extends React.Component {
 				>
 					<Grid item xs={1}/>
 					<Grid item xs={3}>
-						<PhotoAvatar alt="Remy Sharp" src={losLoquitos} />
+						<PhotoAvatar alt="Remy Sharp" variant="square" src={losLoquitos} />
+						{ this.state.displayFullText ? <PhotoAvatar alt="Remy Sharp" src={pollera} /> : null }
 					</Grid>
-					<Grid item xs={8}>
+					<Grid item xs={4}>
 							<Titulo
 								color="inherit"
 								align="left"
@@ -123,22 +132,31 @@ export default class NuestraHistoria extends React.Component {
 								Nuestra historia
 							</Titulo>
 							<Parrafo>
-								En medio de una pandemia, un murciano le preguntó a una panameña si se quería casar con el. Ella
-								dijo SI y ahora ambos celebran sin fin.
+								En medio de una pandemia, un murciano le preguntó a una panameña si se quería casar con el.<br/> Ella
+								dijo SI y ahora ambos celebran sin fin.<br/>
+								A ver bandido, que quieres saber tu, que?<br/>
+								A ver bandido, que quieres saber tu, que?<br/>
+								A ver bandido, que quieres saber tu, que?<br/>
+								A ver bandido, que quieres saber tu, que?<br/>
 							</Parrafo>
-
 							{this.state.displayFullText ?
 								<Parrafo>
-									A ver bandido, que quieres saber tu, que?
-									A ver bandido, que quieres saber tu, que?
-									A ver bandido, que quieres saber tu, que?
-									A ver bandido, que quieres saber tu, que?
-									A ver bandido, que quieres saber tu, que?
-									A ver bandido, que quieres saber tu, que?
+									A ver bandido, que quieres saber tu, que?<br/>
+									A ver bandido, que quieres saber tu, que?<br/>
+									A ver bandido, que quieres saber tu, que?<br/>
+									A ver bandido, que quieres saber tu, que?<br/>
+									A ver bandido, que quieres saber tu, que?<br/>
+									A ver bandido, que quieres saber tu, que?<br/>
+
+									A ver bandido, que quieres saber tu, que?<br/>
+									A ver bandido, que quieres saber tu, que?<br/>
+									A ver bandido, que quieres saber tu, que?<br/>
+									A ver bandido, que quieres saber tu, que?<br/>
+									A ver bandido, que quieres saber tu, que?<br/>
+									A ver bandido, que quieres saber tu, que?<br/>
+
 								</Parrafo>
 								: null }
-
-
 							{ this.state.displayFullText ?
 								<Button color="secondary" variant="contained" size="small" component="a" onClick={this.handleHide}>
 									Prefiero no saber tanto
@@ -149,19 +167,26 @@ export default class NuestraHistoria extends React.Component {
 								</Button>
 							}
 					</Grid>
+					<Grid item xs={3}>
+						<PhotoAvatar alt="Remy Sharp" src={losLoquitos} />
+						{ this.state.displayFullText ? <PhotoAvatar variant="square" alt="Remy Sharp" src={pollera} /> : null }
+					</Grid>
+					<Grid item xs={1}/>
+
 				</Grid>
 				</DivImage>
-			</DivHead>
-
+			{/*</DivHead>*/}
+			<AnchorSpan>1234</AnchorSpan>
+		</>
 
 		)
 	}
 }
-
-NuestraHistoria.propTypes = {
-	classes: PropTypes.object.isRequired,
-}
-
-NuestraHistoria.defaultProps = {
-	classes: undefined,
-}
+//
+// NuestraHistoria.propTypes = {
+// 	classes: PropTypes.object.isRequired,
+// }
+//
+// NuestraHistoria.defaultProps = {
+// 	classes: undefined,
+// }
