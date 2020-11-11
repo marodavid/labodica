@@ -13,6 +13,7 @@ import PasosASeguir from "./pages/PasosASeguir";
 import Sugerencias from "./pages/Sugerencias";
 import NuestraHistoria from './pages/NuestraHistoria'
 import BarraMenu from "./pages/BarraMenu";
+import Separator from "./components/Separator";
 
 function Index() {
   return (
@@ -20,7 +21,9 @@ function Index() {
       {/*<AppAppBar />*/}
       {/*<BarraFrontal />*/}
       {/*<BarraMenu/>*/}
+
       <Portada/>
+      {/*<Separator/>*/}
       <NuestraHistoria/>
       {/*<ProductHero />*/}
       {/*<ProductValues />*/}
