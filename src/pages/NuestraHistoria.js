@@ -99,7 +99,7 @@ export default class NuestraHistoria extends React.Component {
 		<>
 			{/*<AnchorSpan><ArrowIcon fontSize='large'/></AnchorSpan>*/}
 			{/*<DivHead>*/}
-				<DivImage>
+				<DivImage id="nuestraHistoria">
 					{/*<FondoLineas*/}
 					{/*	src={CurvyLines}*/}
 					{/*	alt="curvy lines"*/}
