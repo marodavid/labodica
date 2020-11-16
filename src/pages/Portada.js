@@ -11,11 +11,12 @@ import losLoquitos from '../images/iglesia3.png'
 import laBodicaLogo from '../images/labodicaOriginal.webp'
 import styled from 'styled-components'
 import Separator from "../components/Separator";
+import CountDown from "../components/CountDown";
 
 const styles = (theme) => ({
   background: {
     backgroundImage: `url(${losLoquitos})`,
-    backgroundColor: '#7fc7d9', // Average color of the background image.
+    // backgroundColor: '#7fc7d9', // Average color of the background image.
     backgroundPosition: 'center',
     alignItems: 'center',
     height: '100%',
@@ -24,7 +25,9 @@ const styles = (theme) => ({
     minWidth: 150,
     align: 'right',
     position: 'absolute',
-    top: theme.spacing(4),
+    // position: 'flex-right',
+    top: '4em',
+    // top: theme.spacing(4),
     right: theme.spacing(10),
   },
   arrow: {
@@ -36,12 +39,21 @@ const styles = (theme) => ({
     // size: '150%',
     // paddingTop: '20px',
   },
+  typographyWelcome: {
+    // fontFamily: 'Petit Formal Script',
+    // fontFamily: 'Dancing Script',
+    // fontStyle: 'italic',
+    textTransform: 'none',
+    opacity: '0.95',
+    paddingTop: '2em',
+  },
   typography: {
     // fontFamily: 'Petit Formal Script',
     // fontFamily: 'Dancing Script',
     // fontStyle: 'italic',
     textTransform: 'none',
     opacity: '0.95',
+    // paddingTop: '2em',
   },
   typographyLauraDavid: {
     fontFamily: 'Dancing Script',
@@ -69,6 +81,9 @@ const styles = (theme) => ({
 const delayTypo = ((milisec) => useSpring({opacity: 1, from: {opacity: 0}, delay: milisec, config: config.slow}))
 const DivSeparator = styled.div`
   padding-top: 4em;
+`;
+const DivCountdown = styled.div`
+  padding-top: 2em;
 `;
 function Portada(props) {
   const { classes } = props;
@@ -98,7 +113,7 @@ function Portada(props) {
         variant="h1"
         component="h2"
         marked="center"
-        className={classes.typography}
+        className={classes.typographyWelcome}
       >
         Bienvenidos a
       </Typography>
@@ -144,6 +159,9 @@ function Portada(props) {
         <Separator/>
       </DivSeparator>
       </animated.div>
+      <DivCountdown>
+        <CountDown/>
+      </DivCountdown>
     </PortadaLayout>
 
     {/*<ExpandMoreIcon className={classes.arrow} />*/}
