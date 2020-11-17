@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import styled from "styled-components"
+import CurvyLines from '../themes/appCurvyLines.png'
 
 import salonBelleza from '../images/salonBelleza.jpg'
 import castillitos from '../images/castillitos2.jpg'
@@ -158,7 +160,21 @@ function ProductCategories(props) {
 		},
 	];
 
+	const DivFrame = styled.div`
+		width: 100%;
+		height: auto;		
+		background: #F6F6F6;
+		// background: #bdcebe;
+		background-image: url(${CurvyLines});
+		background-position: 'center';
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding-top: 0.05em;
+		padding-bottom: 1em;
+	`;
+
 	return (
+		<DivFrame>
 		<Container className={classes.root} component="section">
 			<Typography variant="h4" marked="center" align="center" component="h2">
 				Disfruta los dias de la boda
@@ -196,6 +212,7 @@ function ProductCategories(props) {
 				))}
 			</div>
 		</Container>
+		</DivFrame>
 	);
 }
 
