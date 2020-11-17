@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Button from '../modules/components/Button';
+// import Button from '../modules/components/Button';
+import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography';
 import HotelIcon from '@material-ui/icons/Hotel';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
@@ -53,6 +54,25 @@ const styles = (theme) => ({
   },
   button: {
     marginTop: theme.spacing(8),
+
+    borderRadius: 0,
+    fontWeight: theme.typography.fontWeightMedium,
+    fontFamily: theme.typography.h1.fontFamily,
+    // padding: theme.spacing(2, 4),
+    // fontSize: theme.typography.pxToRem(14),
+    boxShadow: 'none',
+    '&:active, &:focus': {
+      boxShadow: 'none',
+    },
+
+    // sizeSmall: {
+    //   padding: theme.spacing(1, 3),
+    //   fontSize: theme.typography.pxToRem(13),
+    // },
+    // sizeLarge: {
+      padding: theme.spacing(2, 5),
+      fontSize: theme.typography.pxToRem(16),
+    // },
   },
 });
 
@@ -87,7 +107,7 @@ function PasosASeguir(props) {
                 </Typography>
                 <Button
                   color="secondary"
-                  size="large"
+                  // size="large"
                   variant="outlined"
                   className={classes.button}
                   // startIcon={<CloudUploadIcon />}
