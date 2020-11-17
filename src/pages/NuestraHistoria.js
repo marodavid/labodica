@@ -58,14 +58,14 @@ const Parrafo = styled.p`
 	// color: white;
 `;
 
-const AnchorSpan = styled.span`
-	display: block;
-	position: relative;
-	height: 10px;
-	width: 100%;
-	visibility: hidden;
-	color: black;
-`;
+// const AnchorSpan = styled.span`
+// 	display: block;
+// 	position: relative;
+// 	height: 10px;
+// 	width: 100%;
+// 	visibility: hidden;
+// 	color: black;
+// `;
 
 // const ArrowIcon = styled(ExpandMoreIcon)`
 // 	color: theme.palette.common.black;
@@ -158,7 +158,7 @@ export default class NuestraHistoria extends React.Component {
 				</Grid>
 				</DivImage>
 			{/*</DivHead>*/}
-			<AnchorSpan>1234</AnchorSpan>
+			{/*<AnchorSpan></AnchorSpan>*/}
 		</>
 
 		)
