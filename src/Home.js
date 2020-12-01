@@ -1,14 +1,17 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom'
 import withRoot from './modules/withRoot'
 import Portada from "./pages/Portada";
 import PasosASeguir from "./pages/PasosASeguir";
 import Sugerencias from "./pages/Sugerencias";
 import NuestraHistoria from './pages/NuestraHistoria'
 import AnchorSpan from "./components/AnchorSpan";
+// import MyForm from './pages/RSVP'
 
 function Index() {
   return (
-    <React.Fragment>
+
+    <Router>
       <Portada/>
       <AnchorSpan />
       <NuestraHistoria/>
@@ -17,7 +20,8 @@ function Index() {
       <AnchorSpan />
       <Sugerencias/>
       {/*<AppFooter />*/}
-    </React.Fragment>
+      {/*<MyForm path="rsvp"/>*/}
+    </Router>
   );
 }
 
