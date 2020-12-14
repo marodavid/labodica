@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import styled from "styled-components"
 import './CountDown.css'
 
 function CountDown() {
 
 	const calculateTimeLeft = () => {
-		const difference = +new Date("Oct 2, 2021 17:00:00") - +new Date()
+		const difference = +new Date("Oct 2, 2021 18:00:00") - +new Date()
 
 		let timeLeft
-		console.log(difference)
 		if (difference > 0) {
 			timeLeft = {
 				dias: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -34,24 +32,17 @@ function CountDown() {
 
 	Object.keys(timeLeft).forEach((interval) => {
 		timerComponents.push(
-			<li><span id={interval}>{timeLeft[interval]}</span>{" "}{interval}</li>
+			<li key={interval}><span id={interval}>{timeLeft[interval]}</span>{" "}{interval}</li>
 		);
 	});
 
-	const DivTimer = styled.div`
-		flex-grow: 1;	
-	`;
-
 	return (
-		<DivTimer>
-		<div className="container">
-			<div id="countdown">
-				<ul>
-					{timerComponents.length ? timerComponents : <span>Time's up!</span>}
+		// <DivTimer>
+		<div id="countdown" className="container">
+			<ul key={timerComponents.length}>
+				{timerComponents.length ? timerComponents : <span>Ya nos casamos!!</span>}
 			</ul>
-			</div>
 		</div>
-		</DivTimer>
 	)
 }
 
