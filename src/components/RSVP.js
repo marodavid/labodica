@@ -1,26 +1,29 @@
 import React, {useEffect, useState} from 'react'
 import {useFormik } from 'formik'
 import * as yup from 'yup'
-import makeStyles from '@material-ui/core/styles';
-import {Box, Container, Typography, TextField} from "@material-ui/core";
-import {InputLabel, Select, MenuItem } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-// import PhoneInput from 'react-phone-input-2'
-import MuiPhoneNumber from 'material-ui-phone-number'
-import 'react-phone-input-2/lib/style.css'
-import es from 'react-phone-input-2/lang/es.json'
-
-import noTeLoPierdas from "../images/sinoVienesTeArrepentiras.jpg";
 import {withStyles} from "@material-ui/core/styles";
-import fiestabackground from "../images/wallpaperBlancoColores.jpg";
-
+// import makeStyles from '@material-ui/core/styles';
+import {Box, Container, Typography, TextField} from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Fade from '@material-ui/core/Fade';
+// import {InputLabel, Select, MenuItem } from "@material-ui/core";
+// import PhoneInput from 'react-phone-input-2'
+// import 'react-phone-input-2/lib/style.css'
+// import es from 'react-phone-input-2/lang/es.json'
+import MuiPhoneNumber from 'material-ui-phone-number'
+
+import noTeLoPierdas from "../images/sinoVienesTeArrepentiras.jpg";
+import fiestabackground from "../images/wallpaperBlancoColores.jpg";
 import boda04 from '../images/bodaMaria/boda04.jpg'
+import PortadaLayout from "../pages/PortadaLayout";
+import losLoquitos from "../images/iglesia3.png";
+import './RSVP.css'
+
 
 const styles = (theme) => ({
 	box: {
@@ -49,37 +52,127 @@ const styles = (theme) => ({
 const regexEmail = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 
 const errorMessages = {
-	full_name: ['Cuentanos quien eres', 'Nombre completo, por favor'],
-	// full_name: 'Nombre completo, por favor',
+	nombre: ['Cuentanos quien eres', 'Nombre completo, por favor'],
+	asistir: '¿Podrás venir a la boda?',
+
 	email: 'Un email valido, por favor',
 	celular: `Revisa el numero del celular`,
 	menu: 'Elige que tipo de menu quieres',
-	intolerancias: 'Escribenos cuales son las intolerancias, por favor',
-	mas1_full_name: `Cuentanos quien te acompaña ese dia`,
+	intolerancias_bool: '¿Intolerancia a algun alimento?',
+	intolerancias_str: 'Escribenos cuales son las intolerancias, por favor',
+
+	acompanante: '¿No nos vas a contar si traes a alguien?',
+	acompanante_nombre: ['¡Cuentanos quien es esa persona misteriosa!', 'Dinos su nombre completo, por favor'],
+	acompanante_menu: 'Elige un tipo de menu para tu acompanante',
+
+	ninos: 'Dificil decision, lo sabemos',
+	nino_nombre: 'Nombre completo',
+	nino_edad: 'Dinos su año de nacimiento'
 }
 const testFullName = (value) => (value) && (value.split(' ').length > 1)
 const validationSchemaYup = yup.object({
-	full_name: yup
-		.string(errorMessages.full_name[0])
-		.required(errorMessages.full_name[0])
-		.test('test-fullname', errorMessages.full_name[1],
+	//Form inicial
+	nombre: yup
+		.string(errorMessages.nombre[0])
+		.required(errorMessages.nombre[0])
+		.test('test-fullname', errorMessages.nombre[1],
 			function(value) {
 				return testFullName(value)
 			}
 		),
-	email: yup.string().matches(regexEmail, errorMessages.email).notRequired(),
-	celular: yup.string()
-		// .notRequired()
-		// .required(errorMessages.celular)
-		// .test('test-phone', errorMessages.celular,
-		// 	function(value) {
-		// 		return (value) && (value.length > 6)
-		// 	})
-		// 	.notRequired(),
-			.default(undefined),
-	menu: yup.string()
-		.notRequired()
-		.default(undefined)
+	asistir: yup.string().oneOf(['si', 'no'], errorMessages.asistir),
+
+	//Asiste si
+
+	email: yup.string().ensure().when('asistir', {
+		is: 'si',
+		then: yup.string().matches(regexEmail, errorMessages.email).required(errorMessages.email)
+	}),
+
+	celular: yup.string().ensure().when('asistir', {
+		is: 'si',
+		then: yup.string()
+			.test('test-phone', errorMessages.celular,
+				function(value) {
+					return (value) && (value.length > 6)
+				})
+	}),
+
+	menu: yup.string().ensure().when('asistir', {
+		is: 'si',
+		then: yup.string()
+			.oneOf(['normal', 'vegetariano', 'vegano'], errorMessages.menu),
+	}),
+
+	intolerancias_bool: yup.string().ensure().when('asistir', {
+		is: 'si',
+		then: yup.string()
+			.oneOf(['si', 'no'], errorMessages.intolerancias_bool),
+	}),
+
+	intolerancias_str: yup.string().ensure().when('intolerancias_bool', {
+		is: 'si',
+		then: yup.string().required(errorMessages.intolerancias_str),
+	}),
+
+	acompanante: yup.string().ensure().when('asistir', {
+		is: 'si',
+		then: yup.string()
+			.oneOf(['si', 'no'], errorMessages.acompanante),
+	}),
+
+	ninos: yup.string().ensure().when('asistir', {
+		is: 'si',
+		then: yup.string()
+			.oneOf(['si', 'no', 'nose'], errorMessages.ninos),
+	}),
+
+	//Acompanante SI
+	acompanante_nombre: yup.string().when('acompanante', {
+		is: 'si',
+		then: yup.string()
+			.required(errorMessages.acompanante_nombre[0])
+			.test('test-fullname', errorMessages.acompanante_nombre[1],
+				function(value) {
+					return testFullName(value)
+				}
+			),
+	}),
+
+	acompanante_menu: yup.string().ensure().when('acompanante', {
+		is: 'si',
+		then: yup.string()
+			.oneOf(['normal', 'vegetariano', 'vegano', 'nose'], errorMessages.acompanante),
+	}),
+
+	intolerancias_acompanante_bool: yup.string().ensure().when('acommpanante', {
+		is: 'si',
+		then: yup.string()
+			.oneOf(['si', 'no', 'nose'], errorMessages.intolerancias_bool),
+	}),
+
+	intolerancias_acompanante_str: yup.string().ensure().when('intolerancias_acompanante_bool', {
+		is: 'si',
+		then: yup.string().required(errorMessages.intolerancias_str),
+	}),
+
+	//ninos SI
+	nino_nombre: yup.string().when('ninos', {
+		is: 'si',
+		then: yup.string()
+			.required(errorMessages.nombre[0])
+			.test('test-fullname', errorMessages.nino_nombre[1],
+				function(value) {
+					return testFullName(value)
+				}
+			),
+	}),
+	nino_edad: yup.string().ensure().when('ninos', {
+		is: 'si',
+		then: yup.string().required(errorMessages.nino_edad),
+	}),
+
+
 })
 
 const separator = () => (<div style={{height: '20px'}} />)
@@ -89,34 +182,37 @@ const RSVP = (props) => {
 	const {classes} = props
 
 	const [attend, setAttend] = useState(false)
-	const [plusOne, setPlusOne] = useState(true)
+	const [plusOne, setPlusOne] = useState(false)
+	const [kids, setKikds] = useState(false)
 
-
-	//
-	// const handleAttend = (value) => {
-	// 	if (!value) return null
-	// 	if (value === 'si') setAttend(true)
-	// 	if (value === 'no') setAttend(false)
-	// }
-	// const handlePlusOne = (value) => {
-	// 	if (value === 'si') setPlusOne(true)
-	// 	if (value === 'no') setPlusOne(false)
-	// }
 	const formik = useFormik({
 		initialValues: {
-			full_name: "",
+			nombre: "",
 			asistir: "",
 			email: "",
 			celular: "",
 			menu: "",
+			intolerancias_bool: "",
+			intolerancias_str: "",
+			intolerancias_acompanante_bool: "",
+			intolerancias_acompanante_str: "",
 			acompanante: "",
-			nombre_acompanante: "",
-			menu_acompanante: "",
-			num_personas: 1,
-			ninos: 0,
+			acompanante_nombre: "",
+			acompanante_menu: "",
+			ninos_bool: "",
+			ninos_numero: 0,
+			ninos: [
+				{
+					nino_nombre: "",
+					nino_edad: "",
+				},
+			],
 		},
+
 		validationSchema: validationSchemaYup,
-		onSubmit: (values) => {
+
+		onSubmit: async (values) => {
+			await new Promise((r) => setTimeout(r, 500));
 			alert(JSON.stringify(values, null, 2));
 		},
 	})
@@ -135,26 +231,49 @@ const RSVP = (props) => {
 		}
 	},[formik.values.acompanante])
 
+	useEffect(() => {
+		if (formik) {
+			if (formik.values.ninos === 'si') setKikds(true)
+			if (formik.values.ninos === 'no') setKikds(false)
+		}
+	},[formik.values.ninos])
+
+
 	return (
 
 	<>
 	<form onSubmit={formik.handleSubmit}>
 		<Box className={classes.box}>
-			<div style={{paddingTop: '30px', paddingBottom: '10px'}}>
-				<h2 style={{fontFamily: 'Abril Fatface', textAlign: 'center',paddingLeft: '5px', paddingRight: '5px'}}>Confirmanos tu asistencia</h2>
+		{/*<PortadaLayout className={classes.background}>*/}
+			<div style={{paddingTop: '30px', paddingBottom: '30px'}}>
+				<h2 style={{fontFamily: 'Abril Fatface', textAlign: 'center'}}>Confirmanos tu asistencia</h2>
 			</div>
 			<Grid container spacing={2}
 						direction="row"
 						justify="space-around"
 						alignItems="flex-start"
 			>
-				{!plusOne && <Grid item md={2} /> }
-				{/*{!plusOne && <Grid item md={2} /> }*/}
+				{/* MARGEN IZQUIERDO */}
 
+				{/*{!plusOne &&  <Grid item xs={2} sm={2} md={2} lg={2}/>}*/}
+				{/*/!*sm={2} md={2} lg={2} />*!/*/}
 
-				 <Grid item xs={!plusOne? 10: 12} sm={!plusOne ? 6 : 6} md={!plusOne ? 6 : 4} >
+				{/*{plusOne &&  <Grid item xs={1} sm={1} md={2} lg={2}/> }*/}
+				{/*	/!*sm={1} md={1} lg={2} />}*!/*/}
 
-					<Container maxWidth="sm" className={classes.container}>
+				<Grid item xs={2} sm={2} md={2} lg={2}/>
+				{/* END MARGEN IZQUIERDO */}
+
+				{/* FORM PRINCIPAL */}
+
+				 <Grid item
+							 xs={!plusOne? 10: 10}
+							 sm={!plusOne ? 10 : 10}
+							 md={!plusOne ? 6 : 4}
+							 lg={!plusOne ? 6 : 4}
+				 >
+
+					{/*<Container maxWidth="md" className={classes.container}>*/}
 						<div id="rsvp"
 								 style={{width: '90%', paddingLeft: '5px', paddingRight: '5px'}}
 								 // style={{width: 'auto', paddingLeft: '5px', paddingRight: '5px'}}
@@ -165,20 +284,21 @@ const RSVP = (props) => {
 									<Typography variant="subtitle1">Nombre completo</Typography>
 									<TextField
 										fullWidth
-										id="full_name"
-										name="full_name"
-										value={formik.values.full_name}
+										style={{width: '90%'}}
+										id="nombre"
+										name="nombre"
+										value={formik.values.nombre}
 										onChange={formik.handleChange}
-										error={formik.touched.full_name && Boolean(formik.errors.full_name)}
-										helperText={formik.touched.full_name && formik.errors.full_name}
+										error={formik.touched.nombre && Boolean(formik.errors.nombre)}
+										helperText={formik.touched.nombre && formik.errors.nombre}
 									/>
 								</div>
 								{separator()}
 								<FormControl component="fieldset">
 									<Typography variant="subtitle1">Vienes a la boda?</Typography>
 									<RadioGroup row aria-label="Vienes a la boda" name="asistir" value={formik.values.asistir} onChange={formik.handleChange}>
-										<FormControlLabel disabled={formik.values.full_name === ''} value="si" control={<Radio />} label="Por supuesto" />
-										<FormControlLabel disabled={formik.values.full_name === ''} value="no" control={<Radio />} label="Me encantaria pero no puedo" />
+										<FormControlLabel disabled={formik.values.nombre === ''} value="si" control={<Radio />} label="Por supuesto" />
+										<FormControlLabel disabled={formik.values.nombre === ''} value="no" control={<Radio />} label="Me encantaria pero no puedo" />
 
 									</RadioGroup>
 								</FormControl>
@@ -191,8 +311,9 @@ const RSVP = (props) => {
 									<div id="email" >
 										<Typography variant="subtitle1">Correo electronico</Typography>
 										<TextField
-											fullWidth
+											// fullWidth
 											id="email"
+											style={{width:'90%'}}
 											name="email"
 											// label="Email"
 											value={formik.values.email}
@@ -246,6 +367,7 @@ const RSVP = (props) => {
 											id="menu"
 											value = {formik.values.menu}
 											onChange = {formik.handleChange}
+											style={{width: '90%'}}
 										>
 											<option value=""></option>
 											<option value="normal">Como de todo</option>
@@ -256,7 +378,7 @@ const RSVP = (props) => {
 									{separator()}
 									<FormControl component="fieldset">
 										<Typography variant="subtitle1">Traes acompañante</Typography>
-										<RadioGroup aria-label="Traes acompañante" name="acompanante" value={formik.values.acompanante} onChange={formik.handleChange}>
+										<RadioGroup row aria-label="Traes acompañante" name="acompanante" value={formik.values.acompanante} onChange={formik.handleChange}>
 											<FormControlLabel value="si" control={<Radio />} label="Si claro" />
 											<FormControlLabel value="no" control={<Radio />} label="No, apuntame al Tinder de la boda" />
 										</RadioGroup>
@@ -265,21 +387,19 @@ const RSVP = (props) => {
 								</div>
 								</Fade>
 							)}
-							{/*<div style={{alignContent: 'center'}}>*/}
-							{/*	<button type="submit">Enviar</button>*/}
-							{/*</div>*/}
 						</div>
-					</Container>
+					{/*</Container>*/}
 				</Grid>
+
+
 				{ !plusOne ? (
 					<Fade in={!plusOne}>
-					<Grid item xs={3}>
+					<Grid item xs={1} sm={3} md={3} lg={3}>
 						{ !attend && (
 							<img
 								src={noTeLoPierdas}
 								alt="No te lo pierdas2"
 								style={{width: '100%', paddingRight: '20px', paddingTop: '10px', height: '100%'}}
-								// style={{align: 'center', width: '100%', padding: '10px'}}
 							/>
 
 						)}
@@ -288,67 +408,114 @@ const RSVP = (props) => {
 								src={boda04}
 								alt="No te lo pierdas"
 								style={{width: '100%', paddingRight: '20px', paddingTop: '10px', height: '100%'}}
-								// style={{align: 'center', width: '100%', padding: '10px'}}
 							/>
 
 						)}
 					</Grid>
 					</Fade>
-				) : (<Grid item xs={3}/>) }
+				) : null
+				}
+
 
 				{ plusOne && (
 					<Fade in={plusOne}>
-						<Grid item xs={6} sm={6} md={4}>
-							<div id="fullName-acompanante" >
-								{/*<label htmlFor="full_name">*/}
-								<Typography variant="subtitle1">Nombre de tu acompañante</Typography>
-								{/*</label>*/}
-								<TextField
-									fullWidth
-									id="full_name"
-									name="full_name"
-									value={formik.values.nombre_acompanante}
-									onChange={formik.handleChange}
-									error={formik.touched.nombre_acompanante && Boolean(formik.errors.nombre_acompanante)}
-									helperText={formik.touched.nombre_acompanante && formik.errors.nombre_acompanante}
-								/>
+						<Grid item
+									xs={11}
+									sm={11}
+									md={4}
+									lg={4}
+						>
+							<div id="rsvp-parte2"
+									 style={{width: '90%', paddingLeft: '5px', paddingRight: '5px'}}
+								// style={{width: 'auto', paddingLeft: '5px', paddingRight: '5px'}}
+							>
+							{/*<Container maxWidth="md" className={classes.container}>*/}
+									<div id="fullName-acompanante" >
+										<Typography variant="subtitle1">Nombre de tu acompañante</Typography>
+										<TextField
+											fullWidth
+											id="acompanante_nombre"
+											name="acompanante_nombre"
+											value={formik.values.acompanante_nombre}
+											onChange={formik.handleChange}
+											error={formik.touched.acompanante_nombre && Boolean(formik.errors.acompanante_nombre)}
+											helperText={formik.touched.acompanante_nombre && formik.errors.acompanante_nombre}
+										/>
+									</div>
+									{separator()}
+									<div id="acompanante-menu">
+										<Typography variant="subtitle1">¿Que menu tomaria tu acompañante?</Typography>
+										<select
+											name="acompanante_menu"
+											id="acompanante_menu"
+											value = {formik.values.acompanante_menu}
+											onChange = {formik.handleChange}
+											// style={{width: '90%'}}
+										>
+											<option value=""></option>
+											<option value="normal">Come de todo</option>
+											<option value="vegetariano">Vegetariano</option>
+											<option value="vegano">Vegano</option>
+											<option value="nose">Tengo que preguntarle</option>
+										</select>
+									</div>
+									<FormControl 	component="fieldset">
+										<Typography variant="subtitle1">Traes a los niños</Typography>
+										<RadioGroup row aria-label="Traes niños" name="ninos" value={formik.values.ninos} onChange={formik.handleChange}>
+											<FormControlLabel value="si" control={<Radio />} label="Si claro" />
+											<FormControlLabel value="no" control={<Radio />} label="No, sin niños" />
+										</RadioGroup>
+									</FormControl>
+									{separator()}
+								{ kids && (
+									<div id="ninos-numero">
+										<Typography variant="subtitle1" style={{width: '40%'}}>¿Cuantos niños?</Typography>
+										<select
+											style={{width: '60%'}}
+											name="nino_numero"
+											id="nino_numero"
+											value = {formik.values.nino_numero}
+											onChange = {formik.handleChange}
+											// style={{width: '90%'}}
+										>
+											<option value=""></option>
+											<option value="1">Uno</option>
+											<option value="2">Dos</option>
+											<option value="3">Tres</option>
+										</select>
+									</div>
+								)}
+								{/*{formik.values.ninos_numero !== "0" &&*/}
+								{/*	*/}
+								{/*	<div id="fullName-nino">*/}
+								{/*		<Typography variant="subtitle1">Nombre de tu peque</Typography>*/}
+								{/*		<TextField*/}
+								{/*			fullWidth*/}
+								{/*			id="acompanante_nombre"*/}
+								{/*			name="acompanante_nombre"*/}
+								{/*			value={formik.values.acompanante_nombre}*/}
+								{/*			onChange={formik.handleChange}*/}
+								{/*			error={formik.touched.acompanante_nombre && Boolean(formik.errors.acompanante_nombre)}*/}
+								{/*			helperText={formik.touched.acompanante_nombre && formik.errors.acompanante_nombre}*/}
+								{/*		/>*/}
+								{/*	</div>*/}
+								{/*	)}*/}
+								{ separator() }
 							</div>
-							{separator()}
-							<div id="menu-acompanante">
-								<Typography variant="subtitle1">¿Que menu tomaria tu acompañante?</Typography>
-								<select
-									name="menu"
-									id="menu"
-									value = {formik.values.menu_acompanante}
-									onChange = {formik.handleChange}
-								>
-									<option value=""></option>
-									<option value="normal">Come de todo</option>
-									<option value="vegetariano">Vegetariano</option>
-									<option value="vegano">Vegano</option>
-								</select>
-							</div>
+							{/*</Container>*/}
 						</Grid>
 					</Fade>
 				)}
-				{ plusOne && <Grid item xs={0} sm={0} md={2}/> }
 
-				{/*<Grid item xs={1} style={{align: 'center'}}>*/}
-				{plusOne &&
-				<Grid item xs={12} style={{align: 'center'}}>
-					<button style={{align: 'center'}} type="submit">Enviar</button>
-				</Grid> }
+				{plusOne &&  <Grid item xs={1} sm={1} md={2} lg={2}/> }
+				{/*{plusOne &&  <Grid item xs={1} sm={1} md={1} lg={1}/> }*/}
+
 
 			</Grid>
+			<div style={{paddingTop: '10px', paddingBottom: '30px', textAlign: 'center'}}>
+				<button type="submit">Enviar</button>
+			</div>
 
-
-			{/*<div>*/}
-			{/*	<img*/}
-			{/*		src={noTeLoPierdas}*/}
-			{/*		alt="No te lo pierdas"*/}
-			{/*		style={{position: 'absolute', alignContent: 'right'}}*/}
-			{/*	/>*/}
-			{/*</div>*/}
 		</Box>
 	</form>
 
