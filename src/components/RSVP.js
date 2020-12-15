@@ -7,6 +7,7 @@ import {Box, Container, Typography, TextField} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
+import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -23,6 +24,7 @@ import boda04 from '../images/bodaMaria/boda04.jpg'
 import PortadaLayout from "../pages/PortadaLayout";
 import losLoquitos from "../images/iglesia3.png";
 import './RSVP.css'
+import FormGroup from "@material-ui/core/FormGroup";
 
 
 const styles = (theme) => ({
@@ -59,6 +61,9 @@ const errorMessages = {
 	celular: `Revisa el numero del celular`,
 	menu: 'Elige que tipo de menu quieres',
 	intolerancias_bool: '¿Intolerancia a algun alimento?',
+	intolerancia_gluten: false,
+	intolerancia_marisco: false,
+	intolerancia_otras: false,
 	intolerancias_str: 'Escribenos cuales son las intolerancias, por favor',
 
 	acompanante: '¿No nos vas a contar si traes a alguien?',
@@ -107,11 +112,11 @@ const validationSchemaYup = yup.object({
 	intolerancias_bool: yup.string().ensure().when('asistir', {
 		is: 'si',
 		then: yup.string()
-			.oneOf(['si', 'no'], errorMessages.intolerancias_bool),
+			.oneOf(['gluten', 'mariscos', 'otras'], errorMessages.intolerancias_bool),
 	}),
 
 	intolerancias_str: yup.string().ensure().when('intolerancias_bool', {
-		is: 'si',
+		is: 'otras',
 		then: yup.string().required(errorMessages.intolerancias_str),
 	}),
 
@@ -145,16 +150,17 @@ const validationSchemaYup = yup.object({
 			.oneOf(['normal', 'vegetariano', 'vegano', 'nose'], errorMessages.acompanante),
 	}),
 
-	intolerancias_acompanante_bool: yup.string().ensure().when('acommpanante', {
-		is: 'si',
-		then: yup.string()
-			.oneOf(['si', 'no', 'nose'], errorMessages.intolerancias_bool),
+	// intolerancias_acompanante_bool: yup.string().ensure().when('acommpanante', {
+	// 	is: 'si',
+	// 	then: yup.string()
+	// 		.oneOf(['si', 'no', 'nose'], errorMessages.intolerancias_bool),
+	// }),
+
+	intolerancias_acompanante_str: yup.string().ensure().when('intolerancia_otras', {
+		is: true,
+		then: yup.string().required(errorMessages.intolerancias_acompanante_str),
 	}),
 
-	intolerancias_acompanante_str: yup.string().ensure().when('intolerancias_acompanante_bool', {
-		is: 'si',
-		then: yup.string().required(errorMessages.intolerancias_str),
-	}),
 
 	//ninos SI
 	nino_nombre: yup.string().when('ninos', {
@@ -235,6 +241,7 @@ const RSVP = (props) => {
 		if (formik) {
 			if (formik.values.ninos === 'si') setKikds(true)
 			if (formik.values.ninos === 'no') setKikds(false)
+			if (formik.values.ninos === 'nose') setKikds(false)
 		}
 	},[formik.values.ninos])
 
@@ -370,12 +377,61 @@ const RSVP = (props) => {
 											style={{width: '90%'}}
 										>
 											<option value=""></option>
-											<option value="normal">Como de todo</option>
+											<option value="normal">{'Como de todo'}</option>
 											<option value="vegetariano">Vegetariano</option>
 											<option value="vegano">Vegano</option>
 										</select>
+										{formik.errors.menu && formik.touched.menu && (
+											<p style={{color: 'red'}}>{formik.errors.menu}</p>
+										)}
 									</div>
 									{separator()}
+									<FormControl component="fieldset">
+										<Typography variant="subtitle1">¿Tienes alguna alergia o intolerancia alimentaria?</Typography>
+										<FormGroup aria-label="position" row onChange={formik.handleChange}>
+											<FormControlLabel
+												name="intolerancia_gluten"
+												// value="gluten"
+												control={<Checkbox color="primary" />}
+												label="Intolerancia al gluten"
+												labelPlacement="end"
+											/>
+											<FormControlLabel
+												name="intolerancia_marisco"
+												control={<Checkbox color="primary" />}
+												label="Alergia a mariscos"
+												labelPlacement="end"
+											/>
+											<FormControlLabel
+												name="intolerancia_otras"
+												// value="otras"
+												control={<Checkbox color="primary" />}
+												label="Otra alergia o intolerancia"
+												labelPlacement="end"
+											/>
+										</FormGroup>
+										{formik.errors.intolerancias_bool && formik.touched.intolerancias_bool && (
+											<p style={{color: 'red'}}>{formik.errors.intolerancias_bool}</p>
+										)}
+										{console.log(`valor de intolerancias: ${formik.values.intolerancias_bool}`)}
+										{console.log(`valor de intolerancia gluten: ${formik.values.intolerancia_gluten}`)}
+									</FormControl>
+									{ separator() }
+									{ formik.values.intolerancia_otras && (
+										<div id="intolerancias" >
+											<Typography variant="subtitle1">Cuentanos que intolerancias o alergias para atenderte mejor</Typography>
+											<TextField
+												fullWidth
+												id="intolerancias_str"
+												name="intolerancias_str"
+												value={formik.values.intolerancias_str}
+												onChange={formik.handleChange}
+												error={formik.touched.intolerancias_str && Boolean(formik.errors.intolerancias_str)}
+												helperText={formik.touched.intolerancias_str && formik.errors.intolerancias_str}
+											/>
+										</div>
+									)}
+									{ separator() }
 									<FormControl component="fieldset">
 										<Typography variant="subtitle1">Traes acompañante</Typography>
 										<RadioGroup row aria-label="Traes acompañante" name="acompanante" value={formik.values.acompanante} onChange={formik.handleChange}>
@@ -383,7 +439,16 @@ const RSVP = (props) => {
 											<FormControlLabel value="no" control={<Radio />} label="No, apuntame al Tinder de la boda" />
 										</RadioGroup>
 									</FormControl>
-									{separator()}
+									{ separator() }
+									<FormControl 	component="fieldset">
+										<Typography variant="subtitle1">Traes a los niños</Typography>
+										<RadioGroup row aria-label="Traes niños" name="ninos" value={formik.values.ninos} onChange={formik.handleChange}>
+											<FormControlLabel value="si" control={<Radio />} label="Si" />
+											<FormControlLabel value="no" control={<Radio />} label="No, sin niños" />
+											<FormControlLabel value="nose" control={<Radio />} label="No lo se todavia" />
+										</RadioGroup>
+									</FormControl>
+									{ separator() }
 								</div>
 								</Fade>
 							)}
@@ -459,14 +524,8 @@ const RSVP = (props) => {
 											<option value="nose">Tengo que preguntarle</option>
 										</select>
 									</div>
-									<FormControl 	component="fieldset">
-										<Typography variant="subtitle1">Traes a los niños</Typography>
-										<RadioGroup row aria-label="Traes niños" name="ninos" value={formik.values.ninos} onChange={formik.handleChange}>
-											<FormControlLabel value="si" control={<Radio />} label="Si claro" />
-											<FormControlLabel value="no" control={<Radio />} label="No, sin niños" />
-										</RadioGroup>
-									</FormControl>
-									{separator()}
+
+									{/*{separator()}*/}
 								{ kids && (
 									<div id="ninos-numero">
 										<Typography variant="subtitle1" style={{width: '40%'}}>¿Cuantos niños?</Typography>
