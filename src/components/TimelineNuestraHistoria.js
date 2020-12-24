@@ -105,7 +105,7 @@ export default function TimelineNuestraHistoria() {
 				<TimelineContent>
 					<Paper elevation={3} className={classes.paper}>
 						<Typography variant="h6" component="h1">
-							2 Octubre 2020
+							2 Octubre 2021
 						</Typography>
 						<Typography>¡Nos vamos a casar!!</Typography>
 					</Paper>
