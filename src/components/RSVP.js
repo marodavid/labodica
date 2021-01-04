@@ -1,30 +1,28 @@
 import React, {useEffect, useState} from 'react'
 import {useFormik } from 'formik'
 import * as yup from 'yup'
-import {withStyles} from "@material-ui/core/styles";
-// import makeStyles from '@material-ui/core/styles';
-import {Box, Container, Typography, TextField} from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import Fade from '@material-ui/core/Fade';
-// import {InputLabel, Select, MenuItem } from "@material-ui/core";
-// import PhoneInput from 'react-phone-input-2'
-// import 'react-phone-input-2/lib/style.css'
-// import es from 'react-phone-input-2/lang/es.json'
+import {
+	Box,
+	Typography,
+	Grid,
+	TextField,
+	Checkbox,
+	Fade,
+	FormControl,
+	FormControlLabel,
+	FormGroup,
+	Radio,
+	RadioGroup,
+	withStyles
+} from "@material-ui/core"
 import MuiPhoneNumber from 'material-ui-phone-number'
+import styled from "styled-components"
 
-import noTeLoPierdas from "../images/sinoVienesTeArrepentiras.jpg";
-import fiestabackground from "../images/wallpaperBlancoColores.jpg";
-import boda04 from '../images/bodaMaria/boda04.jpg'
-import PortadaLayout from "../pages/PortadaLayout";
-import losLoquitos from "../images/iglesia3.png";
+import noTeLoPierdas from "../images/rsvp/sinoVienesTeArrepentiras.jpg"
+import fiestabackground from "../images/rsvp/wallpaperBlancoColores.jpg"
+import siAsistes from '../images/rsvp/si_asistes_(arturo).JPG'
+
 import './RSVP.css'
-import FormGroup from "@material-ui/core/FormGroup";
 
 
 const styles = (theme) => ({
@@ -40,39 +38,34 @@ const styles = (theme) => ({
 		display: 'flex',
 		flexGrow: '0',
 		alignContent: 'center'
-		// align: 'right'
-
 	},
-	container2: {
-		display: 'flex',
-		flexGrow: '0',
-		align: 'right'
-
+	textField: {
+		width: '90%'
 	},
+	select: {
+		width: '90%'
+	}
 })
+
+const GridSmallItem = styled(Grid)`
+	@media only screen and (min-width: 960px) {
+		display: none
+	} 
+`;
 
 const regexEmail = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 
 const errorMessages = {
 	nombre: ['Cuentanos quien eres', 'Nombre completo, por favor'],
 	asistir: '¿Podrás venir a la boda?',
-
 	email: 'Un email valido, por favor',
 	celular: `Revisa el numero del celular`,
 	menu: 'Elige que tipo de menu quieres',
-	intolerancias_bool: '¿Intolerancia a algun alimento?',
-	intolerancia_gluten: false,
-	intolerancia_marisco: false,
-	intolerancia_otras: false,
 	intolerancias_str: 'Escribenos cuales son las intolerancias, por favor',
-
 	acompanante: '¿No nos vas a contar si traes a alguien?',
 	acompanante_nombre: ['¡Cuentanos quien es esa persona misteriosa!', 'Dinos su nombre completo, por favor'],
 	acompanante_menu: 'Elige un tipo de menu para tu acompanante',
-
 	ninos: 'Dificil decision, lo sabemos',
-	nino_nombre: 'Nombre completo',
-	nino_edad: 'Dinos su año de nacimiento'
 }
 const testFullName = (value) => (value) && (value.split(' ').length > 1)
 const validationSchemaYup = yup.object({
@@ -88,7 +81,6 @@ const validationSchemaYup = yup.object({
 	asistir: yup.string().oneOf(['si', 'no'], errorMessages.asistir).required(errorMessages.asistir),
 
 	//Asiste si
-
 	email: yup.string().ensure().when('asistir', {
 		is: 'si',
 		then: yup.string().matches(regexEmail, errorMessages.email).required(errorMessages.email)
@@ -109,14 +101,8 @@ const validationSchemaYup = yup.object({
 			.oneOf(['normal', 'vegetariano', 'vegano'], errorMessages.menu),
 	}),
 
-	intolerancias_bool: yup.string().ensure().when('asistir', {
-		is: 'si',
-		then: yup.string()
-			.oneOf(['gluten', 'mariscos', 'otras'], errorMessages.intolerancias_bool),
-	}),
-
-	intolerancias_str: yup.string().ensure().when('intolerancias_bool', {
-		is: 'otras',
+	intolerancias_str: yup.string().ensure().when('intolerancia_otras', {
+		is: true,
 		then: yup.string().required(errorMessages.intolerancias_str),
 	}),
 
@@ -126,10 +112,10 @@ const validationSchemaYup = yup.object({
 			.oneOf(['si', 'no'], errorMessages.acompanante),
 	}),
 
-	ninos_bool: yup.string().ensure().when('asistir', {
+	ninos: yup.string().ensure().when('asistir', {
 		is: 'si',
 		then: yup.string()
-			.oneOf(['si', 'no', 'nose'], errorMessages.ninos_bool),
+			.oneOf(['si', 'no', 'nose'], errorMessages.ninos),
 	}),
 
 	//Acompanante SI
@@ -143,41 +129,15 @@ const validationSchemaYup = yup.object({
 				}
 			),
 	}),
-
 	acompanante_menu: yup.string().ensure().when('acompanante', {
 		is: 'si',
 		then: yup.string()
-			.oneOf(['normal', 'vegetariano', 'vegano', 'nose'], errorMessages.acompanante),
+			.oneOf(['normal', 'vegetariano', 'vegano', 'nose'], errorMessages.acompanante_menu),
 	}),
-
-	intolerancias_acompanante_bool: yup.string().ensure().when('acompanante', {
-		is: 'si',
-		then: yup.string()
-			.oneOf(['gluten', 'mariscos', 'otras'], errorMessages.intolerancias_acompanante_bool),
-	}),
-
-
-	intolerancias_acompanante_str: yup.string().ensure().when('intolerancia_otras', {
+	acompanante_intolerancias_str: yup.string().ensure().when('acompanante_intolerancia_otras', {
 		is: true,
-		then: yup.string().required(errorMessages.intolerancias_acompanante_str),
+		then: yup.string().required(errorMessages.intolerancias_str),
 	}),
-
-
-	//ninos SI
-	nino_nombre: yup.string().when('ninos', {
-		is: 'si',
-		then: yup.string()
-			.test('test-fullname', errorMessages.nino_nombre[1],
-				function(value) {
-					return testFullName(value)
-				}
-			).required(errorMessages.nombre[0]),
-	}),
-	nino_edad: yup.string().ensure().when('ninos', {
-		is: 'si',
-		then: yup.string().required(errorMessages.nino_edad),
-	}),
-
 
 })
 
@@ -192,7 +152,6 @@ const RSVP = (props) => {
 
 	const [attend, setAttend] = useState(false)
 	const [plusOne, setPlusOne] = useState(false)
-	const [kids, setKikds] = useState(false)
 
 	const formik = useFormik({
 		initialValues: {
@@ -201,27 +160,25 @@ const RSVP = (props) => {
 			email: "",
 			celular: "",
 			menu: "",
-			intolerancias_bool: "",
+			intolerancia_gluten: false,
+			intolerancia_marisco: false,
+			intolerancia_otras: false,
 			intolerancias_str: "",
-			intolerancias_acompanante_bool: "",
-			intolerancias_acompanante_str: "",
 			acompanante: "",
 			acompanante_nombre: "",
 			acompanante_menu: "",
-			ninos_bool: "",
-			ninos_numero: 0,
-			ninos: [
-				{
-					nino_nombre: "",
-					nino_edad: "",
-				},
-			],
+			acompanante_intolerancia_gluten: false,
+			acompanante_intolerancia_marisco: false,
+			acompanante_intolerancia_otras: false,
+			acompanante_intolerancias_str: "",
+			ninos: "",
 		},
 
 		validationSchema: validationSchemaYup,
 
 		onSubmit: async (values) => {
 			await new Promise((r) => setTimeout(r, 500));
+			console.log(JSON.stringify(values, null, 2))
 			alert(JSON.stringify(values, null, 2));
 		},
 	})
@@ -240,20 +197,9 @@ const RSVP = (props) => {
 		}
 	},[formik.values.acompanante])
 
-	useEffect(() => {
-		if (formik) {
-			if (formik.values.ninos_bool === 'si') setKikds(true)
-			if (formik.values.ninos_bool === 'no') setKikds(false)
-			if (formik.values.ninos_bool === 'nose') setKikds(false)
-		}
-	},[formik.values.ninos_bool])
-
 	return (
-
-	<>
 	<form onSubmit={formik.handleSubmit}>
 		<Box className={classes.box}>
-		{/*<PortadaLayout className={classes.background}>*/}
 			<div style={{paddingTop: '30px', paddingBottom: '30px'}}>
 				<h2 style={{fontFamily: 'Abril Fatface', textAlign: 'center'}}>Confirmanos tu asistencia</h2>
 			</div>
@@ -263,37 +209,30 @@ const RSVP = (props) => {
 						alignItems="flex-start"
 			>
 				{/* MARGEN IZQUIERDO */}
-
-				{/*{!plusOne &&  <Grid item xs={2} sm={2} md={2} lg={2}/>}*/}
-				{/*/!*sm={2} md={2} lg={2} />*!/*/}
-
-				{/*{plusOne &&  <Grid item xs={1} sm={1} md={2} lg={2}/> }*/}
-				{/*	/!*sm={1} md={1} lg={2} />}*!/*/}
-
-				<Grid item xs={2} sm={2} md={2} lg={2}/>
+				<Grid item
+							xs={2}
+							sm={2}
+							md={2}
+							lg={2}
+				/>
 				{/* END MARGEN IZQUIERDO */}
 
 				{/* FORM PRINCIPAL */}
-
 				 <Grid item
 							 xs={!plusOne? 10: 10}
 							 sm={!plusOne ? 10 : 10}
 							 md={!plusOne ? 6 : 4}
 							 lg={!plusOne ? 6 : 4}
 				 >
-
-					{/*<Container maxWidth="md" className={classes.container}>*/}
 						<div id="rsvp"
 								 style={{width: '90%', paddingLeft: '5px', paddingRight: '5px'}}
-								 // style={{width: 'auto', paddingLeft: '5px', paddingRight: '5px'}}
 						>
-							{/*<h2 style={{fontFamily: 'Abril Fatface', align: 'center',paddingLeft: '5px', paddingRight: '5px'}}>Confirmanos tu asistencia</h2>*/}
-							{/*{ console.log(`attend: ${attend}`)}*/}
 								<div id="fullName" >
 									<Typography variant="subtitle1">Nombre completo</Typography>
 									<TextField
 										fullWidth
-										style={{width: '90%'}}
+										className={classes.textField}
+										// style={{width: '90%'}}
 										id="nombre"
 										name="nombre"
 										value={formik.values.nombre}
@@ -312,6 +251,7 @@ const RSVP = (props) => {
 									</RadioGroup>
 									{ displayErrorMessage(formik.errors.asistir, formik.touched.asistir) }
 								</FormControl>
+
 							{ attend && (
 							<Fade
 								in={attend}
@@ -321,11 +261,9 @@ const RSVP = (props) => {
 									<div id="email" >
 										<Typography variant="subtitle1">Correo electronico</Typography>
 										<TextField
-											// fullWidth
 											id="email"
-											style={{width:'90%'}}
+											className={classes.textField}
 											name="email"
-											// label="Email"
 											value={formik.values.email}
 											onChange={formik.handleChange}
 											error={formik.touched.email && Boolean(formik.errors.email)}
@@ -336,22 +274,6 @@ const RSVP = (props) => {
 									{separator()}
 									<div id="celular" >
 										<Typography variant="subtitle1">Telefono movil / Celular</Typography>
-										{/*<PhoneInput*/}
-										{/*	// inputProps={{*/}
-										{/*	// 	// name: 'celular',*/}
-										{/*	// 	// required: true,*/}
-										{/*	// 	// autoFocus: true,*/}
-										{/*	// 	// style: {width: '100%'}*/}
-										{/*	// }}*/}
-										{/*	autoFormat={true}*/}
-										{/*	country={'pa'}*/}
-										{/*	localization={es}*/}
-										{/*	// localization={{de: 'Deutschland', es: 'España'}}*/}
-										{/*	onlyCountries={['pa', 'es', 'de', 'mx', 'fr', 'ec', 'bu', 'bo']}*/}
-										{/*	value={formik.values.celular}*/}
-										{/*	onChange={celular => formik.values.celular = celular}*/}
-										{/*/>*/}
-
 										<MuiPhoneNumber
 											inputProps={{
 												name: 'celular',
@@ -375,7 +297,8 @@ const RSVP = (props) => {
 											id="menu"
 											value = {formik.values.menu}
 											onChange = {formik.handleChange}
-											style={{width: '90%'}}
+											className={classes.select}
+											// style={{width: '90%'}}
 										>
 											<option value=""></option>
 											<option value="normal">{'Como de todo'}</option>
@@ -410,7 +333,6 @@ const RSVP = (props) => {
 												labelPlacement="end"
 											/>
 										</FormGroup>
-										{ displayErrorMessage(formik.errors.intolerancias_bool, formik.touched.intolerancias_bool) }
 									</FormControl>
 
 									{ formik.values.intolerancia_otras && (
@@ -418,6 +340,7 @@ const RSVP = (props) => {
 											<Typography variant="subtitle1">Cuentanos que intolerancias o alergias para atenderte mejor</Typography>
 											<TextField
 												fullWidth
+												className={classes.textField}
 												id="intolerancias_str"
 												name="intolerancias_str"
 												value={formik.values.intolerancias_str}
@@ -427,6 +350,15 @@ const RSVP = (props) => {
 											/>
 										</div>
 									)}
+									<FormControl 	component="fieldset">
+										<Typography variant="subtitle1">Traes a los niños</Typography>
+										<RadioGroup row fullWidth aria-label="Traes niños" name="ninos" value={formik.values.ninos} onChange={formik.handleChange}>
+											<FormControlLabel value="si" control={<Radio />} label="Si" />
+											<FormControlLabel value="no" control={<Radio />} label="No, por favor" />
+											<FormControlLabel value="nose" control={<Radio />} label="No lo sé todavia" />
+										</RadioGroup>
+										{ displayErrorMessage(formik.errors.ninos, formik.touched.ninos) }
+									</FormControl>
 									<FormControl component="fieldset">
 										<Typography variant="subtitle1">Traes acompañante</Typography>
 										<RadioGroup row aria-label="Traes acompañante" name="acompanante" value={formik.values.acompanante} onChange={formik.handleChange}>
@@ -435,137 +367,152 @@ const RSVP = (props) => {
 										</RadioGroup>
 										{ displayErrorMessage(formik.errors.acompanante, formik.touched.acompanante) }
 									</FormControl>
-									<FormControl 	component="fieldset">
-										<Typography variant="subtitle1">Traes a los niños</Typography>
-										<RadioGroup row aria-label="Traes niños" name="ninos_bool" value={formik.values.ninos_bool} onChange={formik.handleChange}>
-											<FormControlLabel value="si" control={<Radio />} label="Si" />
-											<FormControlLabel value="no" control={<Radio />} label="No, por favor" />
-											<FormControlLabel value="nose" control={<Radio />} label="No lo sé todavia" />
-											{ displayErrorMessage(formik.errors.ninos_bool, formik.touched.ninos_bool) }
-										</RadioGroup>
-									</FormControl>
 								</div>
 								</Fade>
 							)}
 						</div>
-					{/*</Container>*/}
 				</Grid>
 
 
 				{ !plusOne ? (
-					<Fade in={!plusOne}>
-					<Grid item xs={1} sm={3} md={3} lg={3}>
+					<Grid item md={3} lg={3}>
 						{ !attend && (
+							<Fade
+								in={!plusOne}
+								timeout={2000}
+							>
 							<img
 								src={noTeLoPierdas}
 								alt="No te lo pierdas2"
 								style={{width: '100%', paddingRight: '20px', paddingTop: '10px', height: '100%'}}
 							/>
+							</Fade>
 
 						)}
 						{ attend && (
+							<Fade
+								in={!plusOne}
+								timeout={2000}
+							>
 							<img
-								src={boda04}
+								src={siAsistes}
 								alt="No te lo pierdas"
 								style={{width: '100%', paddingRight: '20px', paddingTop: '10px', height: '100%'}}
 							/>
+							</Fade>
 
 						)}
 					</Grid>
-					</Fade>
 				) : null
 				}
 
-
+				{/*Margen izquierdo  de plusOne para md y lg esta arriba definido*/}
 				{ plusOne && (
-					<Fade in={plusOne}>
-						<Grid item
-									xs={11}
-									sm={11}
-									md={4}
-									lg={4}
-						>
-							<div id="rsvp-parte2"
-									 style={{width: '90%', paddingLeft: '5px', paddingRight: '5px'}}
-								// style={{width: 'auto', paddingLeft: '5px', paddingRight: '5px'}}
-							>
-							{/*<Container maxWidth="md" className={classes.container}>*/}
-									<div id="fullName-acompanante" >
-										<Typography variant="subtitle1">Nombre de tu acompañante</Typography>
-										<TextField
-											fullWidth
-											id="acompanante_nombre"
-											name="acompanante_nombre"
-											value={formik.values.acompanante_nombre}
-											onChange={formik.handleChange}
-											error={formik.touched.acompanante_nombre && Boolean(formik.errors.acompanante_nombre)}
-											helperText={formik.touched.acompanante_nombre && formik.errors.acompanante_nombre}
-										/>
-									</div>
-									{separator()}
-									<div id="acompanante-menu">
-										<Typography variant="subtitle1">¿Que menu tomaria tu acompañante?</Typography>
-										<select
-											name="acompanante_menu"
-											id="acompanante_menu"
-											value = {formik.values.acompanante_menu}
-											onChange = {formik.handleChange}
-											// style={{width: '90%'}}
-										>
-											<option value=""></option>
-											<option value="normal">Come de todo</option>
-											<option value="vegetariano">Vegetariano</option>
-											<option value="vegano">Vegano</option>
-											<option value="nose">Tengo que preguntarle</option>
-										</select>
-										{ displayErrorMessage(formik.errors.acompanante_menu, formik.touched.acompanante_menu) }
-									</div>
-
-									{separator()}
-								{ kids && (
-									<div id="ninos-numero">
-										<Typography variant="subtitle1" style={{width: '40%'}}>¿Cuantos niños?</Typography>
-										<select
-											style={{width: '60%'}}
-											name="nino_numero"
-											id="nino_numero"
-											value = {formik.values.nino_numero}
-											onChange = {formik.handleChange}
-											// style={{width: '90%'}}
-										>
-											<option value=""></option>
-											<option value="1">Uno</option>
-											<option value="2">Dos</option>
-											<option value="3">Tres</option>
-											{ displayErrorMessage(formik.errors.ninos_numero, formik.touched.ninos_numero) }
-										</select>
-									</div>
-								)}
-								{/*{formik.values.ninos_numero !== "0" &&*/}
-								{/*	*/}
-								{/*	<div id="fullName-nino">*/}
-								{/*		<Typography variant="subtitle1">Nombre de tu peque</Typography>*/}
-								{/*		<TextField*/}
-								{/*			fullWidth*/}
-								{/*			id="acompanante_nombre"*/}
-								{/*			name="acompanante_nombre"*/}
-								{/*			value={formik.values.acompanante_nombre}*/}
-								{/*			onChange={formik.handleChange}*/}
-								{/*			error={formik.touched.acompanante_nombre && Boolean(formik.errors.acompanante_nombre)}*/}
-								{/*			helperText={formik.touched.acompanante_nombre && formik.errors.acompanante_nombre}*/}
-								{/*		/>*/}
-								{/*	</div>*/}
-								{/*	)}*/}
-								{ separator() }
-							</div>
-							{/*</Container>*/}
-						</Grid>
+					<Fade
+						in={plusOne}
+						timeout={2000}>
+						<GridSmallItem item xs={2} sm={2} />
 					</Fade>
 				)}
 
-				{plusOne &&  <Grid item xs={1} sm={1} md={2} lg={2}/> }
-				{/*{plusOne &&  <Grid item xs={1} sm={1} md={1} lg={1}/> }*/}
+				{ plusOne && (
+					<Fade
+						in={plusOne}
+						timeout={2000}>
+						<Grid item
+									xs={10}
+									sm={10}
+									md={4}
+									lg={4}
+						>
+							<div id="rsvp-plusOne"
+									 style={{width: '90%', paddingLeft: '5px', paddingRight: '5px'}}
+							>
+								<div id="fullName-acompanante" >
+									<Typography variant="subtitle1">Nombre de tu acompañante</Typography>
+									<TextField
+										fullWidth
+										className={classes.textField}
+										id="acompanante_nombre"
+										name="acompanante_nombre"
+										value={formik.values.acompanante_nombre}
+										onChange={formik.handleChange}
+										error={formik.touched.acompanante_nombre && Boolean(formik.errors.acompanante_nombre)}
+										helperText={formik.touched.acompanante_nombre && formik.errors.acompanante_nombre}
+									/>
+								</div>
+								{separator()}
+								<div id="acompanante-menu">
+									<Typography variant="subtitle1">¿Que menu tomaria tu acompañante?</Typography>
+									<select
+										name="acompanante_menu"
+										id="acompanante_menu"
+										value = {formik.values.acompanante_menu}
+										onChange = {formik.handleChange}
+										className={classes.select}
+									>
+										<option value=""></option>
+										<option value="normal">Come de todo</option>
+										<option value="vegetariano">Vegetariano</option>
+										<option value="vegano">Vegano</option>
+										<option value="nose">Tengo que preguntarle</option>
+									</select>
+									{ displayErrorMessage(formik.errors.acompanante_menu, formik.touched.acompanante_menu) }
+								</div>
+								{separator()}
+								<FormControl component="fieldset">
+									<Typography variant="subtitle1">¿Tiene tu acompañante alguna alergia o intolerancia alimentaria?</Typography>
+									<FormGroup aria-label="position" row onChange={formik.handleChange}>
+										<FormControlLabel
+											name="acompanante_intolerancia_gluten"
+											// value="gluten"
+											control={<Checkbox color="primary" />}
+											label="Intolerancia al gluten"
+											labelPlacement="end"
+										/>
+										<FormControlLabel
+											name="acompanante_intolerancia_marisco"
+											control={<Checkbox color="primary" />}
+											label="Alergia a mariscos"
+											labelPlacement="end"
+										/>
+										<FormControlLabel
+											name="acompanante_intolerancia_otras"
+											// value="otras"
+											control={<Checkbox color="primary" />}
+											label="Otra alergia o intolerancia"
+											labelPlacement="end"
+										/>
+									</FormGroup>
+								</FormControl>
 
+								{ formik.values.acompanante_intolerancia_otras && (
+									<div id="intolerancias" >
+										<Typography variant="subtitle1">Cuentanos que intolerancias o alergias para atenderle mejor</Typography>
+										<TextField
+											fullWidth
+											className={classes.textField}
+											id="acompanante_intolerancias_str"
+											name="acompanante_intolerancias_str"
+											value={formik.values.acompanante_intolerancias_str}
+											onChange={formik.handleChange}
+											error={formik.touched.acompanante_intolerancias_str && Boolean(formik.errors.acompanante_intolerancias_str)}
+											helperText={formik.touched.acompanante_intolerancias_str && formik.errors.acompanante_intolerancias_str}
+										/>
+									</div>
+								)}
+								{ separator() }
+								<img
+									src={siAsistes}
+									alt="No te lo pierdas"
+									style={{width: '100%', paddingRight: '20px', paddingTop: '10px', height: '100%'}}
+								/>
+								{ separator() }
+							</div>
+						</Grid>
+					</Fade>
+				)}
+				{plusOne &&  <Grid item md={2} lg={2}/> }
 
 			</Grid>
 			<div style={{paddingTop: '10px', paddingBottom: '30px', textAlign: 'center'}}>
@@ -574,10 +521,7 @@ const RSVP = (props) => {
 
 		</Box>
 	</form>
-
-	</>
-)
-}
+)}
 
 export default withStyles(styles)(RSVP)
 
