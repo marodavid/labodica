@@ -1,26 +1,40 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { AnimatedSwitch } from 'react-router-transition';
+// import { Route } from 'react-router'
 import withRoot from './modules/withRoot'
 import Portada from "./pages/Portada";
 import PasosASeguir from "./pages/PasosASeguir";
 import Sugerencias from "./pages/Sugerencias";
 import NuestraHistoria from './pages/NuestraHistoria'
 import AnchorSpan from "./components/AnchorSpan";
-// import MyForm from './pages/RSVP'
+import RSVP from './components/RSVP'
 
 function Index() {
   return (
-
     <Router>
-      <Portada/>
-      <AnchorSpan />
-      <NuestraHistoria/>
-      <AnchorSpan />
-      <PasosASeguir />
-      <AnchorSpan />
-      <Sugerencias/>
-      {/*<AppFooter />*/}
-      {/*<MyForm path="rsvp"/>*/}
+      <AnimatedSwitch
+        atEnter={{ opacity: 0 }}
+        atLeave={{ opacity: 0 }}
+        atActive={{ opacity: 1 }}
+        className="switch-wrapper"
+      >
+        <Route exact path="/">
+          <Portada/>
+          {/*<RSVP />*/}
+          <AnchorSpan />
+          <NuestraHistoria/>
+          <AnchorSpan />
+          <PasosASeguir />
+          <AnchorSpan />
+          <Sugerencias/>
+          {/*<AnchorSpan />*/}
+        </Route>
+        <Route path="/rsvp" >
+        {/*<AppFooter />*/}
+          <RSVP />
+        </Route>
+      </AnimatedSwitch>
     </Router>
   );
 }
