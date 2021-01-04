@@ -6,11 +6,10 @@ import {
 	Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineOppositeContent, TimelineDot
 } from '@material-ui/lab';
 
-import engagement from '../images/engagement.png'
-import church from '../images/church.svg'
-import hogar from '../images/hogarIcon.png'
-import carnival from '../images/carnival.png'
-// import carnivalsvg from '../images/carnivalSvg.svg'
+import engagement from '../images/timeline/engagement.png'
+import church from '../images/timeline/church.svg'
+import hogar from '../images/timeline/hogarIcon.png'
+import carnival from '../images/timeline/carnival.png'
 
 
 const useStyles = makeStyles((theme) => ({
