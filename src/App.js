@@ -1,6 +1,6 @@
 import React from 'react';
 // import logo from './logo.svg';
-import losLoquitos from './images/losLoquitos.jpg'
+import losLoquitos from './images/nuestraHistoria/losLoquitos.jpg'
 import './App.css';
 
 function App() {
