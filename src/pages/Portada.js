@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 import {useSpring, animated, config} from 'react-spring'
 import { withStyles } from '@material-ui/core/styles';
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+// import Button from '../modules/components/Button';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import PortadaLayout from './PortadaLayout';
-// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import losLoquitos from '../images/iglesia3.png'
-// import losLoquitos from '../images/iglesiaIslaPlana.webp'
 import laBodicaLogo from '../images/labodicaOriginal.webp'
 import styled from 'styled-components'
 import Separator from "../components/Separator";
@@ -55,6 +56,9 @@ const styles = (theme) => ({
     opacity: '0.95',
     // paddingTop: '2em',
   },
+  // @media screen and (max-width: 860px) {
+  //   .typographyLauraDavid { opacity: 0; width: 0; }}
+  // }
   typographyLauraDavid: {
     fontFamily: 'Dancing Script',
     // fontStyle: 'italic',
@@ -64,6 +68,7 @@ const styles = (theme) => ({
     transitionProperty: 'opacity',
     transitionDuration: '3s',
     transitionDelay: '1s',
+
   },
 	// loquitos: {
   //   opacity: 0.15,
@@ -85,8 +90,12 @@ const DivSeparator = styled.div`
 const DivCountdown = styled.div`
   padding-top: 2em;
 `;
+
+
 function Portada(props) {
   const { classes } = props;
+  const matches = useMediaQuery('(width: 600px)')
+
   return (
 <>
     <PortadaLayout backgroundClassName={classes.background}>
@@ -101,8 +110,8 @@ function Portada(props) {
         variant="contained"
         size="small"
         className={classes.button}
-        component="a"
-        // href="/premium-themes/onepirate/sign-up/"
+        component={Link}
+        to={"/rsvp/"}
       >
         RSVP
       </Button>
@@ -115,20 +124,7 @@ function Portada(props) {
         marked="center"
         className={classes.typographyWelcome}
       >
-        Bienvenidos a
-      </Typography>
-      </animated.div>
-      <animated.div style={delayTypo(2500)}>
-
-        <Typography
-        color="inherit"
-        align="center"
-        variant="h1"
-        component="h2"
-        marked="center"
-        className={classes.typography}
-      >
-        La Bodica
+        Bienvenidos a <br /> La Bodica
       </Typography>
       </animated.div>
 
@@ -139,22 +135,20 @@ function Portada(props) {
         className={classes.bodicaLogo}
       />
       </animated.div>
-      <animated.div style={delayTypo(4000)}>
-      {/*<animated.div style={typoProps4}>*/}
+      <animated.div style={delayTypo(2500)}>
       <Typography
         color="inherit"
         align="center"
         variant="h1"
         component="h3"
         marked="center"
-        // className={}
         className={classes.typographyLauraDavid}
       >
         Laura  y  David
       </Typography>
       </animated.div>
 
-      <animated.div style={delayTypo(4500)}>
+      <animated.div style={delayTypo(3000)}>
         <DivSeparator>
         <Separator/>
       </DivSeparator>
