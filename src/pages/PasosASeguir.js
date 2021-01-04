@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -92,7 +93,7 @@ function PasosASeguir(props) {
           marked="center"
           className={classes.title}
           component="h2"
-          underline
+          underline="true"
         >
           Acompañanos a celebrar nuestro dia
         </Typography>
@@ -111,8 +112,8 @@ function PasosASeguir(props) {
                   variant="outlined"
                   className={classes.button}
                   // startIcon={<CloudUploadIcon />}
-                  component="a"
-                  href="/premium-themes/onepirate/sign-up/"
+                  component={ Link }
+                  to="/rsvp/"
                 >
                   RSVP
                 </Button>
