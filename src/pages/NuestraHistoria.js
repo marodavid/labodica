@@ -2,8 +2,8 @@ import React from 'react'
 import { Grid, Avatar, Typography } from "@material-ui/core";
 import styled from "styled-components"
 import TimelineNuestraHistoria from "../components/TimelineNuestraHistoria";
-import losLoquitos from '../images/losLoquitos.jpg'
-import fondoromantico from '../images/fondo-romantico.jpg'
+import losLoquitos from '../images/nuestraHistoria/losLoquitos.jpg'
+import fondoromantico from '../images/nuestraHistoria/fondo-romantico.jpg'
 
 import './nuestraHistoria/main.css'
 
