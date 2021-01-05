@@ -138,6 +138,7 @@ function PasosASeguir(props) {
                   className={classes.button}
                   // startIcon={<CloudUploadIcon />}
                   component="a"
+                  onClick = { () => alert('Proximamente') }
                   // href="/premium-themes/onepirate/sign-up/"
                 >
                   Opciones
@@ -159,6 +160,7 @@ function PasosASeguir(props) {
                   className={classes.button}
                   // startIcon={<CloudUploadIcon />}
                   component="a"
+                  onClick = { () => alert('Proximamente') }
                   // href="/premium-themes/onepirate/sign-up/"
                 >
                   Agenda
