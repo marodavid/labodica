@@ -8,6 +8,7 @@ import PasosASeguir from "./pages/PasosASeguir";
 import Sugerencias from "./pages/Sugerencias";
 import NuestraHistoria from './pages/NuestraHistoria'
 import AnchorSpan from "./components/AnchorSpan";
+import Carrusel from "./components/Carrusel";
 import RSVP from './components/RSVP'
 
 function Index() {
@@ -24,6 +25,7 @@ function Index() {
           {/*<RSVP />*/}
           <AnchorSpan />
           <NuestraHistoria/>
+          {/*<Carrusel />*/}
           <AnchorSpan />
           <PasosASeguir />
           <AnchorSpan />
