@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import {useSpring, animated, config} from 'react-spring'
 import { withStyles } from '@material-ui/core/styles';
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+// import useMediaQuery from "@material-ui/core/useMediaQuery";
 // import Button from '../modules/components/Button';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -94,7 +94,7 @@ const DivCountdown = styled.div`
 
 function Portada(props) {
   const { classes } = props;
-  const matches = useMediaQuery('(width: 600px)')
+  // const matches = useMediaQuery('(width: 600px)')
 
   return (
 <>
