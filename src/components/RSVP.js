@@ -25,7 +25,7 @@ import siAsistes from '../images/rsvp/si_asistes_(arturo).JPG'
 import './RSVP.css'
 
 
-const styles = (theme) => ({
+const styles = () => ({
 	box: {
 		backgroundImage: `url(${fiestabackground})`,
 		// backgroundColor: '#7fc7d9', // Average color of the background image.
@@ -53,7 +53,8 @@ const GridSmallItem = styled(Grid)`
 	} 
 `;
 
-const regexEmail = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+const regexEmail = RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+// const regexEmail = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 
 const errorMessages = {
 	nombre: ['Cuentanos quien eres', 'Nombre completo, por favor'],
@@ -188,14 +189,14 @@ const RSVP = (props) => {
 			if (formik.values.asistir === 'si') setAttend(true)
 			if (formik.values.asistir === 'no') setAttend(false)
 		}
-	},[formik.values.asistir])
+	},[formik.values.asistir, formik])
 
 	useEffect(() => {
 		if (formik) {
 			if (formik.values.acompanante === 'si') setPlusOne(true)
 			if (formik.values.acompanante === 'no') setPlusOne(false)
 		}
-	},[formik.values.acompanante])
+	},[formik.values.acompanante, formik])
 
 	return (
 	<form onSubmit={formik.handleSubmit}>
@@ -300,7 +301,7 @@ const RSVP = (props) => {
 											className={classes.select}
 											// style={{width: '90%'}}
 										>
-											<option value=""></option>
+											<option value="" />
 											<option value="normal">{'Como de todo'}</option>
 											<option value="vegetariano">Vegetariano</option>
 											<option value="vegano">Vegano</option>
@@ -451,7 +452,7 @@ const RSVP = (props) => {
 										onChange = {formik.handleChange}
 										className={classes.select}
 									>
-										<option value=""></option>
+										<option value="" />
 										<option value="normal">Come de todo</option>
 										<option value="vegetariano">Vegetariano</option>
 										<option value="vegano">Vegano</option>
