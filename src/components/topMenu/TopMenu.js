@@ -36,6 +36,7 @@ const styles = (theme) => ({
     fontSize: 16,
     color: theme.palette.common.white,
     marginLeft: theme.spacing(3),
+    underline: false,
   },
   linkSecondary: {
     color: theme.palette.secondary.main,
@@ -70,19 +71,18 @@ function TopMenu(props) {
               variant="h6"
               underline="none"
               className={clsx(classes.rightLink)}
-              // , classes.linkSecondary)}
-              href="/agenda/"
+              href="/informacion#agenda"
             >
-              {'Agenda'}
+              {'AGENDA'}
             </Link>
             <Link
               variant="h6"
               underline="none"
               className={clsx(classes.rightLink)}
               // , classes.linkSecondary)}
-              href="/hoteles/"
+              href="/informacion#hoteles"
             >
-              {'Hoteles'}
+              {'HOTELES'}
             </Link>
           </div>
           <div className={classes.right}>
@@ -92,28 +92,29 @@ function TopMenu(props) {
               className={clsx(classes.rightLink)}
               // , classes.linkSecondary)}
               href="https://wa.me/4917698623567"
+              rel="noopener noreferrer"
               target="_blank"
             >
               <WhatsAppIcon />
             </Link>
-
             <Link
               variant="h6"
               underline="none"
               className={clsx(classes.rightLink)}
               // , classes.linkSecondary)}
               href="http://m.me/david.b.pedreno"
+              rel="noopener noreferrer"
               target="_blank"
             >
               <FacebookIcon/>
             </Link>
-
             <Link
               variant="h6"
               underline="none"
               className={clsx(classes.rightLink)}
               // , classes.linkSecondary)}
               href=" http://www.instagram.com/loquitos"
+              rel="noopener noreferrer"
               target="_blank"
             >
               <InstagramIcon/>
