@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-// import Button from '../modules/components/Button';
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography';
 import HotelIcon from '@material-ui/icons/Hotel';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import EventIcon from '@material-ui/icons/Event';
+
 import CurvyLines from '../themes/appCurvyLines.png'
+
 
 const styles = (theme) => ({
   root: {
@@ -55,25 +56,15 @@ const styles = (theme) => ({
   },
   button: {
     marginTop: theme.spacing(8),
-
     borderRadius: 0,
     fontWeight: theme.typography.fontWeightMedium,
     fontFamily: theme.typography.h1.fontFamily,
-    // padding: theme.spacing(2, 4),
-    // fontSize: theme.typography.pxToRem(14),
+    padding: theme.spacing(2, 5),
+    fontSize: theme.typography.pxToRem(16),
     boxShadow: 'none',
     '&:active, &:focus': {
       boxShadow: 'none',
     },
-
-    // sizeSmall: {
-    //   padding: theme.spacing(1, 3),
-    //   fontSize: theme.typography.pxToRem(13),
-    // },
-    // sizeLarge: {
-      padding: theme.spacing(2, 5),
-      fontSize: theme.typography.pxToRem(16),
-    // },
   },
 });
 
@@ -108,12 +99,11 @@ function PasosASeguir(props) {
                 </Typography>
                 <Button
                   color="secondary"
-                  // size="large"
                   variant="outlined"
                   className={classes.button}
-                  // startIcon={<CloudUploadIcon />}
                   component={ Link }
-                  to="/rsvp/"
+                  onClick = { () => alert('Es un poco pronto. Nosotros te avisamos') }
+                  // to="/rsvp/"
                 >
                   RSVP
                 </Button>
@@ -122,32 +112,6 @@ function PasosASeguir(props) {
             <Grid item xs={12} md={4}>
               <div className={classes.item}>
                 <div className={classes.number}>2.</div>
-                {/*<img*/}
-                {/*  src="/static/themes/onepirate/productHowItWorks2.svg"*/}
-                {/*  alt="graph"*/}
-                {/*  className={classes.image}*/}
-                {/*/>*/}
-                <HotelIcon font="large" className={classes.image}/>
-                <Typography variant="h5" align="center">
-                  Mira las recomendaciones de alojamiento que tenemos para ti.
-                </Typography>
-                <Button
-                  color="secondary"
-                  size="large"
-                  variant="outlined"
-                  className={classes.button}
-                  // startIcon={<CloudUploadIcon />}
-                  component="a"
-                  onClick = { () => alert('Proximamente') }
-                  // href="/premium-themes/onepirate/sign-up/"
-                >
-                  Opciones
-                </Button>
-              </div>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <div className={classes.item}>
-                <div className={classes.number}>3.</div>
                 <EventIcon font="large" className={classes.image}/>
                 <Typography variant="h5" align="center">
                   {'¿Quieres saber que te espera?. '}
@@ -158,28 +122,34 @@ function PasosASeguir(props) {
                   size="large"
                   variant="outlined"
                   className={classes.button}
-                  // startIcon={<CloudUploadIcon />}
-                  component="a"
-                  onClick = { () => alert('Proximamente') }
-                  // href="/premium-themes/onepirate/sign-up/"
+                  component={ Link }
+                  to="/informacion#agenda"
                 >
                   Agenda
                 </Button>
               </div>
             </Grid>
+            <Grid item xs={12} md={4}>
+              <div className={classes.item}>
+                <div className={classes.number}>3.</div>
+                <HotelIcon font="large" className={classes.image}/>
+                <Typography variant="h5" align="center">
+                  Mira las recomendaciones de alojamiento que tenemos para ti.
+                </Typography>
+                <Button
+                  color="secondary"
+                  size="large"
+                  variant="outlined"
+                  className={classes.button}
+                  component={ Link }
+                  to="/informacion#hoteles"
+                >
+                  Hoteles
+                </Button>
+              </div>
+            </Grid>
           </Grid>
         </div>
-        {/*<Button*/}
-        {/*  color="secondary"*/}
-        {/*  size="large"*/}
-        {/*  variant="contained"*/}
-        {/*  className={classes.button}*/}
-        {/*  // startIcon={<CloudUploadIcon />}*/}
-        {/*  component="a"*/}
-        {/*  href="/premium-themes/onepirate/sign-up/"*/}
-        {/*>*/}
-        {/*  Empieza hoy mismo*/}
-        {/*</Button>*/}
       </Container>
     </section>
   );
