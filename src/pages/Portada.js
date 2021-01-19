@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
 import {useSpring, animated, config} from 'react-spring'
+
+import styled from 'styled-components'
 import { withStyles } from '@material-ui/core/styles';
-// import useMediaQuery from "@material-ui/core/useMediaQuery";
-// import Button from '../modules/components/Button';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
 import PortadaLayout from './PortadaLayout';
 import losLoquitos from '../images/iglesia3.png'
 import laBodicaLogo from '../images/labodicaOriginal.webp'
-import styled from 'styled-components'
 import Separator from "../components/Separator";
 import CountDown from "../components/CountDown";
+import AppAppBar from "../components/topMenu/TopMenu";
+
 
 const styles = (theme) => ({
   background: {
@@ -22,64 +22,25 @@ const styles = (theme) => ({
     alignItems: 'center',
     height: '100%',
   },
-  button: {
-    minWidth: 150,
-    align: 'right',
-    position: 'absolute',
-    // position: 'flex-right',
-    top: '4em',
-    // top: theme.spacing(4),
-    right: theme.spacing(10),
-  },
-  arrow: {
-    color: theme.palette.common.white,
-    bottom: theme.spacing(1),
-    display: 'flex',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    // size: '150%',
-    // paddingTop: '20px',
-  },
   typographyWelcome: {
-    // fontFamily: 'Petit Formal Script',
-    // fontFamily: 'Dancing Script',
-    // fontStyle: 'italic',
     textTransform: 'none',
     opacity: '0.95',
     paddingTop: '2em',
   },
-  typography: {
-    // fontFamily: 'Petit Formal Script',
-    // fontFamily: 'Dancing Script',
-    // fontStyle: 'italic',
-    textTransform: 'none',
-    opacity: '0.95',
-    // paddingTop: '2em',
-  },
-  // @media screen and (max-width: 860px) {
-  //   .typographyLauraDavid { opacity: 0; width: 0; }}
-  // }
   typographyLauraDavid: {
     fontFamily: 'Dancing Script',
-    // fontStyle: 'italic',
     textTransform: 'none',
-    // fontSize: '70px',
     opacity: '0.95',
     transitionProperty: 'opacity',
     transitionDuration: '3s',
     transitionDelay: '1s',
-
   },
-	// loquitos: {
-  //   opacity: 0.15,
-  // },
   bodicaLogo: {
     display: 'block',
     marginLeft: 'auto',
     marginRight: 'auto',
     width: '30%',
-  }
-
+  },
 });
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -91,13 +52,10 @@ const DivCountdown = styled.div`
   padding-top: 2em;
 `;
 
-
 function Portada(props) {
   const { classes } = props;
-  // const matches = useMediaQuery('(width: 600px)')
 
   return (
-<>
     <PortadaLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
       <img
@@ -105,16 +63,7 @@ function Portada(props) {
         src={losLoquitos}
         alt="increase priority"
       />
-      <Button
-        color="secondary"
-        variant="contained"
-        size="small"
-        className={classes.button}
-        component={Link}
-        to={"/rsvp/"}
-      >
-        RSVP
-      </Button>
+      <AppAppBar />
       <animated.div style={delayTypo(1500)}>
       <Typography
         color="inherit"
@@ -157,9 +106,6 @@ function Portada(props) {
         <CountDown/>
       </DivCountdown>
     </PortadaLayout>
-
-    {/*<ExpandMoreIcon className={classes.arrow} />*/}
-    </>
   );
 }
 
