@@ -12,9 +12,9 @@ import Card from "./carousel-components/Card/Card.js";
 
 import image1 from "../../images/carousel/01 The-views-from-The-Plaza-Tirana.jpg"
 import image2 from "../../images/carousel/02-a-la-azohia.jpg";
-import image4 from "../../images/carousel/03-la-azohia-apartment-rental-murcia-cartagena-12.jpg";
+// import image4 from "../../images/carousel/03-la-azohia-apartment-rental-murcia-cartagena-12.jpg";
 import image3 from "../../images/carousel/04-ATARDECER CASTILLITOS.jpeg";
-import image5 from "../../images/carousel/05_MG_0592.JPG";
+// import image5 from "../../images/carousel/05_MG_0592.JPG";
 
 import styles from "./carousel-components/styles/carouselStyle.js";
 

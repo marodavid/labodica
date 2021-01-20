@@ -6,7 +6,7 @@ import losLoquitos from '../images/nuestraHistoria/losLoquitos.jpg'
 import fondoromantico from '../images/nuestraHistoria/fondo-romantico.jpg'
 
 import './nuestraHistoria/main.css'
-import SectionCarousel from "../components/carrousel/SectionCarousel";
+// import SectionCarousel from "../components/carrousel/SectionCarousel";
 
 const PhotoAvatar = styled(Avatar)`
 	left: theme.spacing(7); 

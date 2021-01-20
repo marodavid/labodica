@@ -29,6 +29,7 @@ import "firebase/database"
 import './RSVP.css'
 
 
+// eslint-disable-next-line no-unused-vars
 const app = firebase.initializeApp({
 	// apiKey: "AIza....",                             // Auth / General Use
 	// appId: "1:27992087142:web:ce....",      // General Use
