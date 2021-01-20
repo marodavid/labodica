@@ -76,7 +76,7 @@ const Hoteles = () => {
 						El hotel se encuentra junto a la Autovia A7 con facil acceso y a 30 minutos en coche de de la ermita donde se celebrara la ceremonia religiosa y de la ciudad de Murcia
 					</p>
 					<span><strong>Reservas: </strong>Contactar con los novios por Whatsapp</span><br/>
-					<span><strong>Precio habitacion: </strong>50 Eur/noche. Posibilidad de cama supletoria por 19,95 Eur extra</span><br/>
+					<span><strong>Precio habitacion: </strong>50-65 Eur/noche. Posibilidad de cama supletoria por 19,95 Eur extra</span><br/>
 					<hr/>
 					<ul class="actions stacked">
 						<li><a href="https://www.executive-sport.com/" rel="noopener noreferrer" target="_blank" class="button">Web del hotel</a></li>
@@ -97,7 +97,7 @@ const Hoteles = () => {
 						Se trata de un sencillo hotel de 2 estrellas pero con habitaciones muy amplias y comodas y, sobre todo, muy limpias.
 					</p>
 					<span><strong>Reservas: </strong>Contactar con los novios por Whatsapp</span><br/>
-					<span><strong>Precio habitacion: </strong>50 Eur/noche.</span><br/>
+					<span><strong>Precio habitacion: </strong>50-55 Eur/noche.</span><br/>
 					<hr/>
 					<ul class="actions stacked">
 						<li><a href="http://olimpiahoteles.com/" rel="noopener noreferrer" target="_blank" class="button">Web del hotel</a></li>
