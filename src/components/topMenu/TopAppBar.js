@@ -9,8 +9,8 @@ const styles = (theme) => ({
   },
 });
 
-function AppBar(props) {
+function TopAppBar(props) {
   return <MuiAppBar elevation={0} position="fixed" {...props} />;
 }
 
-export default withStyles(styles)(AppBar);
+export default withStyles(styles)(TopAppBar);
