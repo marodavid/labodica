@@ -8,6 +8,7 @@ import NuestraHistoria from './pages/NuestraHistoria'
 import AnchorSpan from "./components/AnchorSpan";
 import RSVP from './components/RSVP'
 import AgendaTabs from "./components/agenda/AgendaTabs";
+import AppFooter from "./components/footer/AppFooter";
 // import Carrusel from "./components/Carrusel";
 // import SectionCarousel from "./components/carrousel/SectionCarousel";
 // import Carouselmui from "./components/carouselmui/Carouselmui";
@@ -30,7 +31,7 @@ function Index() {
           {/*<Carrusel />*/}
           <AnchorSpan />
           <PasosASeguir />
-          <AnchorSpan />
+          <AppFooter/>
         </Route>
         <Route path="/rsvp" >
           <RSVP />
