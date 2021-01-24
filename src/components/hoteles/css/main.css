@@ -325,7 +325,7 @@ input, select, textarea {
 	}
 
 		a:hover {
-			color: #47D3E5;
+			color: #ff0066;
 		}
 
 	strong, b {
@@ -2680,7 +2680,11 @@ input, select, textarea {
 			.image.main img {
 				width: 100%;
 			}
-
+	@media screen and (max-width: 600px){
+		.image {
+			display: none;
+		}
+	}
 /* List */
 
 	ol {
@@ -8174,6 +8178,12 @@ input, select, textarea {
 		.items.style2 > * {
 			border-color: rgba(0, 0, 0, 0.2);
 		}
+
+
+/* Font Size */
+	.tamanoLetra {
+		font-size: 18px;
+	}
 
 /* Index */
 
