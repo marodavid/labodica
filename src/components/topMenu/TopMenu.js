@@ -10,7 +10,7 @@ import {Slide} from "@material-ui/core";
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
+// import InstagramIcon from '@material-ui/icons/Instagram';
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
@@ -28,7 +28,10 @@ const styles = (theme) => ({
     justifyContent: 'space-between',
   },
   left: {
+    position: 'relative',
+    display: 'flex',
     flex: 1,
+
   },
   leftLinkActive: {
     color: theme.palette.common.white,
@@ -39,10 +42,10 @@ const styles = (theme) => ({
     justifyContent: 'flex-end',
   },
   rightLink: {
-    fontSize: 16,
+    // fontSize: 16,
     color: theme.palette.common.white,
     marginLeft: theme.spacing(3),
-    underline: false,
+    // underline: false,
   },
   linkSecondary: {
     color: theme.palette.secondary.main,
@@ -74,12 +77,13 @@ function TopMenu(props) {
     <div>
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
+          {/*<div className={classes.left}>*/}
           <div className={classes.left}>
             <Link
               color="inherit"
               variant="h6"
               underline="none"
-              className={classes.rightLink}
+              // className={classes.rightLink}
               // href="/rsvp/"
               onClick = { () => handleClickOpenDialog() }
             >
@@ -108,7 +112,6 @@ function TopMenu(props) {
               variant="h6"
               underline="none"
               className={clsx(classes.rightLink)}
-              // , classes.linkSecondary)}
               href="https://wa.me/4917698623567"
               rel="noopener noreferrer"
               target="_blank"
@@ -120,24 +123,12 @@ function TopMenu(props) {
               underline="none"
               className={clsx(classes.rightLink)}
               // , classes.linkSecondary)}
-              href="http://m.me/david.b.pedreno"
+              href="https://www.facebook.com/events/3730092333719587/"
               rel="noopener noreferrer"
               target="_blank"
             >
               <FacebookIcon/>
             </Link>
-            <Link
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink)}
-              // , classes.linkSecondary)}
-              href=" http://www.instagram.com/loquitos"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <InstagramIcon/>
-            </Link>
-
           </div>
         </Toolbar>
       </AppBar>
