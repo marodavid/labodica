@@ -1,4 +1,7 @@
 import React from 'react';
+// import { HashLink} from "react-router-hash-link";
+import { useHistory } from 'react-router-dom';
+
 import cx from 'clsx';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,7 +13,8 @@ import {
 	Card,
 	CardContent,
 	CardMedia,
-	Grid
+	Grid,
+	Link
 } from '@material-ui/core';
 import {Typography} from "@material-ui/core";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutlineSharp';
@@ -32,6 +36,11 @@ const useStyles = makeStyles(() => ({
 		// maxWidth: 304,
 		margin: 'auto',
 	},
+	gridRoot: {
+		overflowY: 'scroll',
+		scrollbarWidth: 'thin',
+		height: '1000px',
+	},
 	content: {
 		padding: 24,
 		align: 'center',
@@ -47,7 +56,10 @@ const useStyles = makeStyles(() => ({
 	},
 }));
 
+
+
 export const SingleCard = React.memo(function SingleCard() {
+	const history = useHistory()
 	const cardStyles = useStyles();
 	const wideCardMediaStyles = useWideCardMediaStyles();
 	const fadeShadowStyles = useFadedShadowStyles();
@@ -65,6 +77,8 @@ export const SingleCard = React.memo(function SingleCard() {
 			justify="space-evenly"
 			alignItems="flex-start"
 			spacing={1}
+			className={cardStyles.gridRoot}
+			// style={{overflowY: 'scroll', scrollbarWidth: 'thin', height: '1000px'}}
 		>
 			<Grid item xs={12} md={6} lg={3}>
 				<Accordion className={cardStyles.accordion}>
@@ -74,7 +88,7 @@ export const SingleCard = React.memo(function SingleCard() {
 					>
 						<Card className={cx(cardStyles.root, fadeShadowStyles.root)}>
 									<CardContent>
-									<Typography variant="h5"><strong>Preboda</strong></Typography>
+									<Typography variant="h5"><strong>Bienvenida</strong></Typography>
 									<Typography variant="caption"><strong>Jueves 30 Septiembre 18.30h</strong></Typography>
 								</CardContent>
 								<CardMedia
@@ -82,11 +96,18 @@ export const SingleCard = React.memo(function SingleCard() {
 									image={preboda}
 								/>
 								<CardContent className={cardStyles.content}>
+									{/*<TextInfoContent*/}
+									{/*	classes={textCardContentStyles}*/}
+									{/*	body={*/}
+									{/*		'Acompañanos el jueves a celebrar una preboda sencilla a la orilla de la playa donde ' +*/}
+									{/*		'podras conocer a los otros invitados y disfrutaremos juntos de grandes momentos.'*/}
+									{/*	}*/}
+									{/*/>*/}
 									<TextInfoContent
 										classes={textCardContentStyles}
 										body={
-											'Acompañanos el jueves a celebrar una preboda sencilla a la orilla de la playa donde ' +
-											'podras conocer a los otros invitados y disfrutaremos juntos de grandes momentos.'
+											'El jueves iniciamos las celebraciones recibiendo a los invitados. Acompáñanos  ' +
+											'a disfrutar a la orilla de la playa y conocer a los otros invitados.'
 										}
 									/>
 									<br/>
@@ -138,8 +159,8 @@ export const SingleCard = React.memo(function SingleCard() {
 									<TextInfoContent
 										classes={textCardContentStyles}
 										body={
-											'Relajate, disfruta las playas, visita Cartagena o Murcia, Te hemos ' +
-											'preparado un monton de planes y sugerencias para que explores el entorno de la boda.'
+											'Relájate, disfruta de las playas, visita Cartagena o Murcia. ¡Tu decides!. Tenemos ' +
+											'sugerencias para que explores la zona. Haz click para saber más'
 										}
 									/>
 									<br/>
@@ -153,19 +174,32 @@ export const SingleCard = React.memo(function SingleCard() {
 					<AccordionDetails>
 						<Card>
 							<CardContent>
-								{/*<Typography variant="caption"><strong>Etiqueta: </strong>Vestimenta casual tarde-noche<br/></Typography>*/}
-								<Typography variant="caption"><strong>Lugar: </strong>Hotel Dos Playas, Puerto de Mazarron</Typography>
-							</CardContent>
-							<CardContent>
-								<Box px={3} pb={3}>
-									<iframe
-										src="https://www.google.com/maps/d/u/0/embed?mid=1E7323xeyqahJX1JYa9DMoJmPV_leXsVc"
-										style={{width:"800", height:"650", frameBorder:"0", style:"border:0;", allowFullScreen:"", ariaHidden:"true"}}
-										tabIndex="0"
-										title="dialibre-map"
-									/>
-										{/*width="640" height="480"*/}
+								<div style={{alignContent: "center"}}>
+									<Box px={3} pb={3} alignContent="center">
+									<Link
+										component="button"
+										onClick={() => {
+											history.push('/informacion#turismo')
+											window.location.reload();
+										}}
+										style={{align: "center"}}
+									>
+										Ver posibles actividades
+									</Link>
+							{/*<Typography variant="caption"><strong>Lugar: </strong>Hotel Dos Playas, Puerto de Mazarron</Typography>*/}
+							{/*</CardContent>*/}
+							{/*<CardContent>*/}
+							{/*	<Box px={3} pb={3}>*/}
+							{/*		<iframe*/}
+							{/*			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.7843125580375!2d-1.2754462844078451!3d37.5601451322513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd64a146f44f71d7%3A0xf551555b0fb2c739!2sHotel%20Dos%20Playas%20Mazarr%C3%B3n!5e0!3m2!1sen!2sde!4v1611467048476!5m2!1sen!2sde"*/}
+							{/*			style={{width:"800", height:"650", frameBorder:"0", style:"border:0;", allowFullScreen:"", ariaHidden:"true"}}*/}
+							{/*			tabIndex="0"*/}
+							{/*			title="dialibre-map"*/}
+							{/*		/>*/}
+
 								</Box>
+							</div>
+
 							</CardContent>
 						</Card>
 					</AccordionDetails>
@@ -192,8 +226,8 @@ export const SingleCard = React.memo(function SingleCard() {
 									<TextInfoContent
 										classes={textCardContentStyles}
 										body={
-											'Acompañanos el jueves a celebrar una preboda sencilla a la orilla de la playa donde ' +
-											'podras conocer a los otros invitados y disfrutaremos juntos de grandes momentos.'
+											'Después de muchas emociones, nervios y hasta una pandemia, llega el gran dia. Los esperamos a ' +
+											'todos para vernos dar el Si quiero junto al mar. '
 										}
 									/>
 									<br/>
@@ -207,8 +241,8 @@ export const SingleCard = React.memo(function SingleCard() {
 					<AccordionDetails>
 						<Card>
 							<CardContent>
-								<Typography variant="caption"><strong>Etiqueta: </strong>Vestimenta de boda<br/></Typography>
-								<Typography variant="caption"><strong>Lugar: </strong>Ermita de Nuestra Señora del Carmen, Isla Plana</Typography>
+								<Typography variant="caption"><strong>Etiqueta: </strong>Vestimenta formal<br/></Typography>
+								<Typography variant="caption"><strong>Lugar: </strong>Ermita Nuestra Señora del Carmen, Isla Plana</Typography>
 							</CardContent>
 							<CardContent>
 								<Box px={3} pb={3}>
@@ -243,9 +277,14 @@ export const SingleCard = React.memo(function SingleCard() {
 								<CardContent className={cardStyles.content}>
 									<TextInfoContent
 										classes={textCardContentStyles}
-										body={
-											'Os esperamos a todos para celebrar este dia tan importante con nosotros.' +
-											' Hemos puesto mucho esfuerzo en crear un gran ambiente donde crearemos momentos unicos!!'
+										// body={
+										// 	'Os esperamos a todos para celebrar este dia tan importante con nosotros.' +
+										// 	' Hemos puesto mucho esfuerzo en crear un gran ambiente donde crearemos momentos unicos!!'
+										// }
+									body={
+											'Después de la ceremonia llegó la hora de festejar a lo grande y crear momentos únicos.' +
+											' ¡Los esperamos con la mejor actitud y ganas de bailar!'
+											// 'Hemos puesto mucho esfuerzo en crear un gran ambiente donde crearemos momentos unicos!!'
 										}
 									/>
 									<br/>
@@ -259,7 +298,7 @@ export const SingleCard = React.memo(function SingleCard() {
 					<AccordionDetails>
 						<Card>
 							<CardContent>
-								<Typography variant="caption"><strong>Etiqueta: </strong>Cocktail tarde-noche<br/></Typography>
+								<Typography variant="caption"><strong>Etiqueta: </strong>Vestimenta formal<br/></Typography>
 								<Typography variant="caption"><strong>Lugar: </strong>Hotel Executive Sport, Totana</Typography>
 							</CardContent>
 							<CardContent>
@@ -275,21 +314,6 @@ export const SingleCard = React.memo(function SingleCard() {
 						</Card>
 					</AccordionDetails>
 				</Accordion>
-			</Grid>
-
-
-			<Grid item xs={12} md={12} lg={12}>
-				<div align="center">
-				<iframe
-					src="https://www.google.com/maps/d/u/0/embed?mid=1E7323xeyqahJX1JYa9DMoJmPV_leXsVc"
-					style={{
-						width:"1200px",
-						height:"975px",
-						frameBorder:"0", style:"border:0;", allowFullScreen:"", ariaHidden:"true"}}
-					tabIndex="0"
-					title="La-Bodica"
-				/>
-				</div>
 			</Grid>
 		</Grid>
 	// AIzaSyCqxA57F_YusDsYyi_BDSQGC73OUn2xp-E
