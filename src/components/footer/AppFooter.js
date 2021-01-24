@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import Container from '@material-ui/core/Container'
+// import Container from '@material-ui/core/Container'
 // import Divider from '@material-ui/core/Divider'
 import Link from '@material-ui/core/Link'
 
@@ -38,6 +38,7 @@ const styles = (theme) => ({
   logo: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     // marginBottom: theme.spacing(4),
     '& img': {
       // width: 28,
@@ -47,10 +48,9 @@ const styles = (theme) => ({
       marginRight: theme.spacing(1.5),
       marginLeft: theme.spacing(1.5),
     },
-    fontFamily: 'Yellowtail',
+
+    fontFamily: 'Dancing Script',
     fontSize: 70,
-    // color: 'white',
-    // alignContent: 'center',
   },
   list: {
     // marginBottom: theme.spacing(4),
@@ -81,6 +81,11 @@ const styles = (theme) => ({
   version: {
     // marginTop: theme.spacing(3),
   },
+  gridCenter: {
+    justifyContent: 'center',
+    fontFamily: 'Dancing Script',
+    fontSize: 70,
+  }
 });
 
 function AppFooter(props) {
@@ -89,14 +94,18 @@ function AppFooter(props) {
   return (
     <div className={classes.root}>
       {/*<Divider />*/}
-      <Container maxWidth="md" className={classes.footer}>
-        <footer >
+      {/*<Container maxWidth="md" className={classes.footer}>*/}
+      {/*  <footer >*/}
           <Grid container
-                direction="row"
+                row
                 justify="center"
+                alignItems="center"
+                // direction="row"
+                // justify="center"
                 // alignItems="center"
           >
-            <Grid item xs={12} sm={12} md={12} lg={12} >
+            <Grid item xs={12} sm={12} md={12} lg={12}
+            >
               <Typography
                 component="h2"
                 gutterBottom
@@ -104,8 +113,8 @@ function AppFooter(props) {
                 >
                 <img src={greenheart} alt="" />
                 {'La Bodica'}
-                <img src={greenheart} alt="" />
-              </Typography>
+                <img src={greenheart} alt=""/>
+               </Typography>
             </Grid>
             <Grid item xs={6} sm={3} className={classes.list}>
               <Typography component="h2" gutterBottom>
@@ -113,9 +122,9 @@ function AppFooter(props) {
               </Typography>
               <ul>
                 <li  className={classes.listElement} >
-                  <Link color="inherit" variant="body2" href="https://wa.me/4917698623567">
+                  <Link color="inherit" variant="body2" href="https://wa.me/4915759649209">
                     <WhatsAppIcon fontSize="inherit"/>
-                    {' Laura: +49-1761234567'}
+                    {' Laura: +49-15759649209'}
                   </Link>
                 </li>
                 <br/>
@@ -135,8 +144,8 @@ function AppFooter(props) {
             {new Date().getFullYear()}
             {' La Bodica. '}
           </Typography>
-        </footer>
-      </Container>
+        {/*</footer>*/}
+      {/*</Container>*/}
     </div>
   );
 }
