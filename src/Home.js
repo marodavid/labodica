@@ -4,7 +4,7 @@ import { AnimatedSwitch } from 'react-router-transition';
 import withRoot from './modules/withRoot'
 import Portada from "./pages/Portada";
 import PasosASeguir from "./pages/PasosASeguir";
-import NuestraHistoria from './pages/NuestraHistoria'
+// import NuestraHistoria from './pages/NuestraHistoria'
 import AnchorSpan from "./components/AnchorSpan";
 import RSVP from './components/RSVP'
 import AgendaTabs from "./components/agenda/AgendaTabs";
@@ -25,7 +25,7 @@ function Index() {
         <Route exact path="/">
           <Portada/>
           <AnchorSpan />
-          <NuestraHistoria/>
+          {/*<NuestraHistoria/>*/}
           {/*<Carouselmui />*/}
           {/*<SectionCarousel />*/}
           {/*<Carrusel />*/}
