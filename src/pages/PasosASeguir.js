@@ -11,6 +11,12 @@ import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import EventIcon from '@material-ui/icons/Event';
 
 import CurvyLines from '../themes/appCurvyLines.png'
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogActions from "@material-ui/core/DialogActions";
+import {Slide} from "@material-ui/core";
 
 
 const styles = (theme) => ({
@@ -35,6 +41,7 @@ const styles = (theme) => ({
   },
   title: {
     marginBottom: theme.spacing(14),
+    textTransform: 'uppercase'
   },
   number: {
     fontSize: 24,
@@ -68,8 +75,22 @@ const styles = (theme) => ({
   },
 });
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 function PasosASeguir(props) {
   const { classes } = props;
+
+  //Dialog
+  const [openDialog, setOpenDialog] = React.useState(false);
+
+  const handleClickOpenDialog = () => {
+    setOpenDialog(true);
+  };
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
   return (
     <section className={classes.root}>
@@ -102,7 +123,7 @@ function PasosASeguir(props) {
                   variant="outlined"
                   className={classes.button}
                   component={ Link }
-                  onClick = { () => alert('Es un poco pronto. Nosotros te avisamos') }
+                  onClick = { () => handleClickOpenDialog() }
                   // to="/rsvp/"
                 >
                   RSVP
@@ -149,6 +170,29 @@ function PasosASeguir(props) {
               </div>
             </Grid>
           </Grid>
+        </div>
+        <div>
+          <Dialog
+            open={openDialog}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={handleCloseDialog}
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle id="alert-dialog-slide-title">{"No nos confirmeis la asistencia todavia"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+                Debido a la pandemia, entendemos que no nos podeis confirmar la asistencia todavia.
+                Mas adelante, te avisaremos para que nos confirmes y puedas acompañarnos.
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCloseDialog} color="transparent">
+                Ok
+              </Button>
+            </DialogActions>
+          </Dialog>
         </div>
       </Container>
     </section>
