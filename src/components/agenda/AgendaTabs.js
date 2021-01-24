@@ -27,6 +27,7 @@ const styles = {
 		// backgroundColor: '#b1cbbb',
 	},
 	slide1: {
+		minHeight: '900px',
 		// backgroundColor: '#FEA900',
 		backgroundColor: '#dad295',
 		// height: 'auto',
