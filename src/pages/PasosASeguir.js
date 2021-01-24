@@ -41,7 +41,8 @@ const styles = (theme) => ({
   },
   title: {
     marginBottom: theme.spacing(14),
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    textAlign: 'center',
   },
   number: {
     fontSize: 24,
