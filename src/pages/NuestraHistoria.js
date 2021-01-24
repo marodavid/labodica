@@ -4,6 +4,7 @@ import styled from "styled-components"
 import TimelineNuestraHistoria from "../components/TimelineNuestraHistoria";
 import losLoquitos from '../images/nuestraHistoria/losLoquitos.jpg'
 import fondoromantico from '../images/nuestraHistoria/fondo-romantico.jpg'
+import fondogradient from '../images/agenda/gradient1.png'
 
 import './nuestraHistoria/main.css'
 // import SectionCarousel from "../components/carrousel/SectionCarousel";
@@ -23,14 +24,21 @@ const Titulo = styled(Typography)`
 	font-style: italic, bold; 
 	text-transform: none;
 	padding-bottom: 1em;
+	
 `;
 const DivImage = styled.div`
 	background: #F6F6F6;
-	background-image: url(${fondoromantico});
+	// background-image: url(${fondoromantico});
+	// background-image: url(${fondogradient});
 	background-opacity: 0.4;
 	background-position: right;
   background-position: 'center';
   background-size: cover;
+ 
+	background-color: #D9AFD9;
+	background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
+
    
   display: flex;
   left: 0;
