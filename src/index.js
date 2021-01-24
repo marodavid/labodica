@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
+
 //import "./components/carrousel/scss/material-kit-react.scss?v=1.9.0";
 import './index.css';
 // import App from './App';
@@ -8,7 +10,9 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <BrowserRouter>
+      <Home />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
