@@ -7,15 +7,16 @@ import Typography from '@material-ui/core/Typography';
 import styled from "styled-components"
 import CurvyLines from '../themes/appCurvyLines.png'
 
-import salonBelleza from '../images/salonBelleza.jpg'
-import castillitos from '../images/castillitos2.jpg'
-import cartagena from '../images/cartagena2.jpeg'
-import murcia from '../images/murcia.jpeg'
-import kayaks from '../images/kayak.jpeg'
-import restaurantes from '../images/restaurantes.png'
-import laAzohia from '../images/playa-de-la-azohia.jpg'
-import bares from '../images/bares.png'
-import paseosBarco from '../images/barcoTour.jpeg'
+// import salonBelleza from '../images/pendientes_de_usar/salonBelleza.jpg'
+import castillitos from '../images/sugerencias/castillitos2.jpg'
+import cartagena from '../images/sugerencias/cartagena2.jpeg'
+import murcia from '../images/sugerencias/murcia.jpeg'
+import kayaks from '../images/sugerencias/kayak.jpeg'
+import restaurantes from '../images/sugerencias/restaurantes.png'
+import laAzohia from '../images/sugerencias/playa-de-la-azohia.jpg'
+import bares from '../images/sugerencias/bares.png'
+import paseosBarco from '../images/sugerencias/barcoTour.jpeg'
+import licor43 from '../images/sugerencias/licor43-rec2.png'
 
 const styles = (theme) => ({
 	root: {
@@ -41,7 +42,7 @@ const styles = (theme) => ({
 			zIndex: 1,
 		},
 		'&:hover $imageBackdrop': {
-			opacity: 0.15,
+			opacity: 0,
 		},
 		'&:hover $imageMarked': {
 			opacity: 0,
@@ -77,7 +78,7 @@ const styles = (theme) => ({
 		top: 0,
 		bottom: 0,
 		background: theme.palette.common.black,
-		opacity: 0.5,
+		opacity: 0.3,
 		transition: theme.transitions.create('opacity'),
 	},
 	imageTitle: {
@@ -100,6 +101,46 @@ function ProductCategories(props) {
 
 	const images = [
 		{
+			url: `${cartagena}`,
+			// 'https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400&q=80',
+			title: 'Cartagena',
+			width: '38%',
+			href: 'https://turismo.cartagena.es/'
+		},
+		{
+			url: `${castillitos}`,
+			// 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400&q=80',
+			title: 'Castillitos',
+			width: '24%',
+			href: '#'
+		},
+		{
+			url: `${murcia}`,
+			title: 'Murcia',
+			width: '38%',
+			href: 'https://www.datemurcia.es/es/inicio.html'
+		},
+		{
+			url: `${restaurantes}`,
+				// 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400&q=80',
+			title: 'Restaurantes',
+			width: '40%',
+			href: '#'
+		},
+		{
+			url: `${bares}`,
+			title: 'Bares',
+			width: '20%',
+			href: '#'
+		},
+		{
+			url: `${licor43}`,
+			// 'https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400&q=80',
+			title: 'Fabrica Licor 43',
+			width: '40%',
+			href: 'https://booking.zamoracompany.com/experiencia43/reservar-visita/visita-premium#'
+		},
+		{
 			url: `${laAzohia}`,
 			title: 'Playas',
 			width: '40%',
@@ -118,59 +159,23 @@ function ProductCategories(props) {
 			width: '40%',
 			href: 'http://www.solazlines.com/index.php/es/rutas-regulares/desde-mazarron/ruta-acantilados-cabo-tinoso'
 		},
-		{
-			url: `${restaurantes}`,
-				// 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400&q=80',
-			title: 'Restaurantes',
-			width: '40%',
-			href: '#'
-		},
-		{
-			url: `${bares}`,
-			title: 'Bares',
-			width: '20%',
-			href: '#'
-		},
-		{
-			url: `${salonBelleza}`,
-			// 'https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400&q=80',
-			title: 'Salones de Belleza',
-			width: '40%',
-			href: '#'
-		},
-		{
-			url: `${cartagena}`,
-				// 'https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400&q=80',
-			title: 'Cartagena',
-			width: '38%',
-			href: '#'
-		},
-		{
-			url: `${castillitos}`,
-			// 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400&q=80',
-			title: 'Castillitos',
-			width: '24%',
-			href: '#'
-		},
-		{
-			url: `${murcia}`,
-			title: 'Murcia',
-			width: '38%',
-			href: 'https://www.datemurcia.es/es/inicio.html'
-		},
+
+
 	];
 
 	const DivFrame = styled.div`
 		width: 100%;
 		height: auto;		
 		background: #F6F6F6;
+		// background: #FFF;
 		// background: #bdcebe;
-		background-image: url(${CurvyLines});
+		// background-image: url(${CurvyLines});
 		background-position: 'center';
 		background-repeat: no-repeat;
 		background-size: cover;
 		padding-top: 0.05em;
 		padding-bottom: 1em;
+		text-transform: uppercase;
 	`;
 
 	return (
