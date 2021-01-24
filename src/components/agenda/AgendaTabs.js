@@ -102,12 +102,14 @@ export default class AgendaTabs extends React.Component {
 		const { index } = this.state
 
 		return (
-			<div style={{flex: '1'}}>
+			<div
+				// style={{flex: '1'}}
+			>
 			<GeneralMenu/>
 				<Tabs
 					value={index}
 					variant="scrollable"
-					scrollButtons="auto"
+					scrollButtons="on"
 					// tabItemContainerStyle={{maxHeight: 'auto'}}
 					// fullWidth
 					onChange={this.handleChange}
@@ -115,9 +117,9 @@ export default class AgendaTabs extends React.Component {
 					<Tab label="Agenda" style={styles.tabLabel}/>
 					<Tab label="Como llegar" style={styles.tabLabel}/>
 					<Tab label="Hoteles" style={styles.tabLabel}/>
-					<Tab label="Informacion Extra" style={styles.tabLabel}/>
+					<Tab label="Informacion" style={styles.tabLabel}/>
 					<Tab label="Turismo" style={styles.tabLabel}/>
-					<Tab label="Mapa de La Bodica" style={styles.tabLabel}/>
+					<Tab label="Mapa" style={styles.tabLabel}/>
 				</Tabs>
 				<SwipeableViews index={index} onChangeIndex={this.handleChangeIndex} animateHeight>
 					<div style={Object.assign({}, styles.slide, styles.slide1)}>
@@ -132,7 +134,7 @@ export default class AgendaTabs extends React.Component {
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide4)}>
 						{/*<SimpleAccordion />*/}
-						<h1>Proximamente</h1>
+						<h3>Proximamente: salones de belleza, clima y temperaturas estimadas e información adicional.</h3>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide5)}>
 						<Sugerencias />
