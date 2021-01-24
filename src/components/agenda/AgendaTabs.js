@@ -102,15 +102,14 @@ export default class AgendaTabs extends React.Component {
 		const { index } = this.state
 
 		return (
-			// <>
-			<div style={{flex: '1', alignSelf: 'stretch'}}>
+			<div style={{flex: '1'}}>
 			<GeneralMenu/>
 				<Tabs
 					value={index}
 					variant="scrollable"
 					scrollButtons="auto"
 					// tabItemContainerStyle={{maxHeight: 'auto'}}
-					fullWidth
+					// fullWidth
 					onChange={this.handleChange}
 					style={styles.tabs}>
 					<Tab label="Agenda" style={styles.tabLabel}/>
@@ -156,7 +155,6 @@ export default class AgendaTabs extends React.Component {
 					</div>
 				</SwipeableViews>
 			</div>
-			// </>
 		);
 	}
 }
