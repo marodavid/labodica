@@ -3,42 +3,30 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { withStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
-import AppBar from './GeneralAppBar';
-import Toolbar, { styles as toolbarStyles } from './GeneralToolbar';
-import {Slide, Typography} from "@material-ui/core";
+import {
+  Grid,
+  Link,
+  Slide,
+  Typography
+} from "@material-ui/core";
+
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
+
+import AppBar from './GeneralAppBar';
+import Toolbar, { styles as toolbarStyles } from './GeneralToolbar';
 
 
 const styles = (theme) => ({
-  title: {
-    fontSize: 24,
+
+  root: {
+    flexGrow: 1,
   },
   placeholder: toolbarStyles(theme).root,
   toolbar: {
     justifyContent: 'space-between',
-  },
-  left: {
-    flex: 1,
-  },
-  leftLinkActive: {
-    color: theme.palette.common.white,
-  },
-  right: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  rightLink: {
-    fontSize: 36,
-    fontFamily: 'Yellowtail',
-    color: theme.palette.common.white,
-    marginLeft: theme.spacing(3),
-    underline: false,
   },
   center: {
     flex: 1,
@@ -46,14 +34,29 @@ const styles = (theme) => ({
     justifyContent: 'center',
   },
   centerLink: {
-    fontSize: 50,
-    fontFamily: 'Yellowtail',
+    fontSize: 36,
+    fontFamily: 'Dancing Script',
     color: theme.palette.common.white,
-    marginLeft: theme.spacing(3),
     underline: false,
   },
-  linkSecondary: {
-    color: theme.palette.secondary.main,
+  derecha: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  derechaLink: {
+    color: theme.palette.common.white,
+    marginLeft: theme.spacing(1),
+    underline: false,
+  },
+  izquierda: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'flex-start',
+  },
+  izquierdaLink: {
+    color: theme.palette.common.white,
+    underline: false,
   },
 });
 
@@ -68,65 +71,61 @@ function GeneralMenu(props) {
     target: window ? window() : undefined,
   });
 
-
   return (
     <Slide appear={false} direction="down" in={!trigger}>
-    <div>
+    <div classes={classes.root}>
       <AppBar position="fixed" variant="scrollable">
         <Toolbar className={classes.toolbar}>
-          <div className={classes.left}>
-            <Link
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink)}
-              href="/"
-            >
-              <HomeOutlinedIcon/>
-            </Link>
-          </div>
-          <div className={classes.center}>
-            <Typography
-              variant="h1"
-              underline="none"
-              className={clsx(classes.rightLink)}
-            >
-              {'La Bodica'}
-            </Typography>
-          </div>
-          <div className={classes.right}>
-            <Link
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink)}
-              href="https://wa.me/4917698623567"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <WhatsAppIcon />
-            </Link>
-            <Link
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink)}
-              href="http://m.me/david.b.pedreno"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <FacebookIcon/>
-            </Link>
-            <Link
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink)}
-              // , classes.linkSecondary)}
-              href=" http://www.instagram.com/loquitos"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <InstagramIcon/>
-            </Link>
-
-          </div>
+          <Grid container row justify="center" alignItems="center">
+            <Grid item xs={2} sm={2} md={2} lg={2}>
+            <div className={classes.izquierda}>
+              <Link
+                variant="h6"
+                underline="none"
+                style={{alignSelf: 'flex-start'}}
+                className={clsx(classes.izquierdaLink)}
+                href="/"
+              >
+                <HomeOutlinedIcon fontSize={'large'}/>
+              </Link>
+            </div>
+            </Grid>
+            <Grid item xs={8} sm={8} md={8} lg={8}>
+            <div className={classes.center}>
+              <Typography
+                variant="h1"
+                underline="none"
+                className={clsx(classes.centerLink)}
+              >
+                {'La Bodica'}
+              </Typography>
+            </div>
+            </Grid>
+            <Grid item xs={2} sm={2} md={2} lg={2}>
+              <div className={classes.derecha}>
+                <Link
+                  variant="h6"
+                  underline="none"
+                  className={clsx(classes.derechaLink)}
+                  href="http://m.me/david.b.pedreno"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <FacebookIcon/>
+                </Link>
+                <Link
+                  variant="h6"
+                  underline="none"
+                  className={clsx(classes.derechaLink)}
+                  href="https://wa.me/4917698623567"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <WhatsAppIcon />
+                </Link>
+              </div>
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
       <div className={classes.placeholder} />
