@@ -40,7 +40,17 @@ const styles = (theme) => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     width: '30%',
+    [theme.breakpoints.down('md')]: {
+      width: '50%',
+    },
   },
+  welcomeHide: {
+    display: 'inherit',
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
+
+  }
 });
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -73,7 +83,7 @@ function Portada(props) {
         marked="center"
         className={classes.typographyWelcome}
       >
-        Bienvenidos a <br /> La Bodica
+        <span className={classes.welcomeHide}>Bienvenidos a <br /></span> La Bodica
       </Typography>
       </animated.div>
 
