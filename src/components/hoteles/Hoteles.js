@@ -8,6 +8,7 @@ import hoteldosplayas from '../../images/hoteles/hotel-dos-playas.jpg'
 import hotelexecutive from '../../images/hoteles/hotel-executive-sport.jpg'
 import hotelolimpia from '../../images/hoteles/hotel-olimpia.jpg'
 import rincondepepe from '../../images/hoteles/rincon-de-pepe.jpeg'
+import AppFooter from "../footer/AppFooter";
 
 const Hoteles = () => {
 
@@ -15,8 +16,8 @@ const Hoteles = () => {
 	return (
 		<div id="wrapper" className="divided" style={{textTransform:'none', color: 'black', overflowY: 'scroll', scrollbarWidth: 'thin'}}>
 
-			<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
-				<div class="content">
+			<section className="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+				<div className="content">
 					<h2>Hotel Dos Playas</h2>
 					<h6 style={{fontSize: '16px'}}>Av. D. José Alarcón Palacios, 79, 30860 Puerto de Mazarrón, Murcia, Spain</h6>
 
@@ -54,22 +55,20 @@ const Hoteles = () => {
 					</div>
 					<hr/>
 
-					{/*<p>*/}
-					{/*	This is a <strong>Spotlight</strong> element, and it's generally used &ndash; as its name implies &ndash; to spotlight a particular feature, subject, or pretty much whatever. You can customize its <span class="demo-controls">appearance with a number of modifiers</span>, as well as assign it an optional <code>onload</code> or <code>onscroll</code> transition modifier (<a href="#reference-spotlight">details</a>).*/}
-					{/*</ulp>*/}
-					<ul class="actions stacked">
-						<li><a href="https://dosplayashotel.com/es" class="button" rel="noopener noreferrer" target="_blank">Web del hotel</a></li>
+
+					<ul className="actions stacked">
+						<li><a href="https://dosplayashotel.com/es" className="button" rel="noopener noreferrer" target="_blank">Web del hotel</a></li>
 					</ul>
 
 				</div>
-				<div class="image">
+				<div className="image">
 					<img src={hoteldosplayas} alt="" />
 				</div>
 			</section>
 
 
-			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-				<div class="content">
+			<section className="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+				<div className="content">
 					<h2>Hotel Executive Sport</h2>
 					<h6 style={{fontSize: '16px'}}>Calle El Grandado, 1, 30850 Totana, Murcia, Spain</h6>
 					<div className="tamanoLetra">
@@ -84,18 +83,18 @@ const Hoteles = () => {
 					</div>
 
 					<hr/>
-					<ul class="actions stacked">
-						<li><a href="https://www.executive-sport.com/" rel="noopener noreferrer" target="_blank" class="button">Web del hotel</a></li>
+					<ul className="actions stacked">
+						<li><a href="https://www.executive-sport.com/" rel="noopener noreferrer" target="_blank" className="button">Web del hotel</a></li>
 					</ul>
 				</div>
-				<div class="image">
+				<div className="image">
 					<img src={hotelexecutive} alt="" />
 				</div>
 			</section>
 
 
-			<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-				<div class="content">
+			<section className="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+				<div className="content">
 					<h2>Hotel Olimpia</h2>
 					<h6 style={{fontSize: '16px'}}>Calle Balson de Guillén -Sa, 1, 30850 Totana, Murcia, Spain</h6>
 					<div className="tamanoLetra">
@@ -107,11 +106,11 @@ const Hoteles = () => {
 						<span><strong>Precio habitacion: </strong>50-55 Eur/noche.</span><br/>
 					</div>
 					<hr/>
-					<ul class="actions stacked">
-						<li><a href="http://olimpiahoteles.com/" rel="noopener noreferrer" target="_blank" class="button">Web del hotel</a></li>
+					<ul className="actions stacked">
+						<li><a href="http://olimpiahoteles.com/" rel="noopener noreferrer" target="_blank" className="button">Web del hotel</a></li>
 					</ul>
 				</div>
-				<div class="image">
+				<div className="image">
 					<img src={hotelolimpia} alt="" />
 				</div>
 			</section>
@@ -142,6 +141,7 @@ const Hoteles = () => {
 					<img src={rincondepepe} alt=""/>
 				</div>
 			</section>
+			<AppFooter/>
 		</div>
 	)
 }
