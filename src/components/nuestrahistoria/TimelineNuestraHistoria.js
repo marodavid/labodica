@@ -6,10 +6,10 @@ import {
 	Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineOppositeContent, TimelineDot
 } from '@material-ui/lab';
 
-import engagement from '../images/timeline/engagement.png'
-import church from '../images/timeline/church.svg'
-import hogar from '../images/timeline/hogarIcon.png'
-import carnival from '../images/timeline/carnival.png'
+import engagement from '../../images/timeline/engagement.png'
+import church from '../../images/timeline/church.svg'
+import hogar from '../../images/timeline/hogarIcon.png'
+import carnival from '../../images/timeline/carnival.png'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
 		"&:hover,&:focus": {
 			boxShadow: theme.shadows[24],
 		},
+		[theme.breakpoints.down('sm')]: {
+			display: 'none',
+		},
 	},
 }));
 
@@ -42,11 +45,12 @@ export default function TimelineNuestraHistoria() {
 	const classes = useStyles();
 	// const [inicio, setInicio] = useState(false)
 	return (
+
 		<Timeline align="alternate">
 			<TimelineItem>
 				<TimelineOppositeContent />
 				<TimelineSeparator color="primary" variant="outlined">
-					<TimelineDot variant="outlined">
+					<TimelineDot color="primary" variant="outlined">
 						{ avatar(classes, carnival)}
 					</TimelineDot>
 					<TimelineConnector />
@@ -60,9 +64,10 @@ export default function TimelineNuestraHistoria() {
 					</Paper>
 				</TimelineContent>
 			</TimelineItem>
+
 			<TimelineItem>
 				<TimelineOppositeContent />
-				<TimelineSeparator>
+				<TimelineSeparator color="primary" variant="outlined">
 					<TimelineDot color="primary" variant="outlined">
 						{ avatar(classes, hogar)}
 					</TimelineDot>
@@ -77,6 +82,7 @@ export default function TimelineNuestraHistoria() {
 					</Paper>
 				</TimelineContent>
 			</TimelineItem>
+
 			<TimelineItem>
 				<TimelineOppositeContent />
 				<TimelineSeparator>
@@ -94,10 +100,11 @@ export default function TimelineNuestraHistoria() {
 					</Paper>
 				</TimelineContent>
 			</TimelineItem>
+
 			<TimelineItem>
+				<TimelineOppositeContent />
 				<TimelineSeparator>
-					<TimelineDot color="secondary">
-						{/*<EventAvailable fontSize="large"/>*/}
+					<TimelineDot color="primary" variant="outlined">
 						{ avatar(classes, church)}
 					</TimelineDot>
 				</TimelineSeparator>

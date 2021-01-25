@@ -6,9 +6,10 @@ import Portada from "./pages/Portada";
 import PasosASeguir from "./pages/PasosASeguir";
 // import NuestraHistoria from './pages/NuestraHistoria'
 import AnchorSpan from "./components/AnchorSpan";
-import RSVP from './components/RSVP'
+// import RSVP from './components/RSVP'
 import AgendaTabs from "./components/agenda/AgendaTabs";
 import AppFooter from "./components/footer/AppFooter";
+import NuestraHistoria from "./components/nuestrahistoria/NuestraHistoria";
 // import Carrusel from "./components/Carrusel";
 // import SectionCarousel from "./components/carrousel/SectionCarousel";
 // import Carouselmui from "./components/carouselmui/Carouselmui";
@@ -25,7 +26,7 @@ function Index() {
         <Route exact path="/">
           <Portada/>
           <AnchorSpan />
-          {/*<NuestraHistoria/>*/}
+          <NuestraHistoria/>
           {/*<Carouselmui />*/}
           {/*<SectionCarousel />*/}
           {/*<Carrusel />*/}
@@ -33,9 +34,9 @@ function Index() {
           <PasosASeguir />
           <AppFooter/>
         </Route>
-        <Route path="/rsvp" >
-          <RSVP />
-        </Route>
+        {/*<Route path="/rsvp" >*/}
+        {/*  <RSVP />*/}
+        {/*</Route>*/}
         <Route path="/informacion" >
           <AgendaTabs />
         </Route>
