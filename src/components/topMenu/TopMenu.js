@@ -8,7 +8,7 @@ import AppBar from './TopAppBar';
 import Toolbar, { styles as toolbarStyles } from './TopToolbar';
 import {Slide} from "@material-ui/core";
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+// import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import FacebookIcon from '@material-ui/icons/Facebook';
 // import InstagramIcon from '@material-ui/icons/Instagram';
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -17,6 +17,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
+import { IconFlagUK } from 'material-ui-flags';
 
 
 const styles = (theme) => ({
@@ -112,22 +113,22 @@ function TopMenu(props) {
               variant="h6"
               underline="none"
               className={clsx(classes.rightLink)}
-              href="https://wa.me/4917698623567"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <WhatsAppIcon />
-            </Link>
-            <Link
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink)}
               // , classes.linkSecondary)}
               href="https://www.facebook.com/events/3730092333719587/"
               rel="noopener noreferrer"
               target="_blank"
             >
               <FacebookIcon/>
+            </Link>
+            <Link
+              variant="h6"
+              underline="none"
+              className={clsx(classes.rightLink)}
+              href="https://translate.google.com/translate?sl=es&tl=en&u=https://labodica.es/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <IconFlagUK />
             </Link>
           </div>
         </Toolbar>

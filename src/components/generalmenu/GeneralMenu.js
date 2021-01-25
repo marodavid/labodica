@@ -12,11 +12,11 @@ import {
 
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import FacebookIcon from '@material-ui/icons/Facebook';
 
 import AppBar from './GeneralAppBar';
 import Toolbar, { styles as toolbarStyles } from './GeneralToolbar';
+import { IconFlagUK } from 'material-ui-flags';
 
 
 const styles = (theme) => ({
@@ -117,11 +117,11 @@ function GeneralMenu(props) {
                   variant="h6"
                   underline="none"
                   className={clsx(classes.derechaLink)}
-                  href="https://wa.me/4917698623567"
+                  href="https://translate.google.com/translate?sl=es&tl=en&u=https://labodica.es/informacion%23agenda"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <WhatsAppIcon />
+                  <IconFlagUK/>
                 </Link>
               </div>
             </Grid>
