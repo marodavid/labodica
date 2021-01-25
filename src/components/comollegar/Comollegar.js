@@ -10,6 +10,7 @@ import { Grid } from "@material-ui/core";
 const styles = (theme) => ({
 	root: {
 		marginLeft: theme.spacing(4),
+		margin: 'auto',
 	},
 	content: {
 		marginLeft: theme.spacing(4),
