@@ -73,7 +73,7 @@ function GeneralMenu(props) {
 
   return (
     <Slide appear={false} direction="down" in={!trigger}>
-    <div classes={classes.root}>
+    <div className={classes.root}>
       <AppBar position="fixed" variant="scrollable">
         <Toolbar className={classes.toolbar}>
           <Grid container row justify="center" alignItems="center">
@@ -107,7 +107,7 @@ function GeneralMenu(props) {
                   variant="h6"
                   underline="none"
                   className={clsx(classes.derechaLink)}
-                  href="http://m.me/david.b.pedreno"
+                  href="https://www.facebook.com/events/3730092333719587/"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
