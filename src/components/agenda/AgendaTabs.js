@@ -4,13 +4,12 @@ import SwipeableViews from 'react-swipeable-views';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 
-import SingleCard from "./SingleCard";
+import Agenda from "./Agenda";
 import Sugerencias from "../../pages/Sugerencias";
-// import SimpleAccordion from "../faq/SimpleAccordion";
 import Hoteles from "../hoteles/Hoteles";
 import Comollegar from "../comollegar/Comollegar";
 import GeneralMenu from "../generalmenu/GeneralMenu";
-// import {Grid} from "@material-ui/core";
+import AppFooter from "../footer/AppFooter";
 
 
 const styles = {
@@ -123,13 +122,15 @@ export default class AgendaTabs extends React.Component {
 				</Tabs>
 				<SwipeableViews index={index} onChangeIndex={this.handleChangeIndex} animateHeight>
 					<div style={Object.assign({}, styles.slide, styles.slide1)}>
-						<SingleCard />
+						<Agenda />
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide2)}>
 						<Comollegar/>
+						<AppFooter/>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide3)}>
 						<Hoteles/>
+						<AppFooter/>
 						{/*<h1>Proximamente</h1>*/}
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide4)}>
@@ -138,6 +139,7 @@ export default class AgendaTabs extends React.Component {
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide5)}>
 						<Sugerencias />
+						<AppFooter/>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide5)}>
 						<div align="center">
