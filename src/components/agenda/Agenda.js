@@ -58,7 +58,7 @@ const useStyles = makeStyles(() => ({
 
 
 
-export const SingleCard = React.memo(function SingleCard() {
+export const Agenda = React.memo(function SingleCard() {
 	const history = useHistory()
 	const cardStyles = useStyles();
 	const wideCardMediaStyles = useWideCardMediaStyles();
@@ -320,4 +320,4 @@ export const SingleCard = React.memo(function SingleCard() {
 	);
 });
 
-export default SingleCard
+export default Agenda
