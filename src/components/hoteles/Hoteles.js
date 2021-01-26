@@ -8,10 +8,9 @@ import hoteldosplayas from '../../images/hoteles/hotel-dos-playas.jpg'
 import hotelexecutive from '../../images/hoteles/hotel-executive-sport.jpg'
 import hotelolimpia from '../../images/hoteles/hotel-olimpia.jpg'
 import rincondepepe from '../../images/hoteles/rincon-de-pepe.jpeg'
-import AppFooter from "../footer/AppFooter";
+
 
 const Hoteles = () => {
-
 
 	return (
 		<div id="wrapper" className="divided" style={{textTransform:'none', color: 'black', overflowY: 'scroll', scrollbarWidth: 'thin'}}>
@@ -141,7 +140,6 @@ const Hoteles = () => {
 					<img src={rincondepepe} alt=""/>
 				</div>
 			</section>
-			<AppFooter/>
 		</div>
 	)
 }
