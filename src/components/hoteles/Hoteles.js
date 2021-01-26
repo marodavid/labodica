@@ -21,19 +21,20 @@ const Hoteles = () => {
 					<h6 style={{fontSize: '16px'}}>Av. D. José Alarcón Palacios, 79, 30860 Puerto de Mazarrón, Murcia, Spain</h6>
 
 					<div className="tamanoLetra">
-						<p>Les recomendamos este hotel de 4 estrellas para disfrutar los dias previos a la boda.
-							El hotel esta ubicado a pocos metros de dos playas y a 10 minutos andando del Puerto deportivo del Puerto de Mazarron.
-							En caso de seleccionar este hotel para la noche de la boda, estaremos proporcionando transporte desde el lugar de la celebracion.
+						<p>
+							Les recomendamos este hotel de 4 estrellas para disfrutar los días previos a la boda
+							. El hotel está ubicado a pocos metros de dos playas y a 10 minutos caminando del puerto deportivo del Puerto de Mazarrón.
 							<br/><br/>
-							El hotel se encuentra a 10 minutos en coche de donde se celebrara la ceremonia religiosa, a 15 minutos en coche del lugar donde
-							festejaremos la preboda el jueves y a 35 minutos en coche del hotel de celebracion de la boda.
+							Además, el hotel se encuentra a minutos de distancia en coche de todos los lugares de la boda
+							: a 15 minutos del lugar donde será la preboda el jueves 30, a 10 minutos de la Iglesia, y a 35 minutos del hotel de la celebración de la boda.
 						</p>
-						<span><strong>Telefono: </strong>+34968594101</span><br/>
+						<span><strong>Telefono: </strong>+34-968594101</span><br/>
+						<span><strong>Dirección de correo electrónico:</strong> <a href="mailto:hola@dosplayashotel.com">hola@dosplayashotel.com</a></span><br/>
 						<span>
 							<strong>Reservas: </strong>
-							Por telefono o enviando un email al hotel <a href="mailto:hola@dosplayashotel.com" rel="noopener noreferrer" target="_blank">hola@dosplayashotel.com</a> indicando
-							el tipo de habitacion y los dias de estancia. Para pagar los precios especiales listados abajo, indicad la reserva de David y Laura.
-						</span><br/>
+							Por teléfono o enviando un email al hotel directamente indicando el tipo de habitación y los días de estancia
+							. Al hacer la reserva, mencionar la clave “David y Laura”.<br/>
+							El precio de las habitaciones varía según el tipo de habitación:</span><br/>
 						<span>
 							<strong>Precio habitaciones: </strong>Segun tipo de habitacion.<br/>
 							<ul>
@@ -71,16 +72,19 @@ const Hoteles = () => {
 					<h2>Hotel Executive Sport</h2>
 					<h6 style={{fontSize: '16px'}}>Calle El Grandado, 1, 30850 Totana, Murcia, Spain</h6>
 					<div className="tamanoLetra">
-					<p>
-						Les recomendamos este hotel para la noche del Sabado 2 de Octubre, ya que ahi sera la celebracion de la boda. Es tambien una opcion para los dias previos en caso de que cuenten con su propio coche.
-					</p>
-					<p>
-						El hotel se encuentra junto a la Autovia A7 con facil acceso y a 30 minutos en coche de de la ermita donde se celebrara la ceremonia religiosa y de la ciudad de Murcia
-					</p>
-					<span><strong>Reservas: </strong>Contactar con los novios por Whatsapp</span><br/>
-					<span><strong>Precio habitacion: </strong>50-65 Eur/noche. Posibilidad de cama supletoria por 19,95 Eur extra</span><br/>
+						<p>
+							Les recomendamos este hotel para la noche del Sábado 2 de Octubre, ya que ahí será la celebración de la boda
+							. El hotel cuenta con fácil acceso junto a la Autovía A7 y a 30 minutos en coche de la Ermita donde se celebrará la ceremonia religiosa
+							. De igual forma, el hotel está ubicado a 30 minutos de la ciudad de Murcia.
+						</p>
+						<p>
+							El hotel cuenta con fácil acceso junto a la Autovía A7 y a 30 minutos en coche de la Ermita donde se celebrará la ceremonia religiosa
+							. De igual forma, el hotel está ubicado a 30 minutos de la ciudad de Murcia.
+						</p>
+						<span><strong>Teléfono: </strong>+34-968418209</span><br/>
+						<span><strong>Reservas: </strong>Favor de contactar con los novios por Whatsapp antes de hacer la reserva.</span><br/>
+						<span><strong>Precio habitacion doble: </strong>50-65 Eur/noche. Posibilidad de cama supletoria por 19,95 Eur extra</span><br/>
 					</div>
-
 					<hr/>
 					<ul className="actions stacked">
 						<li><a href="https://www.executive-sport.com/" rel="noopener noreferrer" target="_blank" className="button">Web del hotel</a></li>
@@ -98,11 +102,17 @@ const Hoteles = () => {
 					<h6 style={{fontSize: '16px'}}>Calle Balson de Guillén -Sa, 1, 30850 Totana, Murcia, Spain</h6>
 					<div className="tamanoLetra">
 						<p>
-							Les recomendamos este hotel para la noche del Sabado 2 de Octubre, ya que se encuentra a tan solo 300 metros caminando del lugar donde sera la celebracion de la boda.
-							Se trata de un sencillo hotel de 2 estrellas pero con habitaciones muy amplias y comodas y, sobre todo, muy limpias.
+							Les recomendamos este hotel para la noche del Sábado 2 de Octubre, ya que se encuentra a tan solo 300 metros caminando del lugar donde será la celebración de la boda.<br/>
+							De igual forma cuenta con fácil acceso junto a la Autovía A7 y a 30 minutos de la ciudad de Murcia.
 						</p>
-						<span><strong>Reservas: </strong>Contactar con los novios por Whatsapp</span><br/>
-						<span><strong>Precio habitacion: </strong>50-55 Eur/noche.</span><br/>
+						<span><strong>Reservas: </strong>Favor de contactar con los novios por Whatsapp antes de hacer la reserva</span><br/>
+						<span><strong>Precio habitacion doble: </strong>50-55 Eur/noche.</span><br/>
+						<span><strong>Condiciones de la reserva: </strong>Cancelaciones y cambios.<br/>
+							<ul>
+								<li  style={{textTransform:'none', color: 'black'}}>Hasta el 24 de Septiembre : 100% Reembolsable</li><br/>
+								<li  style={{textTransform:'none', color: 'black'}}>Desde el 24 de Septiembre: No Reembolsable</li><br/>
+							</ul>
+						</span>
 					</div>
 					<hr/>
 					<ul className="actions stacked">
@@ -120,16 +130,17 @@ const Hoteles = () => {
 					<h6 style={{fontSize: '16px'}}>Calle Apóstoles, 34, 30001 Murcia, Spain</h6>
 					<div className="tamanoLetra">
 						<p>
-							Hotel de 4 estrellas situado en pleno centro de Murcia a escasos 150 metros de la catedral y rodeado de gran variedad de opciones de restauracion y ocio.
-							Recomendamos este hotel para quienes tengan planeado explorar la region de Murcia los dias anteriores a la boda.
+							Hotel de 4 estrellas situado en el centro de Murcia a escasos 150 metros de la catedral y rodeado de una gran variedad de opciones de restaurantes y ocio.<br/>
+							Recomendamos este hotel para quienes tengan planeado explorar la región de Murcia los días anteriores a la boda.<br/>
 						</p>
 						<p>
-							El hotel se encuentra a 30 minutos en coche del hotel donde se celebrara el banquete de la boda y a 50 minutos en coche de
-							la ermita donde tendra lugar la ceremonia religiosa.
+							El hotel se encuentra a 30 minutos en coche del hotel donde se celebrará el banquete de la boda y
+							a 50 minutos en coche de la Ermita donde tendrá lugar la ceremonia religiosa.
 						</p>
-						<span><strong>Reservas: </strong>No tenemos acuerdos con este hotel. Reservar directamente con la web del hotel o
+						<span><strong>Reservas: </strong>Reservar directamente con la web del hotel o
 							en <a href="https://www.booking.com/" rel="noopener noreferrer" target="_blank">Booking.com</a></span><br/>
-						<span><strong>Precio habitacion: </strong>65 Eur/noche (precio orientativo, confirmar a la hora de reservar)</span><br/>
+						<span><strong>Precio habitacion doble: </strong>desde 60 Eur/noche</span><br/>
+						<span><strong>Condiciones de la reserva: </strong>Cancelaciones y cambios preguntar directamente en el hotel o booking.com<br/></span>
 					</div>
 					<hr/>
 					<ul className="actions stacked">
