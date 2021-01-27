@@ -88,7 +88,7 @@ const styles = (theme) => ({
   }
 });
 
-function AppFooter(props) {
+function PiePagina(props) {
   const { classes } = props;
 
   return (
@@ -100,9 +100,6 @@ function AppFooter(props) {
                 row
                 justify="center"
                 alignItems="center"
-                // direction="row"
-                // justify="center"
-                // alignItems="center"
           >
             <Grid item xs={12} sm={12} md={12} lg={12}
             >
@@ -150,8 +147,8 @@ function AppFooter(props) {
   );
 }
 
-AppFooter.propTypes = {
+PiePagina.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(AppFooter);
+export default withStyles(styles)(PiePagina);
