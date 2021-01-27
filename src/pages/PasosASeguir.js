@@ -10,7 +10,7 @@ import HotelIcon from '@material-ui/icons/Hotel';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import EventIcon from '@material-ui/icons/Event';
 
-import CurvyLines from '../themes/appCurvyLines.png'
+import CurvyLines from '../images/sugerencias/appCurvyLines.png'
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
