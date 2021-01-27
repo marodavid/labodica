@@ -5,6 +5,7 @@ import styled from "styled-components"
 import TimelineNuestraHistoria from "./TimelineNuestraHistoria";
 import losLoquitos from '../../images/nuestraHistoria/losLoquitos.jpg'
 import savethedate from '../../images/nuestraHistoria/SaveTheDate.png'
+import Carrusel from "../carrusel/Carrusel";
 // import SectionCarousel from "../../components/carrousel/SectionCarousel";
 
 
@@ -94,6 +95,14 @@ export default function NuestraHistoria () {
 				<Grid item xs={12} sm={12} md={12} lg={12} >
 					<TimelineNuestraHistoria />
 				</Grid>
+				<Grid item xs={1} sm={1} md={3} lg={3} />
+				<Grid item xs={10} sm={10} md={6} lg={6} >
+					{/*<div style={{ height: 'auto'}}>*/}
+					<Carrusel />
+					{/*<span>Mejores momentos</span>*/}
+					{/*</div>*/}
+				</Grid>
+				<Grid item xs={1} sm={1} md={3} lg={3} />
 			</Grid>
 		</div>
 	)
