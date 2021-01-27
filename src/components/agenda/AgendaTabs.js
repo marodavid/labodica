@@ -9,7 +9,7 @@ import Sugerencias from "../../pages/Sugerencias";
 import Hoteles from "../hoteles/Hoteles";
 import Comollegar from "../comollegar/Comollegar";
 import GeneralMenu from "../generalmenu/GeneralMenu";
-import AppFooter from "../footer/AppFooter";
+import AppFooter from "../footer/PiePagina";
 
 
 const styles = {
