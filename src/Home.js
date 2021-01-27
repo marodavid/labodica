@@ -8,7 +8,7 @@ import PasosASeguir from "./pages/PasosASeguir";
 import AnchorSpan from "./components/AnchorSpan";
 // import RSVP from './components/RSVP'
 import AgendaTabs from "./components/agenda/AgendaTabs";
-import AppFooter from "./components/footer/AppFooter";
+import AppFooter from "./components/footer/PiePagina";
 import NuestraHistoria from "./components/nuestrahistoria/NuestraHistoria";
 // import Carrusel from "./components/Carrusel";
 // import SectionCarousel from "./components/carrousel/SectionCarousel";
