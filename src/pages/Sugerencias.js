@@ -5,7 +5,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import styled from "styled-components"
-import CurvyLines from '../themes/appCurvyLines.png'
+import CurvyLines from '../images/sugerencias/appCurvyLines.png'
 
 // import salonBelleza from '../images/pendientes_de_usar/salonBelleza.jpg'
 import castillitos from '../images/sugerencias/castillitos2.jpg'
