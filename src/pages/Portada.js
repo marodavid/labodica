@@ -7,11 +7,11 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import PortadaLayout from './PortadaLayout';
-import losLoquitos from '../images/iglesia3.png'
-import laBodicaLogo from '../images/labodicaOriginal.webp'
+import losLoquitos from '../images/portada/iglesia3.png'
+import laBodicaLogo from '../images/portada/labodicaOriginal.webp'
 import Separator from "../components/Separator";
 import CountDown from "../components/CountDown";
-import AppAppBar from "../components/topMenu/TopMenu";
+import TopMenu from "../components/topMenu/TopMenu";
 
 
 const styles = (theme) => ({
@@ -73,7 +73,7 @@ function Portada(props) {
         src={losLoquitos}
         alt="increase priority"
       />
-      <AppAppBar />
+      <TopMenu />
       <animated.div style={delayTypo(1500)}>
       <Typography
         color="inherit"

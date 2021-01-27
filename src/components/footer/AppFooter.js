@@ -13,7 +13,7 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 // import FacebookIcon from '@material-ui/icons/Facebook';
 // import InstagramIcon from '@material-ui/icons/Instagram';
 
-import greenheart from '../../images/pendientes_de_usar/greenHeart.png'
+import greenheart from '../../images/piedepagina/greenHeart.png'
 // import {Tooltip} from "@material-ui/core";
 
 const styles = (theme) => ({
