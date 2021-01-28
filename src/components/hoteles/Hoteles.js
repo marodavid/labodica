@@ -1,4 +1,6 @@
 import React from 'react'
+// import styled from "styled-components";
+import { withStyles } from '@material-ui/core/styles';
 
 import  './css/fontawesome-all.min.css'
 import './css/main.css'
@@ -9,8 +11,33 @@ import hotelexecutive from '../../images/hoteles/hotel-executive-sport.jpg'
 import hotelolimpia from '../../images/hoteles/hotel-olimpia.jpg'
 import rincondepepe from '../../images/hoteles/rincon-de-pepe.jpeg'
 
+const styles = (theme) => ({
+	content: {
+		paddingLeft: theme.spacing(4),
+		fontSize: 'inherit',
+		[theme.breakpoints.between('xs', 'sm')]: {
+			paddingLeft: theme.spacing(0),
+		},
+	},
+	// separador: {
+	// 	border: '0',
+	// 	borderBottom: 'solid 1px',
+	// 	margin: '2.5rem 0',
+	// }
+})
 
-const Hoteles = () => {
+// const TituloHotel = styled.h2`
+// 	font-size: 2.25rem;
+// `
+
+// const separadorHR = styled.hr`
+// 	border: 0;
+// 	border-bottom: solid 1px;
+// 	margin: 2.5rem 0;
+// `
+
+const Hoteles = (props) => {
+	const { classes } = props;
 
 	return (
 		<div id="wrapper" className="divided" style={{textTransform:'none', color: 'black', overflowY: 'scroll', scrollbarWidth: 'thin'}}>
@@ -18,6 +45,8 @@ const Hoteles = () => {
 			<section className="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
 				<div className="content">
 					<h2>Hotel Dos Playas</h2>
+					{/*<TituloHotel>Hotel Dos Playas</TituloHotel>*/}
+					{/*<DireccionHotel style={{fontSize: '16px'}}>Av. D. José Alarcón Palacios, 79, 30860 Puerto de Mazarrón, Murcia, Spain</DireccionHotel>*/}
 					<h6 style={{fontSize: '16px'}}>Av. D. José Alarcón Palacios, 79, 30860 Puerto de Mazarrón, Murcia, Spain</h6>
 
 					<div className="tamanoLetra">
@@ -37,23 +66,24 @@ const Hoteles = () => {
 							El precio de las habitaciones varía según el tipo de habitación:</span><br/>
 						<span>
 							<strong>Precio habitaciones: </strong>Segun tipo de habitacion.<br/>
-							<ul>
-								<li  style={{textTransform:'none', color: 'black'}}>Habitacion doble: 100 Eur/noche</li><br/>
-								<li  style={{textTransform:'none', color: 'black'}}>Habitacion triple: 110 Eur/noche (para niño menor de 11 años)</li><br/>
-								<li  style={{textTransform:'none', color: 'black'}}>Habitacion triple: 120 Eur/noche (para adulto con sofa-cama de 1,35m de ancho)</li>
-							</ul>
+							<p className={classes.content}>
+								Habitacion doble: 100 Eur/noche<br/>
+								Habitacion triple: 110 Eur/noche (para niño menor de 11 años)<br/>
+								Habitacion triple: 120 Eur/noche (para adulto con sofa-cama de 1,35m de ancho)
+							</p>
 						</span>
 
 						<span>
 							<strong>Condiciones de la reserva: </strong>
 							Cancelaciones y cambios.<br/>
-							<ul>
-								<li  style={{textTransform:'none', color: 'black'}}>Hasta el 15 de Septiembre : 100% Reembolsable</li><br/>
-								<li  style={{textTransform:'none', color: 'black'}}>Desde el 15 al 30 de Septiembre: 50% Reembolsable</li><br/>
-							</ul>
+							<p className={classes.content}>
+								Hasta el 15 de Septiembre : 100% Reembolsable<br/>
+								Desde el 15 al 30 de Septiembre: 50% Reembolsable
+							</p>
 						</span>
 					</div>
 					<hr/>
+					{/*<hr className={classes.separador}/>*/}
 
 
 					<ul className="actions stacked">
@@ -108,10 +138,14 @@ const Hoteles = () => {
 						<span><strong>Reservas: </strong>Favor de contactar con los novios por Whatsapp antes de hacer la reserva</span><br/>
 						<span><strong>Precio habitacion doble: </strong>50-55 Eur/noche.</span><br/>
 						<span><strong>Condiciones de la reserva: </strong>Cancelaciones y cambios.<br/>
-							<ul>
-								<li  style={{textTransform:'none', color: 'black'}}>Hasta el 24 de Septiembre : 100% Reembolsable</li><br/>
-								<li  style={{textTransform:'none', color: 'black'}}>Desde el 24 de Septiembre: No Reembolsable</li><br/>
-							</ul>
+							{/*<ul>*/}
+							{/*	<li  style={{textTransform:'none', color: 'black'}}>Hasta el 24 de Septiembre : 100% Reembolsable</li><br/>*/}
+							{/*	<li  style={{textTransform:'none', color: 'black'}}>Desde el 24 de Septiembre: No Reembolsable</li><br/>*/}
+							{/*</ul>*/}
+							<p className={classes.content}>
+								Hasta el 24 de Septiembre : 100% Reembolsable<br/>
+								Desde el 24 de Septiembre: No Reembolsable
+							</p>
 						</span>
 					</div>
 					<hr/>
@@ -155,4 +189,4 @@ const Hoteles = () => {
 	)
 }
 
-export default Hoteles
+export default withStyles(styles)(Hoteles)
