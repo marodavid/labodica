@@ -3,14 +3,14 @@ import Carousel from 'react-material-ui-carousel'
 
 import { Box } from '@material-ui/core'
 
-import foto0 from '../../images/carruselReact/foto0-Arturo.jpeg'
-import foto1 from '../../images/carruselReact/foto01-parque.jpeg'
-import foto2 from '../../images/carruselReact/foto02-budapest.jpeg'
-import foto3 from '../../images/carruselReact/foto03-lipe.jpeg'
-import foto4 from '../../images/carruselReact/foto04-buceo.jpeg'
-import foto5 from '../../images/carruselReact/foto05-langkawi.jpeg'
-import foto6 from '../../images/carruselReact/foto06-tirana.jpeg'
-import foto7 from '../../images/carruselReact/foto07-praga.jpeg'
+import foto0 from '../../images/carruselReactSmall/foto0-Arturo.jpeg'
+import foto1 from '../../images/carruselReactSmall/foto01-parque.jpeg'
+import foto2 from '../../images/carruselReactSmall/foto02-budapest.jpeg'
+import foto3 from '../../images/carruselReactSmall/foto03-lipe.jpeg'
+import foto4 from '../../images/carruselReactSmall/foto04-buceo.jpeg'
+import foto5 from '../../images/carruselReactSmall/foto05-langkawi.jpeg'
+import foto6 from '../../images/carruselReactSmall/foto06-tirana.jpeg'
+import foto7 from '../../images/carruselReactSmall/foto07-praga.jpeg'
 
 
 export default function Carrusel()
@@ -24,6 +24,7 @@ export default function Carrusel()
 			swipe={true}
 			fullHeightHover={false}
 			timeout={700}
+			navButtonsAlwaysVisible={true}
 		>
 			{
 				items.map( (item, i) => <Item key={i} item={item} /> )
