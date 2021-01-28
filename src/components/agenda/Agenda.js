@@ -1,5 +1,4 @@
 import React from 'react';
-// import { HashLink} from "react-router-hash-link";
 import { useHistory } from 'react-router-dom';
 
 import cx from 'clsx';
@@ -13,10 +12,9 @@ import {
 	Card,
 	CardContent,
 	CardMedia,
-	Grid,
-	Link
+	Grid
 } from '@material-ui/core';
-import {Typography} from "@material-ui/core";
+import {Typography, Button} from "@material-ui/core";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutlineSharp';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 
@@ -33,7 +31,6 @@ import hotelArbol from '../../images/agenda/hotelArbol.jpg'
 
 const useStyles = makeStyles(() => ({
 	root: {
-		// maxWidth: 304,
 		margin: 'auto',
 	},
 	gridRoot: {
@@ -47,15 +44,12 @@ const useStyles = makeStyles(() => ({
 	},
 	accordion: {
 		padding: 0,
-		// backgroundColor: 'orange',
 	},
 	tabs: {
 		flexGrow: 1,
-		// backgroundColor: 'green',
 		color: 'white',
 	},
 }));
-
 
 
 export const Agenda = React.memo(function SingleCard() {
@@ -176,30 +170,16 @@ export const Agenda = React.memo(function SingleCard() {
 							<CardContent>
 								<div style={{alignContent: "center"}}>
 									<Box px={3} pb={3} alignContent="center">
-									<Link
-										component="button"
-										onClick={() => {
-											history.push('/informacion#turismo')
-											window.location.reload();
-										}}
-										style={{align: "center"}}
-									>
-										Ver posibles actividades
-									</Link>
-							{/*<Typography variant="caption"><strong>Lugar: </strong>Hotel Dos Playas, Puerto de Mazarron</Typography>*/}
-							{/*</CardContent>*/}
-							{/*<CardContent>*/}
-							{/*	<Box px={3} pb={3}>*/}
-							{/*		<iframe*/}
-							{/*			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.7843125580375!2d-1.2754462844078451!3d37.5601451322513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd64a146f44f71d7%3A0xf551555b0fb2c739!2sHotel%20Dos%20Playas%20Mazarr%C3%B3n!5e0!3m2!1sen!2sde!4v1611467048476!5m2!1sen!2sde"*/}
-							{/*			style={{width:"800", height:"650", frameBorder:"0", style:"border:0;", allowFullScreen:"", ariaHidden:"true"}}*/}
-							{/*			tabIndex="0"*/}
-							{/*			title="dialibre-map"*/}
-							{/*		/>*/}
-
+										<Button
+											onClick={() => {
+												history.push('/informacion#turismo')
+												window.location.reload();
+											}}
+										>
+											Ver posibles actividades
+										</Button>
 								</Box>
 							</div>
-
 							</CardContent>
 						</Card>
 					</AccordionDetails>
