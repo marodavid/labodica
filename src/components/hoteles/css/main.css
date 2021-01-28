@@ -2113,22 +2113,16 @@ input, select, textarea {
 		white-space: nowrap;
 		font-size: 0.75rem;
 		max-width: 20rem;
-		/*height: 3.75em;*/
-		/*line-height: 3.75em;*/
-		/*border-radius: 3.75em;*/
-		/*padding: 0 2.5em;*/
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button:not(.Carousel-button-34),
-	.button {
 		height: 3.75em;
 		line-height: 3.75em;
 		border-radius: 3.75em;
 		padding: 0 2.5em;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	.Carousel-button-34 {
+		height: 45%;
 	}
 
 		input[type="submit"].icon:before,
