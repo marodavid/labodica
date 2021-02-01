@@ -14,7 +14,6 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 // import InstagramIcon from '@material-ui/icons/Instagram';
 
 import greenheart from '../../images/piedepagina/greenHeart.png'
-// import {Tooltip} from "@material-ui/core";
 
 const styles = (theme) => ({
   root: {
@@ -25,7 +24,6 @@ const styles = (theme) => ({
         color: 'red',
       }
     },
-    // height: '150px',
   },
  footer: {
     padding: theme.spacing(3, 0),
@@ -39,10 +37,7 @@ const styles = (theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    // marginBottom: theme.spacing(4),
     '& img': {
-      // width: 28,
-      // height: 22,
       width: 40,
       height: 31,
       marginRight: theme.spacing(1.5),
@@ -51,9 +46,12 @@ const styles = (theme) => ({
 
     fontFamily: 'Dancing Script',
     fontSize: 70,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 50,
+    },
+
   },
   list: {
-    // marginBottom: theme.spacing(4),
     '& h3': {
       fontWeight: theme.typography.fontWeightMedium,
     },
@@ -65,21 +63,23 @@ const styles = (theme) => ({
     '& li': {
       padding: '6px 0',
       color: theme.palette.text.secondary,
-      // color: 'white',
       textTransform: 'none',
-      // fontSize: '16px',
       fontWeight: theme.typography.fontWeightRegular,
     },
   },
   listElement: {
     textTransform: 'none',
-    // fontSize: '20px',
   },
   facebook: {
     padding: '6px 0',
   },
   version: {
-    // marginTop: theme.spacing(3),
+    paddingRight: '2rem',
+    paddingBottom: '1rem',
+    paddingTop: '0rem',
+    [theme.breakpoints.down('md')]: {
+      paddingTop: '1rem',
+    }
   },
   gridCenter: {
     justifyContent: 'center',
@@ -93,16 +93,12 @@ function PiePagina(props) {
 
   return (
     <div className={classes.root}>
-      {/*<Divider />*/}
-      {/*<Container maxWidth="md" className={classes.footer}>*/}
-      {/*  <footer >*/}
           <Grid container
                 row
                 justify="center"
                 alignItems="center"
           >
-            <Grid item xs={12} sm={12} md={12} lg={12}
-            >
+            <Grid item xs={12} sm={12} md={12} lg={12}>
               <Typography
                 component="h2"
                 gutterBottom
@@ -113,7 +109,7 @@ function PiePagina(props) {
                 <img src={greenheart} alt=""/>
                </Typography>
             </Grid>
-            <Grid item xs={6} sm={3} className={classes.list}>
+            <Grid item xs={8} sm={3} className={classes.list}>
               <Typography component="h2" gutterBottom>
                 {'Contacta con nosotros'}
               </Typography>
@@ -132,17 +128,16 @@ function PiePagina(props) {
                   </Link>
                 </li>
               </ul>
-
              </Grid>
           </Grid>
-
-          <Typography className={classes.version} color="textSecondary" variant="body2">
-            {' Copyright © '}
-            {new Date().getFullYear()}
-            {' La Bodica. '}
-          </Typography>
-        {/*</footer>*/}
-      {/*</Container>*/}
+          <div align="right" className={classes.version}>
+            <Typography  color="textSecondary" variant="body2">
+              {' Copyright © '}<b>
+              {new Date().getFullYear()}
+              {' La Bodica. '}
+              </b>
+            </Typography>
+          </div>
     </div>
   );
 }

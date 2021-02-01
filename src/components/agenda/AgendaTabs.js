@@ -9,7 +9,7 @@ import Sugerencias from "../../pages/Sugerencias";
 import Hoteles from "../hoteles/Hoteles";
 import Comollegar from "../comollegar/Comollegar";
 import GeneralMenu from "../generalmenu/GeneralMenu";
-import AppFooter from "../footer/PiePagina";
+import PiePagina from "../footer/PiePagina";
 
 
 const styles = {
@@ -126,11 +126,11 @@ export default class AgendaTabs extends React.Component {
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide2)}>
 						<Comollegar/>
-						<AppFooter/>
+						<PiePagina/>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide3)}>
 						<Hoteles/>
-						<AppFooter/>
+						<PiePagina/>
 						{/*<h1>Proximamente</h1>*/}
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide4)}>
@@ -139,7 +139,7 @@ export default class AgendaTabs extends React.Component {
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide5)}>
 						<Sugerencias />
-						<AppFooter/>
+						<PiePagina/>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide5)}>
 						<div align="center">
