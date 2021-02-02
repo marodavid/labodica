@@ -102,7 +102,6 @@ function ProductCategories(props) {
 	const images = [
 		{
 			url: `${cartagena}`,
-			// 'https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400&q=80',
 			title: 'Cartagena',
 			width: '38%',
 			href: 'https://turismo.cartagena.es/'
@@ -112,7 +111,7 @@ function ProductCategories(props) {
 			// 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400&q=80',
 			title: 'Castillitos',
 			width: '24%',
-			href: '#'
+			href: 'https://es.wikipedia.org/wiki/Bater%C3%ADa_de_Castillitos'
 		},
 		{
 			url: `${murcia}`,
@@ -122,20 +121,18 @@ function ProductCategories(props) {
 		},
 		{
 			url: `${restaurantes}`,
-				// 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400&q=80',
 			title: 'Restaurantes',
 			width: '40%',
-			href: '#'
+			href: ''
 		},
 		{
 			url: `${bares}`,
 			title: 'Bares',
 			width: '20%',
-			href: '#'
+			href: ''
 		},
 		{
 			url: `${licor43}`,
-			// 'https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400&q=80',
 			title: 'Fabrica Licor 43',
 			width: '40%',
 			href: 'https://booking.zamoracompany.com/experiencia43/reservar-visita/visita-premium#'
@@ -144,14 +141,13 @@ function ProductCategories(props) {
 			url: `${laAzohia}`,
 			title: 'Playas',
 			width: '40%',
-			href: '#'
+			href: '',
 		},
 		{
 			url: `${kayaks}`,
-			// 'https://images.unsplash.com/photo-1533727937480-da3a97967e95?auto=format&fit=crop&w=400&q=80',
 			title: 'Kayaks',
 			width: '20%',
-			href: '#'
+			href: 'https://www.azohiakayak.com/excursiones'
 		},
 		{
 			url: `${paseosBarco}`,
@@ -194,6 +190,8 @@ function ProductCategories(props) {
 						}}
 						href={image.href}
 						target='_blank'
+						rel="noopener noreferrer"
+						onClick = { () => image.href==='' ? alert('Proximamente. Un poco de paciencia, gracias.') : null}
 					>
 						<div
 							className={classes.imageSrc}
