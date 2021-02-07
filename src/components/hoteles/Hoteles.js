@@ -9,7 +9,7 @@ import './css/noscript.css'
 import hoteldosplayas from '../../images/hoteles/hotel-dos-playas.jpg'
 // import hotelexecutive from '../../images/hoteles/hotel-executive-sport.jpg'
 // import hotelolimpia from '../../images/hoteles/hotel-olimpia.jpg'
-// import rincondepepe from '../../images/hoteles/rincon-de-pepe.jpeg'
+import rincondepepe from '../../images/hoteles/rincon-de-pepe.jpeg'
 
 const styles = (theme) => ({
 	content: {
@@ -41,9 +41,9 @@ const Hoteles = (props) => {
 
 	return (
 		<div id="wrapper" className="divided" style={{textTransform:'none', color: 'black', overflowY: 'scroll', scrollbarWidth: 'thin'}}>
-			<div className="tamanoLetra">
+			<div align="center" className="tamanoLetra">
 				<p style={{paddingTop: '10px'}}> La zona es en su mayoria residencial, por lo que el número de oferta de hospedaje es limitado. <br/>
-				Si nos quieren acompañar desde el jueves, tenemos acuerdo con el hotel que se detalla abajo. <br/>
+				Si nos quieren acompañar desde el jueves, tenemos acuerdo con el Hotel Dos Playas que se detalla abajo. <br/>
 				En caso de que nos vayan a acompañar solo el dia de la boda, contactar con nosotros para las posibilidades de alojamiento.</p>
 			</div>
 			{/*<hr/>*/}
@@ -154,33 +154,33 @@ const Hoteles = (props) => {
 			{/*	</div>*/}
 			{/*</section>*/}
 
-			{/*<section className="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">*/}
-			{/*	<div className="content">*/}
-			{/*		<h2>Hotel Melia Tryp Rincon de Pepe</h2>*/}
-			{/*		<h6 style={{fontSize: '16px'}}>Calle Apóstoles, 34, 30001 Murcia, Spain</h6>*/}
-			{/*		<div className="tamanoLetra">*/}
-			{/*			<p>*/}
-			{/*				Hotel de 4 estrellas situado en el centro de Murcia a escasos 150 metros de la catedral y rodeado de una gran variedad de opciones de restaurantes y ocio.<br/>*/}
-			{/*				Recomendamos este hotel para quienes tengan planeado explorar la región de Murcia los días anteriores a la boda.<br/>*/}
-			{/*			</p>*/}
-			{/*			<p>*/}
-			{/*				El hotel se encuentra a 30 minutos en coche del hotel donde se celebrará el banquete de la boda y*/}
-			{/*				a 50 minutos en coche de la Ermita donde tendrá lugar la ceremonia religiosa.*/}
-			{/*			</p>*/}
-			{/*			<p>*/}
-			{/*				<strong>Reservas: </strong>Reservar directamente con la web del hotel o*/}
-			{/*				en <a href="https://www.booking.com/" rel="noopener noreferrer" target="_blank">Booking.com</a><br/>*/}
-			{/*			<span><strong>Precio habitacion doble: </strong>desde 60 Eur/noche</span><br/>*/}
-			{/*			<span><strong>Condiciones de la reserva: </strong>Cancelaciones y cambios preguntar directamente en el hotel o booking.com<br/></span>*/}
-			{/*			</p>*/}
-			{/*		</div>*/}
-			{/*		<hr/>*/}
-			{/*		<a href="https://www.melia.com/es/hoteles/espana/murcia/tryp-murcia-rincon-de-pepe/index.htm" rel="noopener noreferrer" target="_blank" className="button">Web del hotel</a>*/}
-			{/*	</div>*/}
-			{/*	<div className="image">*/}
-			{/*		<img src={rincondepepe} alt=""/>*/}
-			{/*	</div>*/}
-			{/*</section>*/}
+			<section className="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+				<div className="content">
+					<h2>Hotel Melia Tryp Rincon de Pepe</h2>
+					<h6 style={{fontSize: '16px'}}>Calle Apóstoles, 34, 30001 Murcia, Spain</h6>
+					<div className="tamanoLetra">
+						<p>
+							Hotel de 4 estrellas situado en el centro de Murcia a escasos 150 metros de la catedral y rodeado de una gran variedad de opciones de restaurantes y ocio.<br/>
+							Recomendamos este hotel para quienes tengan planeado explorar la región de Murcia los días anteriores a la boda.<br/>
+						</p>
+						<p>
+							El hotel se encuentra a 30 minutos en coche del hotel donde se celebrará el banquete de la boda y
+							a 50 minutos en coche de la Ermita donde tendrá lugar la ceremonia religiosa.
+						</p>
+						<p>
+							<strong>Reservas: </strong>Reservar directamente con la web del hotel o
+							en <a href="https://www.booking.com/" rel="noopener noreferrer" target="_blank">Booking.com</a><br/>
+						<span><strong>Precio habitacion doble: </strong>desde 60 Eur/noche</span><br/>
+						<span><strong>Condiciones de la reserva: </strong>Cancelaciones y cambios preguntar directamente en el hotel o booking.com<br/></span>
+						</p>
+					</div>
+					<hr/>
+					<a href="https://www.melia.com/es/hoteles/espana/murcia/tryp-murcia-rincon-de-pepe/index.htm" rel="noopener noreferrer" target="_blank" className="button">Web del hotel</a>
+				</div>
+				<div className="image">
+					<img src={rincondepepe} alt=""/>
+				</div>
+			</section>
 		</div>
 	)
 }
