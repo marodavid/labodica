@@ -183,12 +183,10 @@ const Comollegar = (props) => {
 					</p>
 				</p>
 				<p className={classes.content}>
-					Además de las habituales grandes compañías como Europcar o Sixt, son muy populares entre los turistas europeos las compañias Goldcar y Firefly.<br/>
-					También son muy populares buscadores web como <a href="https://www.kayak.es/cars" target="_blank" rel="noopener noreferrer">
-						kayak.es
-					</a> o recientemente <a href="https://www.booking.com/cars/index.es.html" target="_blank" rel="noopener noreferrer">
-						booking.com
-					</a> para comparar precios entre las distintas empresas de alquiler de coches.
+					Además de las habituales grandes compañías como <a href="https://www.europcar.es" target="_blank" rel="noopener noreferrer">Europcar</a> o <a href="https://www.sixt.es" target="_blank" rel="noopener noreferrer">Sixt</a>,
+					también son muy populares buscadores web como <a href="https://www.kayak.es/cars" target="_blank" rel="noopener noreferrer">Kayak.es</a> o
+					recientemente <a href="https://www.booking.com/cars/index.es.html" target="_blank" rel="noopener noreferrer">Booking.com</a> para
+					comparar precios entre las distintas empresas de alquiler de coches y hacer reservas.
 				</p>
 				<hr/>
 			</Grid>
