@@ -19,6 +19,8 @@ const styles = {
 	tabLabel: {
 		textTransform: 'none',
 		height: 'auto',
+		boxShadow: 'inset 0 0 0 1px rgb(0 0 0 / 20%)',
+		letterSpacing: '0.125em',
 	},
 	slide: {
 		padding: 15,
@@ -135,7 +137,7 @@ export default class AgendaTabs extends React.Component {
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide4)}>
 						{/*<SimpleAccordion />*/}
-						<h3>Proximamente: salones de belleza, clima y temperaturas estimadas e información adicional.</h3>
+						<h3 style={{color: 'black'}}>Proximamente: salones de belleza, clima y temperaturas estimadas e información adicional.</h3>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide5)}>
 						<Sugerencias />
