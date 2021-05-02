@@ -6,10 +6,11 @@ import { withStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import AppBar from './TopAppBar';
 import Toolbar, { styles as toolbarStyles } from './TopToolbar';
-import {Slide} from "@material-ui/core";
+import {Slide, SvgIcon, Tooltip} from "@material-ui/core";
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-// import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import {ReactComponent as sos} from '../../images/piedepagina/sosIcon.svg'
 // import InstagramIcon from '@material-ui/icons/Instagram';
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -45,11 +46,15 @@ const styles = (theme) => ({
   rightLink: {
     // fontSize: 16,
     color: theme.palette.common.white,
-    marginLeft: theme.spacing(3),
+    marginLeft: theme.spacing(2),
     // underline: false,
   },
   linkSecondary: {
     color: theme.palette.secondary.main,
+  },
+  whatsappLink: {
+    color: 'green',
+    marginLeft: theme.spacing(1),
   },
 });
 
@@ -63,12 +68,20 @@ function TopMenu(props) {
 
   //Dialog
   const [openDialog, setOpenDialog] = React.useState(false);
+  const [openSos, setOpenSos] = React.useState(false)
 
   const handleClickOpenDialog = () => {
     setOpenDialog(true);
   };
   const handleCloseDialog = () => {
     setOpenDialog(false);
+  };
+
+  const handleClickOpenSos = () => {
+    setOpenSos(true);
+  };
+  const handleCloseSos = () => {
+    setOpenSos(false);
   };
 
   const trigger = useScrollTrigger({ target: window ? window() : undefined });
@@ -112,13 +125,26 @@ function TopMenu(props) {
             <Link
               variant="h6"
               underline="none"
+              className={clsx(classes.derechaLink)}
+              // href="https://wa.me/34665898440"
+              rel="noopener noreferrer"
+              target="_blank"
+              onClick = { () => handleClickOpenSos() }
+            >
+              <Tooltip title={'Preguntas y Emergencias'}>
+                <SvgIcon fontSize={'large'} color={"secondary"} component={sos} viewBox="0 0 600 476.6" alt={'Emergencia'}/>
+              </Tooltip>
+            </Link>
+            <Link
+              variant="h6"
+              underline="none"
               className={clsx(classes.rightLink)}
               // , classes.linkSecondary)}
               href="https://www.facebook.com/events/3730092333719587/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <FacebookIcon/>
+              <FacebookIcon fontSize={'large'}/>
             </Link>
             <Link
               variant="h6"
@@ -128,7 +154,7 @@ function TopMenu(props) {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <IconFlagUK />
+              <IconFlagUK fontSize={'large'}/>
             </Link>
           </div>
         </Toolbar>
@@ -152,6 +178,38 @@ function TopMenu(props) {
           </DialogContent>
           <DialogActions>
             <Button onClick={handleCloseDialog} color="transparent">
+              Ok
+            </Button>
+          </DialogActions>
+        </Dialog>
+        <Dialog
+          open={openSos}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={handleCloseSos}
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle id="alert-dialog-slide-title">{"Preguntas y Emergencias"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              Si tienes cualquier pregunta sobre la boda: ceremonia, protocolo, código de vestimenta, horarios, alojamiento, peluquerías, ¡lo que sea!.<br/> 
+              No dudes en contactar con nuestra Wedding planner. Ella te ayudará y te resolverá todas las preguntas y/o emergencias que puedas tener.<br/>
+              <b>Arancha Núñez</b>
+              <Link
+                variant="h6"
+                underline="none"
+                className={clsx(classes.whatsappLink)}
+                href="https://wa.me/34665898440"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <WhatsAppIcon/><br/>+34 665 89 84 40
+              </Link>
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseSos} color="transparent">
               Ok
             </Button>
           </DialogActions>
