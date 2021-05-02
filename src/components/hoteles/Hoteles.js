@@ -61,7 +61,7 @@ const Hoteles = (props) => {
 							Además, el hotel se encuentra a minutos de distancia en coche de todos los lugares de la boda
 							 a 15 minutos del lugar donde será la preboda el jueves 30, a 10 minutos de la Iglesia, y a 35 minutos del hotel de la celebración de la boda.
 							<br/><br/>
-							El dia de la boda estaremos ofreciendo transporte desde el hotel a la iglesia, y posteriormente a la celebracion, asi como transporte de vuelta al hotel.
+							El dia de la boda estaremos ofreciendo transporte desde el hotel a la iglesia, y posteriormente a la celebración, asi como transporte de vuelta al hotel.
 						</p>
 						<span><strong>Telefono: </strong>+34-968594101</span><br/>
 						<span><strong>Dirección de correo electrónico:</strong> <a href="mailto:hola@dosplayashotel.com">hola@dosplayashotel.com</a></span><br/>
@@ -156,7 +156,7 @@ const Hoteles = (props) => {
 
 			<section className="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 				<div className="content">
-					<h2>Hotel Melia Tryp Rincon de Pepe</h2>
+					<h2>Hotel Melia Tryp Rincón de Pepe</h2>
 					<h6 style={{fontSize: '16px'}}>Calle Apóstoles, 34, 30001 Murcia, Spain</h6>
 					<div className="tamanoLetra">
 						<p>

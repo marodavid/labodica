@@ -116,9 +116,9 @@ export default class AgendaTabs extends React.Component {
 					onChange={this.handleChange}
 					style={styles.tabs}>
 					<Tab label="Agenda" style={styles.tabLabel}/>
-					<Tab label="Como llegar" style={styles.tabLabel}/>
+					<Tab label="Cómo llegar" style={styles.tabLabel}/>
 					<Tab label="Hoteles" style={styles.tabLabel}/>
-					<Tab label="Informacion" style={styles.tabLabel}/>
+					<Tab label="Información" style={styles.tabLabel}/>
 					<Tab label="Turismo" style={styles.tabLabel}/>
 					<Tab label="Mapa" style={styles.tabLabel}/>
 				</Tabs>

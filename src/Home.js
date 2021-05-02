@@ -15,12 +15,13 @@ import RSVP from './components/RSVP'
 
 function Index() {
 
-  // const TRACKING_ID = "G-B7MB23JQ7Z"; // YOUR_OWN_TRACKING_ID
-  const TRACKING_ID = "UA-182646379-1"; // YOUR_OWN_TRACKING_ID
-  ReactGA.initialize(TRACKING_ID);
-  
+  const host = window.location.hostname;
+  if(host !== "localhost") {
+    const TRACKING_ID = "UA-182646379-1"; // YOUR_OWN_TRACKING_ID
+    ReactGA.initialize(TRACKING_ID);
+  }  
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    if(host !== "localhost") ReactGA.pageview(window.location.pathname + window.location.search  + window.location.hash);
   });
   return (
     <Router>

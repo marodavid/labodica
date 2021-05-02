@@ -142,7 +142,7 @@ export const Agenda = React.memo(function SingleCard() {
 						<Card className={cx(cardStyles.root, fadeShadowStyles.root)}>
 
 									<CardContent>
-									<Typography variant="h5"><strong>Dia libre</strong></Typography>
+									<Typography variant="h5"><strong>Día libre</strong></Typography>
 									<Typography variant="caption"><strong>Viernes 1 Octubre</strong></Typography>
 								</CardContent>
 								<CardMedia
@@ -153,7 +153,7 @@ export const Agenda = React.memo(function SingleCard() {
 									<TextInfoContent
 										classes={textCardContentStyles}
 										body={
-											'Relájate, disfruta de las playas, visita Cartagena o Murcia. ¡Tu decides!. Tenemos ' +
+											'Relájate, disfruta de las playas, visita Cartagena o Murcia. ¡Tú decides!. Tenemos ' +
 											'sugerencias para que explores la zona. Haz click para saber más'
 										}
 									/>
@@ -247,8 +247,8 @@ export const Agenda = React.memo(function SingleCard() {
 					>
 						<Card className={cx(cardStyles.root, fadeShadowStyles.root)}>
 								<CardContent>
-									<Typography variant="h5"><strong>Fiesta celebracion</strong></Typography>
-									<Typography variant="caption"><strong>Sabado 2 Octubre 20h</strong></Typography>
+									<Typography variant="h5"><strong>Fiesta celebración</strong></Typography>
+									<Typography variant="caption"><strong>Sábado 2 Octubre 20h</strong></Typography>
 								</CardContent>
 								<CardMedia
 									classes={wideCardMediaStyles}
