@@ -149,24 +149,27 @@ function GeneralMenu(props) {
                   variant="h6"
                   underline="none"
                   className={clsx(classes.derechaLink)}
-                  href="https://www.facebook.com/events/3730092333719587/"
+                  // href="https://www.facebook.com/events/3730092333719587/"
                   rel="noopener noreferrer"
                   target="_blank"
+                  onClick = { () => alert('Próximamente')}
                 >
                   <Tooltip title={'Evento Facebook'}>
                     <FacebookIcon fontSize={'large'}/>
                   </Tooltip>
                 </Link>
-                <Link
-                  variant="h6"
-                  underline="none"
-                  className={clsx(classes.derechaLink)}
-                  href="https://translate.google.com/translate?sl=es&tl=en&u=https://labodica.es/informacion%23agenda"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <IconFlagUK fontSize={'large'}/>
-                </Link>
+                <Tooltip title={'Translate'}>
+                  <Link
+                    variant="h6"
+                    underline="none"
+                    className={clsx(classes.derechaLink)}
+                    href="https://translate.google.com/translate?sl=es&tl=en&u=https://labodica.es/informacion%23agenda"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <IconFlagUK fontSize={'large'}/>
+                  </Link>
+                </Tooltip>
               </div>
             </Grid>
           </Grid>

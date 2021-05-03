@@ -140,22 +140,27 @@ function TopMenu(props) {
               underline="none"
               className={clsx(classes.rightLink)}
               // , classes.linkSecondary)}
-              href="https://www.facebook.com/events/3730092333719587/"
+              // href="https://www.facebook.com/events/3730092333719587/"
               rel="noopener noreferrer"
               target="_blank"
+              onClick = { () => alert('Próximamente')}
             >
-              <FacebookIcon fontSize={'large'}/>
+              <Tooltip title={'Evento Facebook'}>
+                <FacebookIcon fontSize={'large'}/>
+              </Tooltip>
             </Link>
-            <Link
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink)}
-              href="https://translate.google.com/translate?sl=es&tl=en&u=https://labodica.es/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <IconFlagUK fontSize={'large'}/>
-            </Link>
+            <Tooltip title={'Translate'}>
+              <Link
+                variant="h6"
+                underline="none"
+                className={clsx(classes.rightLink)}
+                href="https://translate.google.com/translate?sl=es&tl=en&u=https://labodica.es/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <IconFlagUK fontSize={'large'}/>
+              </Link>
+            </Tooltip>
           </div>
         </Toolbar>
       </AppBar>
