@@ -122,7 +122,7 @@ export const Agenda = React.memo(function SingleCard() {
 								<Box px={3} pb={3}>
 									<iframe
 										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.948499448361!2d-1.1708922844079164!3d37.556277132472864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd635ed0d241c069%3A0x1377573f8c96b01b!2sRockola%20Summer%20Club%20La%20Azoh%C3%ADa!5e0!3m2!1sen!2sde!4v1610791343439!5m2!1sen!2sde"
-										style={{width:"800", height:"650", frameBorder:"0", style:"border:0;", allowFullScreen:"", ariaHidden:"true"}}
+										style={{width:"800", height:"650", frameBorder:"0", allowFullScreen:"", ariaHidden:"true"}}
 										tabIndex="0"
 										title="preboda-map"
 									/>
@@ -228,7 +228,7 @@ export const Agenda = React.memo(function SingleCard() {
 								<Box px={3} pb={3}>
 									<iframe
 										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.220655257853!2d-1.21133358439948!3d37.57342147979659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd635f617ab04b05%3A0xbcab64f7fec6ffe1!2sHermitage%20of%20Nuestra%20Se%C3%B1ora%20del%20Carmen!5e0!3m2!1sen!2sde!4v1610810517999!5m2!1sen!2sde"
-										style={{width:"800", height:"650", frameBorder:"0", style:"border:0;", allowFullScreen:"", ariaHidden:"true"}}
+										style={{width:"800", height:"650", frameBorder:"0",allowFullScreen:"", ariaHidden:"true"}}
 										tabIndex="0"
 										title="boda-map"
 									/>
@@ -285,7 +285,7 @@ export const Agenda = React.memo(function SingleCard() {
 								<Box px={3} pb={3}>
 									<iframe
 										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.6442828677423!2d-1.455882184394478!3d37.77493817975947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd64923cc8b6ccef%3A0xb04daeea46e9a7c2!2sHotel%20Executive%20Sport%20Totana!5e0!3m2!1sen!2sde!4v1610810173605!5m2!1sen!2sde"
-										style={{width:"800", height:"650", frameBorder:"0", style:"border:0;", allowFullScreen:"", ariaHidden:"true"}}
+										style={{width:"800", height:"650", frameBorder:"0", allowFullScreen:"", ariaHidden:"true"}}
 										tabIndex="0"
 										title="fiesta-map"
 									/>

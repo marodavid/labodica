@@ -127,6 +127,12 @@ function PiePagina(props) {
                   {' David: +49-17698623567'}
                   </Link>
                 </li>
+                <li  className={classes.listElement} >
+                  <Link color="inherit" variant="body2" href="https://wa.me/34665898440">
+                  <WhatsAppIcon fontSize="inherit"/>
+                  {' Wedding planner (Arancha Núñez): +34-665898440'}
+                  </Link>
+                </li>
               </ul>
              </Grid>
           </Grid>

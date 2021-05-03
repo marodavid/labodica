@@ -153,7 +153,7 @@ export default class AgendaTabs extends React.Component {
 									width:"900px",
 									height:"675px",
 									// width"600" height="450"
-									frameBorder:"0", style:"border:0", allowFullScreen:"", ariaHidden:"true"}}
+									frameBorder:"0", allowFullScreen:"", ariaHidden:"true"}}
 								tabIndex="0"
 								title="La-Bodica"
 							/>

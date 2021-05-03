@@ -113,7 +113,22 @@ function GeneralMenu(props) {
                 className={clsx(classes.izquierdaLink)}
                 href="/"
               >
-                <HomeOutlinedIcon fontSize={'large'}/>
+                <Tooltip title={'Inicio'}>
+                  <HomeOutlinedIcon fontSize={'large'}/>
+                </Tooltip>
+              </Link>
+              <Link
+                variant="h6"
+                underline="none"
+                className={clsx(classes.derechaLink)}
+                // href="https://wa.me/34665898440"
+                rel="noopener noreferrer"
+                target="_blank"
+                onClick = { () => handleClickOpenSos() }
+              >
+                <Tooltip title={'Preguntas y Emergencias'}>
+                  <SvgIcon fontSize={'large'} color={"secondary"} component={sos} viewBox="0 0 600 476.6" alt={'Emergencia'}/>
+                </Tooltip>
               </Link>
             </div>
             </Grid>
@@ -134,24 +149,13 @@ function GeneralMenu(props) {
                   variant="h6"
                   underline="none"
                   className={clsx(classes.derechaLink)}
-                  // href="https://wa.me/34665898440"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  onClick = { () => handleClickOpenSos() }
-                >
-                  <Tooltip title={'Preguntas y Emergencias'}>
-                    <SvgIcon fontSize={'large'} color={"secondary"} component={sos} viewBox="0 0 600 476.6" alt={'Emergencia'}/>
-                  </Tooltip>
-                </Link>
-                <Link
-                  variant="h6"
-                  underline="none"
-                  className={clsx(classes.derechaLink)}
                   href="https://www.facebook.com/events/3730092333719587/"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <FacebookIcon fontSize={'large'}/>
+                  <Tooltip title={'Evento Facebook'}>
+                    <FacebookIcon fontSize={'large'}/>
+                  </Tooltip>
                 </Link>
                 <Link
                   variant="h6"

@@ -117,7 +117,7 @@ const Comollegar = (props) => {
 					<p className={classes.content}>
 						<b>Aeropuerto Madrid (T4) - Murcia:</b> duracion del trayecto 5 horas y 30 minutos. Salida directamente desde el aeropuerto de Madrid.<br/>
 						<b>Aeropuerto Alicante - Murcia:</b> 45 minutos de trayecto. Salidas cada 2 horas directamente desde el Aeropuerto de Alicante. Consultar la web de Alsa para ver horarios.<br/>
-						<b>Murcia - Puerto de Mazarron:</b> 50 minutos de trayecto. Para ir al <italic>Hotel Dos Playas</italic>, bajarse en la parada Puerto de Mazarron.<br/>
+						<b>Murcia - Puerto de Mazarron:</b> 50 minutos de trayecto. Para ir al <i>Hotel Dos Playas</i>, bajarse en la parada Puerto de Mazarron.<br/>
 					</p>
 					<a
 						href="http://www.aena.es/es/aeropuerto-region-murcia/index.html"
