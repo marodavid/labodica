@@ -303,7 +303,7 @@ import Dialog from "@material-ui/core/Dialog";
 				formik.values.acompanante_intolerancia_otras = false
 				formik.values.acompanante_intolerancias_str = ""
 			}
-		},[formik.values.asistir, formik.values.acompanante])
+		},[formik.values.asistir, formik.values.acompanante, formik])
 		
 		return (
 			<>
