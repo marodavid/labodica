@@ -19,7 +19,8 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import AppBar from './GeneralAppBar';
 import Toolbar, { styles as toolbarStyles } from './GeneralToolbar';
 import { IconFlagUK } from 'material-ui-flags';
-import {ReactComponent as sos} from '../../images/piedepagina/sosIcon.svg'
+// import {ReactComponent as sos} from '../../images/piedepagina/sosIcon.svg'
+import {ReactComponent as sos} from '../../images/piedepagina/sos2.svg'
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";

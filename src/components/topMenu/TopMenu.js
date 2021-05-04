@@ -10,7 +10,8 @@ import {Slide, SvgIcon, Tooltip} from "@material-ui/core";
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
-import {ReactComponent as sos} from '../../images/piedepagina/sosIcon.svg'
+// import {ReactComponent as sos} from '../../images/piedepagina/sosIcon.svg'
+import {ReactComponent as sos} from '../../images/piedepagina/sos2.svg'
 // import InstagramIcon from '@material-ui/icons/Instagram';
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
