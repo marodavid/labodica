@@ -71,9 +71,6 @@ function TopMenu(props) {
   const [openDialog, setOpenDialog] = React.useState(false);
   const [openSos, setOpenSos] = React.useState(false)
 
-  const handleClickOpenDialog = () => {
-    setOpenDialog(true);
-  };
   const handleCloseDialog = () => {
     setOpenDialog(false);
   };
@@ -94,16 +91,17 @@ function TopMenu(props) {
         <Toolbar className={classes.toolbar}>
           {/*<div className={classes.left}>*/}
           <div className={classes.left}>
+            <Tooltip title={'Confirmar asistencia'}>
             <Link
               color="inherit"
               variant="h6"
               underline="none"
-              // className={classes.rightLink}
-              // href="/rsvp/"
-              onClick = { () => handleClickOpenDialog() }
+              href="/rsvp"
+              // onClick = { () => handleClickOpenDialog() }
             >
               {'RSVP'}
             </Link>
+            </Tooltip>
             <Link
               variant="h6"
               underline="none"
@@ -144,7 +142,7 @@ function TopMenu(props) {
               // href="https://www.facebook.com/events/3730092333719587/"
               rel="noopener noreferrer"
               target="_blank"
-              onClick = { () => alert('Próximamente')}
+              onClick = { () => alert('En cuanto confirmes tu asistencia, te agregaremos al evento de Facebook')}
             >
               <Tooltip title={'Evento Facebook'}>
                 <FacebookIcon fontSize={'large'}/>

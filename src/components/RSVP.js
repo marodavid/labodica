@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import {useFormik } from 'formik'
 import * as yup from 'yup'
+import emailjs, {init as initEmailjs} from 'emailjs-com';
+// import{ init as initEmailjs } from 'emailjs-com';
+
 import {
 	Box,
 	Typography,
@@ -13,7 +16,7 @@ import {
 	FormGroup,
 	Radio,
 	RadioGroup,
-	withStyles
+	withStyles, Slide
 } from "@material-ui/core"
 import MuiPhoneNumber from 'material-ui-phone-number'
 import styled from "styled-components"
@@ -27,18 +30,24 @@ import "firebase/database"
 // import 'firebase.json'
 
 import './RSVP.css'
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogActions from "@material-ui/core/DialogActions";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
 
 
-// eslint-disable-next-line no-unused-vars
-const app = firebase.initializeApp({
-	// apiKey: "AIza....",                             // Auth / General Use
-	// appId: "1:27992087142:web:ce....",      // General Use
-	projectId: "bodica",               // General Use
-	authDomain: "bodica.firebaseapp.com",         // Auth with popup/redirect
-	databaseURL: "https://bodica.firebaseio.com", // Realtime Database
-	storageBucket: "bodica.appspot.com",          // Storage
-	messagingSenderId: "907413848828",                  // Cloud Messaging
-	measurementId: "G-825XJ1C7DN"                        // Analytics
+	// eslint-disable-next-line no-unused-vars
+	const app = firebase.initializeApp({
+		// apiKey: "AIza....",                             // Auth / General Use
+		// appId: "1:27992087142:web:ce....",      // General Use
+		projectId: "bodica",               // General Use
+		authDomain: "bodica.firebaseapp.com",         // Auth with popup/redirect
+		databaseURL: "https://bodica.firebaseio.com", // Realtime Database
+		storageBucket: "bodica.appspot.com",          // Storage
+		messagingSenderId: "907413848828",                  // Cloud Messaging
+		measurementId: "G-825XJ1C7DN"                        // Analytics
 	})
 // const getDBRef = () => (firebase.initializeApp('firebase.json'))
 
@@ -69,6 +78,10 @@ const app = firebase.initializeApp({
 		display: none
 	} 
 `;
+
+	const Transition = React.forwardRef(function Transition(props, ref) {
+		return <Slide direction="up" ref={ref} {...props} />;
+	});
 
 	const regexEmail = RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 // const regexEmail = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
@@ -170,7 +183,46 @@ const app = firebase.initializeApp({
 
 		const [attend, setAttend] = useState(false)
 		const [plusOne, setPlusOne] = useState(false)
+		const [openComingDialog, setOpenComingDialog] = React.useState(false)
+		const [openNotComingDialog, setOpenNotComingDialog] = React.useState(false)
+		
+		const handleCloseComingDialog = () => {
+			setOpenComingDialog(false);
+			window.location.assign('/');
+		};
+		const handleCloseNotComingDialog = () => {
+			setOpenNotComingDialog(false);
+			window.location.assign('/');
+		};
 
+		initEmailjs("user_cGFVQO2lsz6lW6qfOPFeW")
+
+		
+		const rsvpConfirmEmailParameters = (value) => ({
+			email: value.email,
+			nombre: value.nombre,
+			asistir: value.asistir,
+			celular: value.celular,
+			numAdultos: value.acompanante_nombre!=='' ? 2 : 1,
+			ninos: value.ninos,
+			menu: value.menu,
+			intolerancia_gluten: value.intolerancia_gluten,
+			intolerancia_marisco: value.intolerancia_marisco,
+			intolerancias_str: value.intolerancias_str,
+			acompanante: value.acompanante,
+			acompanante_nombre: value.acompanante_nombre,
+			acompanante_menu: value.acompanante_menu,
+			acompanante_intolerancia_gluten: value.acompanante_intolerancia_gluten,
+			acompanante_intolerancia_marisco: value.acompanante_intolerancia_marisco,
+			acompanante_intolerancias_str: value.acompanante_intolerancias_str
+		})
+
+		const rsvpConfirmNotComingEmailParameters = (value) => ({
+			email: value.email,
+			nombre: value.nombre,
+			asistir: value.asistir
+		})
+		
 		const formik = useFormik({
 			initialValues: {
 				nombre: "",
@@ -196,11 +248,17 @@ const app = firebase.initializeApp({
 
 			onSubmit: async (values) => {
 				await new Promise((r) => setTimeout(r, 500));
-				console.log(JSON.stringify(values, null, 2))
-				firebase.database().ref('invitado').set(values)
-				// alert('Firebase set completado')
-				alert(JSON.stringify(values, null, 2));
-				alert(values)
+				// console.log(JSON.stringify(values, null, 2))
+				if (values.asistir==='no') {
+					firebase.database().ref(`invitados/cancelados/${values.nombre.trim()}`).set(values)
+					emailjs.send('service_labodica', 'template_mxs11qo', rsvpConfirmNotComingEmailParameters(values))
+					setOpenNotComingDialog(true)
+				}
+				if (values.asistir==='si') {
+					firebase.database().ref(`invitados/confirmados/${values.nombre.replace(/ /g, '-')}_${values.celular.replace(/ /g, '-')}`).set(values)
+					emailjs.send('service_labodica', 'template_rsvp', rsvpConfirmEmailParameters(values))
+					setOpenComingDialog(true)
+				}
 			},
 		})
 
@@ -218,7 +276,37 @@ const app = firebase.initializeApp({
 			}
 		},[formik.values.acompanante, formik])
 
+		
+		
+		useEffect(() => {
+			if (formik.values.asistir==='no'){
+				formik.values.celular= ""
+				formik.values.menu=""
+				formik.values.intolerancia_gluten = false
+				formik.values.intolerancia_marisco = false
+				formik.values.intolerancia_otras = false
+				formik.values.intolerancias_str = ""
+				formik.values.acompanante='no'
+				formik.values.acompanante_nombre = ""
+				formik.values.acompanante_menu = ""
+				formik.values.acompanante_intolerancia_gluten = false
+				formik.values.acompanante_intolerancia_marisco = false
+				formik.values.acompanante_intolerancia_otras = false
+				formik.values.acompanante_intolerancias_str = ""
+				formik.values.ninos='no'
+			}
+			if (formik.values.acompanante==='no'){
+				formik.values.acompanante_nombre = ""
+				formik.values.acompanante_menu = ""
+				formik.values.acompanante_intolerancia_gluten = false
+				formik.values.acompanante_intolerancia_marisco = false
+				formik.values.acompanante_intolerancia_otras = false
+				formik.values.acompanante_intolerancias_str = ""
+			}
+		},[formik.values.asistir, formik.values.acompanante])
+		
 		return (
+			<>
 			<form onSubmit={formik.handleSubmit}>
 				<Box className={classes.box}>
 					<div style={{paddingTop: '30px', paddingBottom: '30px'}}>
@@ -263,12 +351,24 @@ const app = firebase.initializeApp({
 									/>
 								</div>
 								{separator()}
+								<div id="email" >
+									<Typography variant="subtitle1">Correo electronico</Typography>
+									<TextField
+										id="email"
+										className={classes.textField}
+										name="email"
+										value={formik.values.email}
+										onChange={formik.handleChange}
+										error={formik.touched.email && Boolean(formik.errors.email)}
+										helperText={formik.touched.email && formik.errors.email}
+									/>
+								</div>
+								{separator()}
 								<FormControl component="fieldset">
 									<Typography variant="subtitle1">Vienes a la boda?</Typography>
 									<RadioGroup row aria-label="Vienes a la boda" name="asistir" value={formik.values.asistir} onChange={formik.handleChange}>
 										<FormControlLabel disabled={formik.values.nombre === ''} value="si" control={<Radio />} label="Por supuesto" />
 										<FormControlLabel disabled={formik.values.nombre === ''} value="no" control={<Radio />} label="Me encantaria pero no puedo" />
-
 									</RadioGroup>
 									{ displayErrorMessage(formik.errors.asistir, formik.touched.asistir) }
 								</FormControl>
@@ -279,20 +379,6 @@ const app = firebase.initializeApp({
 										timeout={2000}
 									>
 										<div id="si-asisto">
-											<div id="email" >
-												<Typography variant="subtitle1">Correo electronico</Typography>
-												<TextField
-													id="email"
-													className={classes.textField}
-													name="email"
-													value={formik.values.email}
-													onChange={formik.handleChange}
-													error={formik.touched.email && Boolean(formik.errors.email)}
-													helperText={formik.touched.email && formik.errors.email}
-												/>
-											</div>
-
-											{separator()}
 											<div id="celular" >
 												<Typography variant="subtitle1">Telefono movil / Celular</Typography>
 												<MuiPhoneNumber
@@ -304,9 +390,10 @@ const app = firebase.initializeApp({
 													}}
 													defaultCountry={'pa'}
 													onChange={celular => formik.values.celular = celular}
-													onlyCountries={['pa', 'es', 'de', 'mx', 'fr', 'ec', 'bu', 'bo']}
+													onlyCountries={['pa', 'es', 'de', 'mx','co', 'ca', 'us', 'fr', 'nl', 'ec', 'bo']}
 													autoformat
 													value={formik.values.celular}
+													disableAreaCodes
 												/>
 												{ displayErrorMessage(formik.errors.celular, formik.touched.celular) }
 											</div>
@@ -375,16 +462,16 @@ const app = firebase.initializeApp({
 												<Typography variant="subtitle1">Traes a los niños</Typography>
 												<RadioGroup row fullWidth aria-label="Traes niños" name="ninos" value={formik.values.ninos} onChange={formik.handleChange}>
 													<FormControlLabel value="si" control={<Radio />} label="Si" />
-													<FormControlLabel value="no" control={<Radio />} label="No, por favor" />
-													<FormControlLabel value="nose" control={<Radio />} label="No lo sé todavia" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
 												</RadioGroup>
 												{ displayErrorMessage(formik.errors.ninos, formik.touched.ninos) }
 											</FormControl>
+											<br/>
 											<FormControl component="fieldset">
 												<Typography variant="subtitle1">Traes acompañante</Typography>
 												<RadioGroup row aria-label="Traes acompañante" name="acompanante" value={formik.values.acompanante} onChange={formik.handleChange}>
 													<FormControlLabel value="si" control={<Radio />} label="Si claro" />
-													<FormControlLabel value="no" control={<Radio />} label="No, apuntame al Tinder de la boda" />
+													<FormControlLabel value="no" control={<Radio />} label="No, apúntame al Tinder de la boda" />
 												</RadioGroup>
 												{ displayErrorMessage(formik.errors.acompanante, formik.touched.acompanante) }
 											</FormControl>
@@ -476,7 +563,6 @@ const app = firebase.initializeApp({
 												<option value="normal">Come de todo</option>
 												<option value="vegetariano">Vegetariano</option>
 												<option value="vegano">Vegano</option>
-												<option value="nose">Tengo que preguntarle</option>
 											</select>
 											{ displayErrorMessage(formik.errors.acompanante_menu, formik.touched.acompanante_menu) }
 										</div>
@@ -542,6 +628,51 @@ const app = firebase.initializeApp({
 
 				</Box>
 			</form>
+				<Dialog
+					open={openComingDialog}
+					TransitionComponent={Transition}
+					keepMounted
+					onClose={handleCloseComingDialog}
+					aria-labelledby="alert-dialog-slide-title"
+					aria-describedby="alert-dialog-slide-description"
+				>
+					<DialogTitle id="alert-dialog-slide-title">{"¡Gracias por confirmarnos tu asistencia!"}</DialogTitle>
+					<DialogContent>
+						<DialogContentText id="alert-dialog-slide-description">
+							¡Nos hace mucha ilusión contar con vuestra presencia!. <br/>
+							En pocos días nos pondremos en contacto contigo para contarte todos los detalles. <br/><br/>
+							Haz click en el botón para volver a La Bodica.
+						</DialogContentText>
+					</DialogContent>
+					<DialogActions>
+						<Button onClick={handleCloseComingDialog} color="transparent">
+							Ok
+						</Button>
+					</DialogActions>
+				</Dialog>
+				<Dialog
+					open={openNotComingDialog}
+					TransitionComponent={Transition}
+					keepMounted
+					onClose={handleCloseNotComingDialog}
+					aria-labelledby="alert-dialog-slide-title"
+					aria-describedby="alert-dialog-slide-description"
+				>
+					<DialogTitle id="alert-dialog-slide-title">{"¡Lo sentimos mucho!"}</DialogTitle>
+					<DialogContent>
+						<DialogContentText id="alert-dialog-slide-description">
+							Nos gustaría que nos hubieras acompañado pero entendemos que son tiempos complicados.<br/>
+							Gracias por dejarnos tu respuesta.<br/><br/>
+							Haz click en el botón para volver a La Bodica.
+						</DialogContentText>
+					</DialogContent>
+					<DialogActions>
+						<Button onClick={handleCloseNotComingDialog} color="transparent">
+							Ok
+						</Button>
+					</DialogActions>
+				</Dialog>	
+			</>
 		)}
 
 	export default withStyles(styles)(RSVP)

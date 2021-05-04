@@ -86,9 +86,6 @@ function PasosASeguir(props) {
   //Dialog
   const [openDialog, setOpenDialog] = React.useState(false);
 
-  const handleClickOpenDialog = () => {
-    setOpenDialog(true);
-  };
   const handleCloseDialog = () => {
     setOpenDialog(false);
   };
@@ -124,8 +121,8 @@ function PasosASeguir(props) {
                   variant="outlined"
                   className={classes.button}
                   component={ Link }
-                  onClick = { () => handleClickOpenDialog() }
-                  // to="/rsvp/"
+                  // onClick = { () => handleClickOpenDialog() }
+                  to="/rsvp/"
                 >
                   RSVP
                 </Button>
