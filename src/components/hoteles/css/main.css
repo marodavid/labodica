@@ -8188,6 +8188,9 @@ input, select, textarea {
 	.tamanoLetra {
 		font-size: 18px;
 	}
+	.tamanoCita {
+		font-size: 16px;
+	}
 
 /* Index */
 
