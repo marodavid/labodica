@@ -7,10 +7,10 @@ import './css/main.css'
 import './css/noscript.css'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 
-import hoteldosplayas from '../../images/hoteles/hotel-dos-playas.jpg'
+// import hoteldosplayas from '../../images/hoteles/hotel-dos-playas.jpg'
 // import hotelexecutive from '../../images/hoteles/hotel-executive-sport.jpg'
 // import hotelolimpia from '../../images/hoteles/hotel-olimpia.jpg'
-import rincondepepe from '../../images/hoteles/rincon-de-pepe.jpeg'
+// import rincondepepe from '../../images/hoteles/rincon-de-pepe.jpeg'
 
 const styles = (theme) => ({
 	content: {
@@ -38,7 +38,7 @@ const styles = (theme) => ({
 // `
 
 const Hoteles = (props) => {
-	const { classes } = props;
+	// const { classes } = props;
 
 	return (
 		<div id="wrapper" className="divided" style={{textTransform:'none', color: 'black', overflowY: 'scroll', scrollbarWidth: 'thin'}}>
@@ -46,7 +46,7 @@ const Hoteles = (props) => {
 				<p style={{paddingTop: '10px'}}> Debido a los efectos de la pandemia, hemos tenido problemas con algunos de los hoteles que inicialmente les recomendábamos. <br/>
 					Estamos trabajando para ofrecerles una amplia oferta de hoteles donde puedan hacer sus reservas. <br/>
 					A más tardar a mediados de Junio, actualizaremos esta página con todas las opciones disponibles.<br/>
-					<i className="tamanoCita">Nadie dijo que fuera fácil organizar una boda en pandemia. (Laura y David) <InsertEmoticonIcon fontSize="small" fontSize="small" style={{paddingTop: '6px'}}/></i>
+					<i className="tamanoCita">Nadie dijo que fuera fácil organizar una boda en pandemia. (Laura y David) <InsertEmoticonIcon fontSize="small" style={{paddingTop: '6px'}}/></i>
 				</p>
 			</div>
 			{/*<div align="center" className="tamanoLetra">*/}
