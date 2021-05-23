@@ -10,6 +10,7 @@ import Hoteles from "../hoteles/Hoteles";
 import Comollegar from "../comollegar/Comollegar";
 import GeneralMenu from "../generalmenu/GeneralMenu";
 import PiePagina from "../footer/PiePagina";
+import Informacionutil from "../informacionutil/Informacionutil";
 
 
 const styles = {
@@ -138,6 +139,7 @@ export default class AgendaTabs extends React.Component {
 					<div style={Object.assign({}, styles.slide, styles.slide4)}>
 						{/*<SimpleAccordion />*/}
 						<h3 style={{color: 'black'}}>Proximamente: salones de belleza, clima y temperaturas estimadas e información adicional.</h3>
+						<Informacionutil/>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide5)}>
 						<Sugerencias />
