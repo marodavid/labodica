@@ -16,7 +16,8 @@ import {
 	FormGroup,
 	Radio,
 	RadioGroup,
-	withStyles, Slide
+	Slide,
+	withStyles
 } from "@material-ui/core"
 import MuiPhoneNumber from 'material-ui-phone-number'
 import styled from "styled-components"
@@ -29,7 +30,7 @@ import firebase from "firebase"
 import "firebase/database"
 // import 'firebase.json'
 
-import './RSVP.css'
+// import './RSVP.css'
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
@@ -77,7 +78,13 @@ import Dialog from "@material-ui/core/Dialog";
 	@media only screen and (min-width: 960px) {
 		display: none
 	} 
-`;
+	`;
+
+	const ImagesRSVP = styled.img`
+	@media only screen and (max-width: 960px) {
+		 display: none;  
+	}
+	`;
 
 	const Transition = React.forwardRef(function Transition(props, ref) {
 		return <Slide direction="up" ref={ref} {...props} />;
@@ -489,7 +496,8 @@ import Dialog from "@material-ui/core/Dialog";
 										in={!plusOne}
 										timeout={2000}
 									>
-										<img
+										<ImagesRSVP 
+											className='.imgRSVP'
 											src={noTeLoPierdas}
 											alt="No te lo pierdas2"
 											style={{width: '100%', paddingRight: '20px', paddingTop: '10px', height: '100%'}}
@@ -502,7 +510,8 @@ import Dialog from "@material-ui/core/Dialog";
 										in={!plusOne}
 										timeout={2000}
 									>
-										<img
+										<ImagesRSVP
+											class='imgRSVP'
 											src={siAsistes}
 											alt="No te lo pierdas"
 											style={{width: '100%', paddingRight: '20px', paddingTop: '10px', height: '100%'}}
@@ -609,7 +618,8 @@ import Dialog from "@material-ui/core/Dialog";
 											</div>
 										)}
 										{ separator() }
-										<img
+										<ImagesRSVP
+											className='imgRSVP'
 											src={siAsistes}
 											alt="No te lo pierdas"
 											style={{width: '100%', paddingRight: '20px', paddingTop: '10px', height: '100%'}}
