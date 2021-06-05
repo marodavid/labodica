@@ -266,12 +266,12 @@ export const Agenda = React.memo(function SingleCard() {
 						<Card>
 							<CardContent>
 								<Typography variant="caption"><strong>Etiqueta: </strong>Vestimenta formal<br/></Typography>
-								<Typography variant="caption"><strong>Lugar: </strong>Hotel Executive Sport, Totana</Typography>
+								<Typography variant="caption"><strong>Lugar: </strong>Finca La Herencia</Typography>
 							</CardContent>
 							<CardContent>
 								<Box px={3} pb={3}>
 									<iframe
-										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.6442828677423!2d-1.455882184394478!3d37.77493817975947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd64923cc8b6ccef%3A0xb04daeea46e9a7c2!2sHotel%20Executive%20Sport%20Totana!5e0!3m2!1sen!2sde!4v1610810173605!5m2!1sen!2sde"
+										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.5905811341736!2d-1.013250684403909!3d37.75274822119889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd636efabd373eef%3A0x5b5a7af82502917e!2sLa%20Herencia%20Celebraciones!5e0!3m2!1sen!2ses!4v1622916481254!5m2!1sen!2ses"
 										style={{width:"800", height:"650", frameBorder:"0", allowFullScreen:"", ariaHidden:"true"}}
 										tabIndex="0"
 										title="fiesta-map"
