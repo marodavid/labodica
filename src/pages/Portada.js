@@ -7,7 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import PortadaLayout from './PortadaLayout';
-import losLoquitos from '../images/portada/iglesia3.png'
+import losLoquitos from '../images/portada/parroquiaAnchura.png'
 import laBodicaLogo from '../images/portada/labodicaOriginal.webp'
 import Separator from "../components/Separator";
 import CountDown from "../components/CountDown";

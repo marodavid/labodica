@@ -21,6 +21,7 @@
     "firebase": "^8.2.2",
     "firebase-tools": "^8.17.0",
     "formik": "^2.2.5",
+    "history": "^5.0.0",
     "less": "^4.0.0",
     "markdown-to-jsx": "^7.0.1",
     "material-ui-flags": "^1.2.4",

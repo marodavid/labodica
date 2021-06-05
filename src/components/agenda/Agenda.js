@@ -23,10 +23,10 @@ import { useN01TextInfoContentStyles } from '@mui-treasury/styles/textInfoConten
 import { useWideCardMediaStyles } from '@mui-treasury/styles/cardMedia/wide';
 import { useFadedShadowStyles } from '@mui-treasury/styles/shadow/faded';
 
-import preboda from '../../images/agenda/Rockola.jpg'
-import hoteldosplayas from '../../images/agenda/hotel-dos-playas.jpg'
-import ermita from '../../images/agenda/Ermita_Isla_Plana.jpg'
-import hotelArbol from '../../images/agenda/hotelArbol.jpg'
+import preboda from '../../images/agenda/murciaGlorieta.jpg'
+import dialibre from '../../images/agenda/erfahrung-in-cartagena-spanien-von-maria-dolores-ba6a2746c2128336426d85ad904f14c5.jpg'
+import parroquia from '../../images/agenda/iglesia-santa-eulalia-murcia_2_large.webp'
+import fincaHerencia from '../../images/agenda/fincaLaHerencia-jardin.jpg'
 
 
 const useStyles = makeStyles(() => ({
@@ -90,18 +90,11 @@ export const Agenda = React.memo(function SingleCard() {
 									image={preboda}
 								/>
 								<CardContent className={cardStyles.content}>
-									{/*<TextInfoContent*/}
-									{/*	classes={textCardContentStyles}*/}
-									{/*	body={*/}
-									{/*		'Acompañanos el jueves a celebrar una preboda sencilla a la orilla de la playa donde ' +*/}
-									{/*		'podras conocer a los otros invitados y disfrutaremos juntos de grandes momentos.'*/}
-									{/*	}*/}
-									{/*/>*/}
 									<TextInfoContent
 										classes={textCardContentStyles}
 										body={
 											'El jueves iniciamos las celebraciones recibiendo a los invitados. Acompáñanos  ' +
-											'a disfrutar a la orilla de la playa y conocer a los otros invitados.'
+											'a conocer y disfrutar la ciudad de Murcia. Conozcan a los otros invitados.'
 										}
 									/>
 									<br/>
@@ -116,12 +109,12 @@ export const Agenda = React.memo(function SingleCard() {
 						<Card>
 							<CardContent>
 								<Typography variant="caption"><strong>Etiqueta: </strong>Vestimenta casual tarde-noche<br/></Typography>
-								<Typography variant="caption"><strong>Lugar: </strong>Chiringuito Rockola, La Azohia</Typography>
+								<Typography variant="caption"><strong>Lugar: </strong>Murcia</Typography>
 							</CardContent>
 							<CardContent>
 								<Box px={3} pb={3}>
 									<iframe
-										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.948499448361!2d-1.1708922844079164!3d37.556277132472864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd635ed0d241c069%3A0x1377573f8c96b01b!2sRockola%20Summer%20Club%20La%20Azoh%C3%ADa!5e0!3m2!1sen!2sde!4v1610791343439!5m2!1sen!2sde"
+										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.7331261839518!2d-1.1326411843892645!3d37.98335697972195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6382035392c7eb%3A0xca762e4b1ced702e!2sGlorieta%20de%20Espa%C3%B1a%2C%2030004%20Murcia%2C%20Spain!5e0!3m2!1sen!2sde!4v1621610310192!5m2!1sen!2sde"
 										style={{width:"800", height:"650", frameBorder:"0", allowFullScreen:"", ariaHidden:"true"}}
 										tabIndex="0"
 										title="preboda-map"
@@ -140,29 +133,28 @@ export const Agenda = React.memo(function SingleCard() {
 						id="panel1a-header"
 					>
 						<Card className={cx(cardStyles.root, fadeShadowStyles.root)}>
-
-									<CardContent>
-									<Typography variant="h5"><strong>Día libre</strong></Typography>
-									<Typography variant="caption"><strong>Viernes 1 Octubre</strong></Typography>
-								</CardContent>
-								<CardMedia
-									classes={wideCardMediaStyles}
-									image={hoteldosplayas}
+							<CardContent>
+								<Typography variant="h5"><strong>Día libre</strong></Typography>
+								<Typography variant="caption"><strong>Viernes 1 Octubre</strong></Typography>
+							</CardContent>
+							<CardMedia
+								classes={wideCardMediaStyles}
+								image={dialibre}
+							/>
+							<CardContent className={cardStyles.content}>
+								<TextInfoContent
+									classes={textCardContentStyles}
+									body={
+										'Relájate, disfruta de la ciudad de Murcia, aprovecha para visitar Cartagena. ¡Tú decides!. Tenemos ' +
+										'sugerencias para que explores la zona y disfrutes de este día.'
+									}
 								/>
-								<CardContent className={cardStyles.content}>
-									<TextInfoContent
-										classes={textCardContentStyles}
-										body={
-											'Relájate, disfruta de las playas, visita Cartagena o Murcia. ¡Tú decides!. Tenemos ' +
-											'sugerencias para que explores la zona. Haz click para saber más'
-										}
-									/>
-									<br/>
-									<div align="center">
-										{ botonDiaLibre &&	<AddCircleOutlineIcon /> }
-										{ !botonDiaLibre &&	<RemoveCircleOutlineIcon /> }
-									</div>
-								</CardContent>
+								<br/>
+								<div align="center">
+									{ botonDiaLibre &&	<AddCircleOutlineIcon /> }
+									{ !botonDiaLibre &&	<RemoveCircleOutlineIcon /> }
+								</div>
+							</CardContent>
 						</Card>
 					</AccordionSummary>
 					<AccordionDetails>
@@ -193,41 +185,40 @@ export const Agenda = React.memo(function SingleCard() {
 						id="panel1a-header"
 					>
 						<Card className={cx(cardStyles.root, fadeShadowStyles.root)}>
-
-									<CardContent>
-									<Typography variant="h5"><strong>Ceremonia religiosa</strong></Typography>
-									<Typography variant="caption"><strong>Sabado 2 Octubre 17h</strong></Typography>
-								</CardContent>
-								<CardMedia
-									classes={wideCardMediaStyles}
-									image={ermita}
+							<CardContent>
+								<Typography variant="h5"><strong>Ceremonia religiosa</strong></Typography>
+								<Typography variant="caption"><strong>Sabado 2 Octubre 12h</strong></Typography>
+							</CardContent>
+							<CardMedia
+								classes={wideCardMediaStyles}
+								image={parroquia}
+							/>
+							<CardContent className={cardStyles.content}>
+								<TextInfoContent
+									classes={textCardContentStyles}
+									body={
+										'Después de muchas emociones, nervios y hasta una pandemia, llega el gran dia. Los esperamos a ' +
+										'todos para vernos dar el Si quiero. '
+									}
 								/>
-								<CardContent className={cardStyles.content}>
-									<TextInfoContent
-										classes={textCardContentStyles}
-										body={
-											'Después de muchas emociones, nervios y hasta una pandemia, llega el gran dia. Los esperamos a ' +
-											'todos para vernos dar el Si quiero junto al mar. '
-										}
-									/>
-									<br/>
-									<div align="center">
-										{ botonBoda &&	<AddCircleOutlineIcon /> }
-										{ !botonBoda &&	<RemoveCircleOutlineIcon /> }
-									</div>
-								</CardContent>
+								<br/>
+								<div align="center">
+									{ botonBoda &&	<AddCircleOutlineIcon /> }
+									{ !botonBoda &&	<RemoveCircleOutlineIcon /> }
+								</div>
+							</CardContent>
 						</Card>
 					</AccordionSummary>
 					<AccordionDetails>
 						<Card>
 							<CardContent>
 								<Typography variant="caption"><strong>Etiqueta: </strong>Vestimenta formal<br/></Typography>
-								<Typography variant="caption"><strong>Lugar: </strong>Ermita Nuestra Señora del Carmen, Isla Plana</Typography>
+								<Typography variant="caption"><strong>Lugar: </strong>Parroquia Santa Eulalia, Murcia</Typography>
 							</CardContent>
 							<CardContent>
 								<Box px={3} pb={3}>
 									<iframe
-										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.220655257853!2d-1.21133358439948!3d37.57342147979659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd635f617ab04b05%3A0xbcab64f7fec6ffe1!2sHermitage%20of%20Nuestra%20Se%C3%B1ora%20del%20Carmen!5e0!3m2!1sen!2sde!4v1610810517999!5m2!1sen!2sde"
+										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.6539096415954!2d-1.1270789843892257!3d37.98520537972172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63821012b3f9f7%3A0x2451ae7aace83ef3!2sParroquia%20Santa%20Eulalia!5e0!3m2!1sen!2sde!4v1621609794730!5m2!1sen!2sde"
 										style={{width:"800", height:"650", frameBorder:"0",allowFullScreen:"", ariaHidden:"true"}}
 										tabIndex="0"
 										title="boda-map"
@@ -246,33 +237,29 @@ export const Agenda = React.memo(function SingleCard() {
 						id="panel1a-header"
 					>
 						<Card className={cx(cardStyles.root, fadeShadowStyles.root)}>
-								<CardContent>
-									<Typography variant="h5"><strong>Fiesta celebración</strong></Typography>
-									<Typography variant="caption"><strong>Sábado 2 Octubre 20h</strong></Typography>
-								</CardContent>
-								<CardMedia
-									classes={wideCardMediaStyles}
-									image={hotelArbol}
+							<CardContent>
+								<Typography variant="h5"><strong>Fiesta celebración</strong></Typography>
+								<Typography variant="caption"><strong>Sábado 2 Octubre 14.30h</strong></Typography>
+							</CardContent>
+							<CardMedia
+								classes={wideCardMediaStyles}
+								image={fincaHerencia}
+							/>
+							<CardContent className={cardStyles.content}>
+								<TextInfoContent
+									classes={textCardContentStyles}
+								body={
+										'Después de la ceremonia llegó la hora de festejar a lo grande y crear momentos únicos.' +
+										' ¡Los esperamos con la mejor actitud y ganas de bailar!'
+										// 'Hemos puesto mucho esfuerzo en crear un gran ambiente donde crearemos momentos unicos!!'
+									}
 								/>
-								<CardContent className={cardStyles.content}>
-									<TextInfoContent
-										classes={textCardContentStyles}
-										// body={
-										// 	'Os esperamos a todos para celebrar este dia tan importante con nosotros.' +
-										// 	' Hemos puesto mucho esfuerzo en crear un gran ambiente donde crearemos momentos unicos!!'
-										// }
-									body={
-											'Después de la ceremonia llegó la hora de festejar a lo grande y crear momentos únicos.' +
-											' ¡Los esperamos con la mejor actitud y ganas de bailar!'
-											// 'Hemos puesto mucho esfuerzo en crear un gran ambiente donde crearemos momentos unicos!!'
-										}
-									/>
-									<br/>
-									<div align="center">
-										{ botonCelebracion&&	<AddCircleOutlineIcon /> }
-										{ !botonCelebracion &&	<RemoveCircleOutlineIcon /> }
-									</div>
-								</CardContent>
+								<br/>
+								<div align="center">
+									{ botonCelebracion&&	<AddCircleOutlineIcon /> }
+									{ !botonCelebracion &&	<RemoveCircleOutlineIcon /> }
+								</div>
+							</CardContent>
 						</Card>
 					</AccordionSummary>
 					<AccordionDetails>

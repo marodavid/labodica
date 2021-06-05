@@ -4,7 +4,7 @@ import './CountDown.css'
 function CountDown() {
 
 	const calculateTimeLeft = () => {
-		const difference = +new Date("Oct 2, 2021 18:00:00") - +new Date()
+		const difference = +new Date("Oct 2, 2021 12:00:00") - +new Date()
 
 		let timeLeft
 		if (difference > 0) {
