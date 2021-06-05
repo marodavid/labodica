@@ -12,7 +12,7 @@ import Portada from "./pages/Portada";
 import PasosASeguir from "./pages/PasosASeguir";
 import GeneralMenu from "./components/generalmenu/GeneralMenu";
 import RSVP from './components/RSVP'
-import Estadisticas from './components/estadisticas/Estadisticas'
+// import Estadisticas from './components/estadisticas/Estadisticas'
 
 function Index() {
 
@@ -47,9 +47,9 @@ function Index() {
         <Route path="/informacion" >
           <AgendaTabs />
         </Route>
-        <Route path="/estadisticas" >
-          <Estadisticas />
-        </Route>
+        {/*<Route path="/estadisticas" >*/}
+        {/*  <Estadisticas />*/}
+        {/*</Route>*/}
       </AnimatedSwitch>
     </Router>
   );
