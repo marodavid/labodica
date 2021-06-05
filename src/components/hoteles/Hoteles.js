@@ -1,16 +1,14 @@
 import React from 'react'
 // import styled from "styled-components";
-import { withStyles } from '@material-ui/core/styles';
-
+import { withStyles } from '@material-ui/core/styles'
 import  './css/fontawesome-all.min.css'
 import './css/main.css'
 import './css/noscript.css'
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+// import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'; 
 
-// import hoteldosplayas from '../../images/hoteles/hotel-dos-playas.jpg'
-// import hotelexecutive from '../../images/hoteles/hotel-executive-sport.jpg'
-// import hotelolimpia from '../../images/hoteles/hotel-olimpia.jpg'
-// import rincondepepe from '../../images/hoteles/rincon-de-pepe.jpeg'
+import hotelsietecoronas from '../../images/hoteles/hotel7coronas.jpg'
+import nhamistadmurcia from '../../images/hoteles/NH_Amistad_Murcia.jpg'
+import rincondepepe from '../../images/hoteles/rincon-de-pepe.jpeg'
 
 const styles = (theme) => ({
 	content: {
@@ -38,15 +36,20 @@ const styles = (theme) => ({
 // `
 
 const Hoteles = (props) => {
-	// const { classes } = props;
+	const { classes } = props;
 
 	return (
 		<div id="wrapper" className="divided" style={{textTransform:'none', color: 'black', overflowY: 'scroll', scrollbarWidth: 'thin'}}>
 			<div align="center" className="tamanoLetra">
-				<p style={{paddingTop: '10px'}}> Debido a los efectos de la pandemia, hemos tenido problemas con algunos de los hoteles que inicialmente les recomendábamos. <br/>
-					Estamos trabajando para ofrecerles una amplia oferta de hoteles donde puedan hacer sus reservas. <br/>
-					A más tardar a mediados de Junio, actualizaremos esta página con todas las opciones disponibles.<br/>
-					<i className="tamanoCita">Nadie dijo que fuera fácil organizar una boda en pandemia. (Laura y David) <InsertEmoticonIcon fontSize="small" style={{paddingTop: '6px'}}/></i>
+				{/*<p style={{paddingTop: '10px'}}> Debido a los efectos de la pandemia, hemos tenido problemas con algunos de los hoteles que inicialmente les recomendábamos. <br/>*/}
+				{/*	Estamos trabajando para ofrecerles una amplia oferta de hoteles donde puedan hacer sus reservas. <br/>*/}
+				{/*	A más tardar a mediados de Junio, actualizaremos esta página con todas las opciones disponibles.<br/>*/}
+				{/*	<i className="tamanoCita">Nadie dijo que fuera fácil organizar una boda en pandemia. (Laura y David) <InsertEmoticonIcon fontSize="small" style={{paddingTop: '6px'}}/></i>*/}
+				{/*</p>*/}
+				<p style={{paddingTop: '10px'}}> A continuación les sugerimos como alojamiento los siguientes hoteles con los que hemos <br/>hecho acuerdos 
+					para tener mejores tarifas y condiciones flexibles de reserva.<br/><br/>
+					Todos los hoteles se encuentran en el centro de Murcia y el día de la boda <br/>ofreceremos transporte de regreso a estos hoteles.<br/>
+					{/*<i className="tamanoCita">Nadie dijo que fuera fácil organizar una boda en pandemia. (Laura y David) <InsertEmoticonIcon fontSize="small" style={{paddingTop: '6px'}}/></i>*/}
 				</p>
 			</div>
 			{/*<div align="center" className="tamanoLetra">*/}
@@ -162,33 +165,123 @@ const Hoteles = (props) => {
 			{/*/!*	</div>*!/*/}
 			{/*/!*</section>*!/*/}
 			
-			{/*<section className="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">*/}
-			{/*	<div className="content">*/}
-			{/*		<h2>Hotel Melia Tryp Rincón de Pepe</h2>*/}
-			{/*		<h6 style={{fontSize: '16px'}}>Calle Apóstoles, 34, 30001 Murcia, Spain</h6>*/}
-			{/*		<div className="tamanoLetra">*/}
-			{/*			<p>*/}
-			{/*				Hotel de 4 estrellas situado en el centro de Murcia a escasos 150 metros de la catedral y rodeado de una gran variedad de opciones de restaurantes y ocio.<br/>*/}
-			{/*				Recomendamos este hotel para quienes tengan planeado explorar la región de Murcia los días anteriores a la boda.<br/>*/}
-			{/*			</p>*/}
-			{/*			<p>*/}
-			{/*				El hotel se encuentra a 30 minutos en coche del hotel donde se celebrará el banquete de la boda y*/}
-			{/*				a 50 minutos en coche de la Ermita donde tendrá lugar la ceremonia religiosa.*/}
-			{/*			</p>*/}
-			{/*			<p>*/}
-			{/*				<strong>Reservas: </strong>Reservar directamente con la web del hotel o*/}
-			{/*				en <a href="https://www.booking.com/" rel="noopener noreferrer" target="_blank">Booking.com</a><br/>*/}
-			{/*			<span><strong>Precio habitacion doble: </strong>desde 60 Eur/noche</span><br/>*/}
-			{/*			<span><strong>Condiciones de la reserva: </strong>Cancelaciones y cambios preguntar directamente en el hotel o booking.com<br/></span>*/}
-			{/*			</p>*/}
-			{/*		</div>*/}
-			{/*		<hr/>*/}
-			{/*		<a href="https://www.melia.com/es/hoteles/espana/murcia/tryp-murcia-rincon-de-pepe/index.htm" rel="noopener noreferrer" target="_blank" className="button">Web del hotel</a>*/}
-			{/*	</div>*/}
-			{/*	<div className="image">*/}
-			{/*		<img src={rincondepepe} alt=""/>*/}
-			{/*	</div>*/}
-			{/*</section>*/}
+			<section className="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+				<div className="content">
+					<h2>Hotel Siete Coronas</h2>
+					<h6 style={{fontSize: '16px'}}>
+						Paseo de Garay, 5, 30003 Murcia, España</h6>
+					<div className="tamanoLetra">
+						<p>
+							Hotel de 4 estrellas situado en el centro de Murcia junto al rio y a tan solo 7 minutos andando de la Catedral y la plaza del Ayuntamiento (plaza de la Glorieta), con muchas opciones de restaurantes y ocio a 5 minutos andando.<br/>
+						</p>
+						<p>
+							El hotel se encuentra a tan solo 450 metros (6 minutos andando) de la iglesia donde se celebrará la boda.<br/>
+							Para ver los distintos tipos de habitaciones del hotel, hacer click en el boton <i>Web del Hotel</i> que se encuentra debajo. 
+						</p>
+						<p>
+							<strong>Reservas: </strong>Los invitados pueden reservar por teléfono o vía email indicando <i>"BODA LAURA Y DAVID"</i><br/>
+							<strong>Email: </strong>
+							<a href="mailto:murciasietecoronas.jrec@occidentalhotels.com" rel="noopener noreferrer" target="_blank">
+								murciasietecoronas.jrec@occidentalhotels.com
+							</a><br/>
+							<strong>Teléfono: </strong>+34 968 217 774<br/><br/>
+							
+							<strong>Tarifas Jueves 30-09 Y Viernes 1-10 del 2021:</strong><br/>
+							<span className={classes.content}>Habitacion Doble Superior: 65 Eur/noche</span><br/>
+							<span className={classes.content}>Habitacion Triple: 91 Eur/noche</span><br/>
+							<span className={classes.content}>Habitacion Deluxe: 81.25 Eur/noche</span><br/><br/>
+							
+							<strong>Tarifas Sábado 2-10 del 2021:</strong>Todas las reservas con late Check-out hasta las 14h<br/>
+							<span className={classes.content}>Habitacion Doble Superior: 57 Eur/noche</span><br/>
+							<span className={classes.content}>Habitacion Triple: 79.80 Eur/noche</span><br/>
+							<span className={classes.content}>Habitacion Deluxe: 71.25 Eur/noche</span><br/><br/>
+
+							<strong>Condiciones especiales: </strong><br/>
+							<span className={classes.content}>Late check out domingo a las 14:00 sin cargo</span><br/>
+							<span className={classes.content}>Precio especial del desayuno contratándolo con antelación 10€ por persona y día</span><br/>
+							<span className={classes.content}>Cancelación sin gastos hasta 24 horas antes de la llegada</span><br/>
+							<span className={classes.content}>No show 1 noche de gastos</span><br/><br/>
+							<strong>Oferta válida para reservas hasta el 5 de Julio </strong><br/>
+						</p>
+			
+					</div>
+					<hr/>
+					<a href="https://www.barcelo.com/es-es/occidental-murcia-siete-coronas/" rel="noopener noreferrer" target="_blank" className="button">Web del hotel</a>
+				</div>
+				<div className="image">
+					<img src={hotelsietecoronas} alt="" />
+				</div>
+			</section>
+			
+			<section className="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+				<div className="content">
+					<h2>Hotel Melia Tryp Rincón de Pepe</h2>
+					<h6 style={{fontSize: '16px'}}>Calle Apóstoles, 34, 30001 Murcia, España</h6>
+					<div className="tamanoLetra">
+						<p>
+							Hotel de 4 estrellas situado en el centro de Murcia a escasos 150 metros de la catedral y rodeado de una gran variedad de opciones de restaurantes y ocio.<br/>
+							Como curiosidad, el hotel cuenta con uno de los mejores restaurantes de Murcia justo en el lateral del hotel.
+						</p>
+						<p>
+							El hotel se encuentra a escasos 3 minutos andando de la iglesia donde se celebrará la boda.
+						</p>
+						<p>
+							<strong>Reservas: </strong>Los invitados pueden reservar por teléfono o vía email indicando el código <i>"LAURA WONG Y DAVID BARBA"</i><br/>
+							<strong>Email: </strong>
+							<a href="mailto:reservas@hotelrincondepepe.com" rel="noopener noreferrer" target="_blank">
+								reservas@hotelrincondepepe.com
+							</a><br/>
+							<strong>Teléfono: </strong>+34 968 212 239<br/><br/>
+
+							<strong>Tarifas Jueves 30-09, Viernes 31-09 y Sábado 2-10 del 2021:</strong><br/>
+							<span className={classes.content}>Habitacion Doble: 62 Eur/noche</span><br/><br/>
+							<strong>Condiciones especiales: </strong><br/>
+							<span className={classes.content}>Late check out domingo a las 14:00 sin cargo</span><br/>
+							<span className={classes.content}>Desayuno: 9€ por persona y día (opcional)</span><br/>
+							<span className={classes.content}>Cancelación sin gastos hasta 24 horas antes de la llegada</span><br/><br/>
+							<strong>Oferta válida para reservas hasta el 3 de Septiembre </strong><br/>
+						</p>
+					</div>
+					<hr/>
+					<a href="https://www.melia.com/es/hoteles/espana/murcia/tryp-murcia-rincon-de-pepe/index.htm" rel="noopener noreferrer" target="_blank" className="button">Web del hotel</a>
+				</div>
+				<div className="image">
+					<img src={rincondepepe} alt=""/>
+				</div>
+				
+			</section>
+			<section className="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+				<div className="content">
+					<h2>Hotel NH Amistad</h2>
+					<h6 style={{fontSize: '16px'}}>Calle Condestable, 1, 30009 Murcia, España</h6>
+					<div className="tamanoLetra">
+						<p>
+							Hotel de 4 estrellas situado en el centro de Murcia justo a la espalda de El Corte Inglés y rodeado de una gran variedad de opciones de shopping, restaurantes y ocio.<br/>
+						</p> 
+						<p>
+							El hotel se encuentra a 1,3 kms (15 minutos caminando) de la Iglesia donde se celebrará la boda.
+						</p>
+						<p>
+							<strong>Reservas: </strong>En el siguiente enlace personalizado del hotel. <a href="https://www.nh-hoteles.es/event/enlace-laura-y-david">Click aqui</a><br/><br/>
+							<strong>Tarifas Jueves 30-09, Viernes 31-09 y Sábado 2-10 del 2021:</strong><br/>
+							<span className={classes.content}>Habitacion Doble: 58 Eur/noche</span><br/><br/>
+
+							<strong>Condiciones especiales: </strong><br/>
+							<span className={classes.content}>Late check out domingo a las 16:00 sin cargo</span><br/>
+							<span className={classes.content}>Desayuno buffet: 13€ por persona y día</span><br/>
+							<span className={classes.content}>Cama supletoria menores 12 años: sin cargo</span><br/>
+							<span className={classes.content}>Cuna: sin cargo</span><br/>
+							<span className={classes.content}>Cancelación sin gastos hasta 24 horas antes de la llegada</span><br/><br/>
+							<strong>Oferta válida para reservas hasta el 10 de Septiembre </strong><br/>
+						</p>
+					</div>
+					<hr/>
+					<a href="https://www.nh-hoteles.es/hotel/nh-amistad-murcia/habitaciones" rel="noopener noreferrer" target="_blank" className="button">Web del hotel</a>
+				</div>
+				<div className="image">
+					<img src={nhamistadmurcia} alt=""/>
+				</div>
+			</section>
 		</div>
 	)
 }

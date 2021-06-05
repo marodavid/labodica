@@ -82,7 +82,7 @@ export const Agenda = React.memo(function SingleCard() {
 					>
 						<Card className={cx(cardStyles.root, fadeShadowStyles.root)}>
 									<CardContent>
-									<Typography variant="h5"><strong>Bienvenida</strong></Typography>
+									<Typography variant="h5"><strong>Tarde de Tapeo Murciano</strong></Typography>
 									<Typography variant="caption"><strong>Jueves 30 Septiembre 18.30h</strong></Typography>
 								</CardContent>
 								<CardMedia
@@ -93,8 +93,8 @@ export const Agenda = React.memo(function SingleCard() {
 									<TextInfoContent
 										classes={textCardContentStyles}
 										body={
-											'El jueves iniciamos las celebraciones recibiendo a los invitados. Acompáñanos  ' +
-											'a conocer y disfrutar la ciudad de Murcia. Conozcan a los otros invitados.'
+											'Solo en Murcia escucharás “póngame un tigre, una marinera y un caballito”. '+
+											'Conoce Murcia con nosotros mientras recorremos el centro y disfrutamos de unas cañas.'
 										}
 									/>
 									<br/>
@@ -198,7 +198,7 @@ export const Agenda = React.memo(function SingleCard() {
 									classes={textCardContentStyles}
 									body={
 										'Después de muchas emociones, nervios y hasta una pandemia, llega el gran dia. Los esperamos a ' +
-										'todos para vernos dar el Si quiero. '
+										'todos para vernos dar el "Si quiero". '
 									}
 								/>
 								<br/>
