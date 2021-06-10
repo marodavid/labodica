@@ -140,7 +140,6 @@ export default class AgendaTabs extends React.Component {
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide4)}>
 						{/*<SimpleAccordion />*/}
-						<h3 style={{color: 'black'}}>Proximamente: salones de belleza, clima y temperaturas estimadas e información adicional.</h3>
 						<Informacionutil/>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide5)}>

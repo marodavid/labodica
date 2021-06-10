@@ -108,7 +108,6 @@ export const Agenda = React.memo(function SingleCard() {
 					<AccordionDetails>
 						<Card>
 							<CardContent>
-								<Typography variant="caption"><strong>Etiqueta: </strong>Vestimenta casual tarde-noche<br/></Typography>
 								<Typography variant="caption"><strong>Lugar: </strong>Murcia</Typography>
 							</CardContent>
 							<CardContent>
@@ -212,7 +211,6 @@ export const Agenda = React.memo(function SingleCard() {
 					<AccordionDetails>
 						<Card>
 							<CardContent>
-								<Typography variant="caption"><strong>Etiqueta: </strong>Vestimenta formal<br/></Typography>
 								<Typography variant="caption"><strong>Lugar: </strong>Parroquia Santa Eulalia, Murcia</Typography>
 							</CardContent>
 							<CardContent>
@@ -265,7 +263,6 @@ export const Agenda = React.memo(function SingleCard() {
 					<AccordionDetails>
 						<Card>
 							<CardContent>
-								<Typography variant="caption"><strong>Etiqueta: </strong>Vestimenta formal<br/></Typography>
 								<Typography variant="caption"><strong>Lugar: </strong>Finca La Herencia</Typography>
 							</CardContent>
 							<CardContent>

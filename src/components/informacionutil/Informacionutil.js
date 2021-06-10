@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Accordion, AccordionDetails, AccordionSummary, Grid} from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Typography from "@material-ui/core/Typography";
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'; 
 
 import climaMurcia from '../../images/informacionutil/MurciaClimaHistorico.png'
 
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: theme.typography.pxToRem(15),
 		flexBasis: '33.33%',
 		flexShrink: 0,
+		fontWeight: 'bold',
 	},
 	secondaryHeading: {
 		fontSize: theme.typography.pxToRem(15),
@@ -31,6 +33,11 @@ const useStyles = makeStyles((theme) => ({
 		paddingLeft: '20px',
 		textAlign: 'center',
 	},
+	parrafo: {
+		fontSize: '18px',
+		paddingLeft: '20px',
+		textAlign: 'justify',
+	}
 }));
 
 const Informacionutil = () => {
@@ -43,6 +50,26 @@ const Informacionutil = () => {
 
 	return(
 		<div className={classes.root} style={{textTransform:'none', color: 'black'}}>
+			<Accordion expanded={expanded === 'dressing'} onChange={handleChange('dressing')} style={{textTransform:'none', color: 'black', topPadding: '20px'}}>
+				<AccordionSummary
+					expandIcon={<ExpandMoreIcon />}
+					aria-controls="panel1bh-content"
+					id="panel1bh-header"
+				>
+					<Typography className={classes.heading}>Código de vestimenta (Dress code)</Typography>
+				</AccordionSummary>
+				<AccordionDetails>
+					<Grid item xs={12} sm={12} md={12} lg={12}>
+						<p className={classes.parrafo}>
+							Nos importa más su presencia, que su apariencia <InsertEmoticonIcon fontSize="medium" style={{paddingTop: '6px'}}/>. Sin embargo, para ayudarles a elegir
+							su vestimenta y considerando que la boda es de día, les recomendamos el dress code conocido como <i>dressy casual - semi formal</i>.
+						</p>
+						<p className={classes.parrafo}>
+							No se olviden revisar las temperaturas de esa época del año en la siguiente sección: <i>El tiempo en Murcia</i> 
+						</p>
+					</Grid>
+				</AccordionDetails>
+			</Accordion>
 			<Accordion expanded={expanded === 'clima'} onChange={handleChange('clima')} style={{textTransform:'none', color: 'black', topPadding: '20px'}}>
 				<AccordionSummary
 					expandIcon={<ExpandMoreIcon />}
@@ -83,6 +110,19 @@ const Informacionutil = () => {
 					id="panel1bh-header"
 				>
 					<Typography className={classes.heading}>Restaurantes recomendados</Typography>
+					{/*<Typography className={classes.secondaryHeading}>{cifras.traenNinos}</Typography>*/}
+				</AccordionSummary>
+				<AccordionDetails>
+					<p>Próximamente</p>
+				</AccordionDetails>
+			</Accordion>
+			<Accordion expanded={expanded === 'salones'} onChange={handleChange('salones')} style={{textTransform:'none', color: 'black', topPadding: '20px'}}>
+				<AccordionSummary
+					expandIcon={<ExpandMoreIcon />}
+					aria-controls="panel1bh-content"
+					id="panel1bh-header"
+				>
+					<Typography className={classes.heading}>Salones de belleza</Typography>
 					{/*<Typography className={classes.secondaryHeading}>{cifras.traenNinos}</Typography>*/}
 				</AccordionSummary>
 				<AccordionDetails>
