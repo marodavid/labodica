@@ -11,6 +11,7 @@ import Comollegar from "../comollegar/Comollegar";
 import GeneralMenu from "../generalmenu/GeneralMenu";
 import PiePagina from "../footer/PiePagina";
 import Informacionutil from "../informacionutil/Informacionutil";
+import MapaBodica from "../mapabodica/MapaBodica";
 
 
 const styles = {
@@ -122,7 +123,7 @@ export default class AgendaTabs extends React.Component {
 					<Tab label="Agenda" style={styles.tabLabel}/>
 					<Tab label="Cómo llegar" style={styles.tabLabel}/>
 					<Tab label="Hoteles" style={styles.tabLabel}/>
-					<Tab label="Información" style={styles.tabLabel}/>
+					<Tab label="Información Q&A" style={styles.tabLabel}/>
 					<Tab label="Turismo" style={styles.tabLabel}/>
 					<Tab label="Mapa Murcia" style={styles.tabLabel}/>
 				</Tabs>
@@ -147,25 +148,11 @@ export default class AgendaTabs extends React.Component {
 						<PiePagina/>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide5)}>
-						<div align="center" style={styles.mapaBodica}>
-							{/*<iframe*/}
-							{/*	src="https://www.google.com/maps/d/u/0/embed?mid=1E7323xeyqahJX1JYa9DMoJmPV_leXsVc"*/}
-							{/*	style={{*/}
-							{/*		// width:"1200px",*/}
-							{/*		// height:"975px",*/}
-							{/*		width:"900px",*/}
-							{/*		height:"675px",*/}
-							{/*		// width"600" height="450"*/}
-							{/*		frameBorder:"0", allowFullScreen:"", ariaHidden:"true"}}*/}
-							{/*	tabIndex="0"*/}
-							{/*	title="La-Bodica"*/}
-							{/*/>*/}
-							{/*<iframe width="768" height="576" src="https://maphub.net/embed/142750?panel=1&panel_closed=1"*/}
-							{/*				frameBorder="0"></iframe>*/}
-							<iframe title="La-Bodica" width="900" height="675" src="https://maphub.net/embed/142750?panel=1&panel_closed=1"
-											frameBorder="0" />
-							
-						</div>
+						{/*<div align="center" style={styles.mapaBodica}>*/}
+						{/*	<iframe title="La-Bodica" width="900" height="675" src="https://maphub.net/embed/142750?panel=1&panel_closed=1"*/}
+						{/*					frameBorder="0" />*/}
+						{/*</div>*/}
+						<MapaBodica/>
 					</div>
 				</SwipeableViews>
 			</div>
