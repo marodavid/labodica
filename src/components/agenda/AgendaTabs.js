@@ -66,7 +66,7 @@ const styles = {
 	},
 };
 
-const navigationTabs = ['#agenda', '#comollegar', '#hoteles', '#informacion', '#turismo', "mapaboda"]
+const navigationTabs = ['#agenda', '#comollegar', '#hoteles', '#informacion', "#mapaboda", '#tapas', ]
 export default class AgendaTabs extends React.Component {
 
 	constructor(props) {
