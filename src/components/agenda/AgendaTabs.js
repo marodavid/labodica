@@ -5,13 +5,14 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 
 import Agenda from "./Agenda";
-import Sugerencias from "../../pages/Sugerencias";
+// import Sugerencias from "../../pages/Sugerencias";
 import Hoteles from "../hoteles/Hoteles";
 import Comollegar from "../comollegar/Comollegar";
 import GeneralMenu from "../generalmenu/GeneralMenu";
 import PiePagina from "../footer/PiePagina";
 import Informacionutil from "../informacionutil/Informacionutil";
 import MapaBodica from "../mapabodica/MapaBodica";
+import TapasMurcianas from "../tapasmurcianas/TapasMurcianas";
 
 
 const styles = {
@@ -124,8 +125,8 @@ export default class AgendaTabs extends React.Component {
 					<Tab label="Cómo llegar" style={styles.tabLabel}/>
 					<Tab label="Hoteles" style={styles.tabLabel}/>
 					<Tab label="Información Q&A" style={styles.tabLabel}/>
-					<Tab label="Turismo" style={styles.tabLabel}/>
 					<Tab label="Mapa Murcia" style={styles.tabLabel}/>
+					<Tab label="Tapas" style={styles.tabLabel}/>
 				</Tabs>
 				<SwipeableViews index={index} onChangeIndex={this.handleChangeIndex} animateHeight>
 					<div style={Object.assign({}, styles.slide, styles.slide1)}>
@@ -144,15 +145,16 @@ export default class AgendaTabs extends React.Component {
 						<Informacionutil/>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide5)}>
-						<Sugerencias />
-						<PiePagina/>
-					</div>
-					<div style={Object.assign({}, styles.slide, styles.slide5)}>
 						{/*<div align="center" style={styles.mapaBodica}>*/}
 						{/*	<iframe title="La-Bodica" width="900" height="675" src="https://maphub.net/embed/142750?panel=1&panel_closed=1"*/}
 						{/*					frameBorder="0" />*/}
 						{/*</div>*/}
 						<MapaBodica/>
+					</div>
+					<div style={Object.assign({}, styles.slide, styles.slide5)}>
+						{/*<Sugerencias />*/}
+						<TapasMurcianas/>
+						<PiePagina/>
 					</div>
 				</SwipeableViews>
 			</div>
