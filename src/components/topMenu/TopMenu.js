@@ -139,10 +139,10 @@ function TopMenu(props) {
               underline="none"
               className={clsx(classes.rightLink)}
               // , classes.linkSecondary)}
-              // href="https://www.facebook.com/events/3730092333719587/"
+              href="https://www.facebook.com/events/3730092333719587/"
               rel="noopener noreferrer"
               target="_blank"
-              onClick = { () => alert('En cuanto confirmes tu asistencia, te agregaremos al evento de Facebook')}
+              // onClick = { () => alert('En cuanto confirmes tu asistencia, te agregaremos al evento de Facebook')}
             >
               <Tooltip title={'Evento Facebook'}>
                 <FacebookIcon fontSize={'large'}/>

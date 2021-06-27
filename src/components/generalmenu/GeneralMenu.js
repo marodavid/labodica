@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import { useLocation } from 'react-router-dom'
 
 import { withStyles } from '@material-ui/core/styles';
 import {
@@ -99,6 +100,8 @@ function GeneralMenu(props) {
     target: window ? window() : undefined,
   });
 
+  const location = useLocation()
+
   return (
     <Slide appear={false} direction="down" in={!trigger}>
     <div className={classes.root}>
@@ -164,7 +167,7 @@ function GeneralMenu(props) {
                     variant="h6"
                     underline="none"
                     className={clsx(classes.derechaLink)}
-                    href="https://translate.google.com/translate?sl=es&tl=en&u=https://labodica.es/informacion%23agenda"
+                    href={`https://translate.google.com/translate?sl=es&tl=en&u=https://labodica.es${location.pathname}`}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
