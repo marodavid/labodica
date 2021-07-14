@@ -129,10 +129,10 @@ export default function ListaBoda(props) {
 					<Typography variant="h5" className={classes.textoDescripcion}>
 						Queridos amigos y familia: <br/><br/>
 						Como sabéis, somos emigrantes viviendo de alquiler en un país que nos acogió pero no es el nuestro.
-						Por ello, no tiene mucho sentido en nuestro caso que vuestros regalos sean una vajilla preciosa, u otros
+						Por ello, no tiene mucho sentido en nuestro caso que vuestros regalos sean una vajilla preciosa, electrodomésticos u otros
 						objetos que luego tendremos que llevar con nosotros de hogar en hogar y de país en país, como caracol que carga con su casa.<br/><br/>
 						Tenemos grandes sueños y proyectos que nos gustaría llevar a cabo juntos, y agradecemos enormemente la ayuda que nos puedan brindar.<br/>
-						Os detallamos abajo sugerencias donde nos podéis enviar vuestros regalos, dependiendo de donde estéis viviendo.
+						Os detallamos abajo sugerencias en caso que quieran enviarnos sus regalos, dependiendo de donde estéis viviendo.
 					</Typography>
 				</Grid>
 				<Grid item xs={1} sm={1} md={2} lg={3} xl={3} />
