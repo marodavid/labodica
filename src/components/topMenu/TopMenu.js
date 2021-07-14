@@ -115,9 +115,10 @@ function TopMenu(props) {
               underline="none"
               className={clsx(classes.rightLink)}
               // , classes.linkSecondary)}
-              href="/informacion#hoteles"
+              // href="/informacion#hoteles"
+              href="/listaboda"
             >
-              {'HOTELES'}
+              {'LISTA BODA'}
             </Link>
           </div>
           <div className={classes.right}>
