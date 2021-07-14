@@ -13,6 +13,7 @@ import PasosASeguir from "./pages/PasosASeguir";
 import GeneralMenu from "./components/generalmenu/GeneralMenu";
 import RSVP from './components/RSVP'
 // import Estadisticas from './components/estadisticas/Estadisticas'
+import ListaBoda from './components/listaboda/ListaBoda'
 
 function Index() {
 
@@ -46,6 +47,9 @@ function Index() {
         </Route>
         <Route path="/informacion" >
           <AgendaTabs />
+        </Route>
+        <Route path="/listaboda" >
+          <ListaBoda />
         </Route>
         {/*<Route path="/estadisticas" >*/}
         {/*  <Estadisticas />*/}
