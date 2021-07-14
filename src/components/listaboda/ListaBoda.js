@@ -132,7 +132,7 @@ export default function ListaBoda(props) {
 						Por ello, no tiene mucho sentido en nuestro caso que vuestros regalos sean una vajilla preciosa, u otros
 						objetos que luego tendremos que llevar con nosotros de hogar en hogar y de país en país, como caracol que carga con su casa.<br/><br/>
 						Tenemos grandes sueños y proyectos que nos gustaría llevar a cabo juntos, y agradecemos enormemente la ayuda que nos puedan brindar.<br/>
-						Os detallamos abajo donde nos podéis hacer vuestras aportaciones voluntarias, dependiendo de donde estéis viviendo.
+						Os detallamos abajo sugerencias donde nos podéis enviar vuestros regalos, dependiendo de donde estéis viviendo.
 					</Typography>
 				</Grid>
 				<Grid item xs={1} sm={1} md={2} lg={3} xl={3} />
