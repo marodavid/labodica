@@ -3,11 +3,11 @@ import React from 'react'
 import {Grid, Typography} from '@material-ui/core'
 import {makeStyles} from "@material-ui/core/styles";
 
-import GeneralMenu from "../generalmenu/GeneralMenu";
+import GeneralMenu2 from "../generalmenu/GeneralMenu2";
 import PiePagina from "../footer/PiePagina";
 import ListaBodaCard from './ListaBodaCard'
 import weddingGif from '../../images/listaboda/ourweddingregistry.gif'
-import honeymoon from '../../images/listaboda/honeymoon_southafrica.jpg'
+import honeymoon from '../../images/listaboda/Safaris-en-Sudáfrica.jpg'
 import casaloquitos from '../../images/listaboda/casaLoquitosListaBoda.jpg'
 import huchaboda from '../../images/listaboda/hamm_large.jpg'
 import lluviaSobres from '../../images/listaboda/lluviasobres.webp'
@@ -89,7 +89,7 @@ const tarjetas = [
 	{
 		tipo: 'viaje',
 		title: 'Luna de Miel',
-		subtitle: '2022 Sudáfrica',
+		subtitle: 'Sudáfrica',
 		imagen: {honeymoon}.honeymoon,
 		descripcion: 'Ayúdanos a tener una gran luna de miel para poner un broche de oro a la boda.',
 		extendida: '',
@@ -108,7 +108,7 @@ export default function ListaBoda(props) {
 	
 	return (
 		<>
-		<GeneralMenu />
+		<GeneralMenu2 />
 			<Grid
 				container
 				direction="row"
@@ -127,12 +127,12 @@ export default function ListaBoda(props) {
 				<Grid item xs={1} sm={1} md={2} lg={3} xl={3} />
 				<Grid item xs={10} sm={10} md={8} lg={6} xl={6} className={classes.cuadroDescripcion}>
 					<Typography variant="h5" className={classes.textoDescripcion}>
-						Queridos amigos y familia: <br/><br/>
-						Como sabéis, somos emigrantes viviendo de alquiler en un país que nos acogió pero no es el nuestro.
-						Por ello, no tiene mucho sentido en nuestro caso que vuestros regalos sean una vajilla preciosa, electrodomésticos u otros
-						objetos que luego tendremos que llevar con nosotros de hogar en hogar y de país en país, como caracol que carga con su casa.<br/><br/>
-						Tenemos grandes sueños y proyectos que nos gustaría llevar a cabo juntos, y agradecemos enormemente la ayuda que nos puedan brindar.<br/>
-						Os detallamos abajo sugerencias en caso que quieran enviarnos sus regalos, dependiendo de donde estéis viviendo.
+						Querida familia y amigos: <br/><br/>
+						Como sabéis, somos emigrantes viviendo de alquiler en un país que nos acogió, pero no es el nuestro. 
+						Por ello, no tiene mucho sentido en nuestro caso el recibir como obsequio objetos materiales
+						que luego tendríamos que llevar con nosotros de hogar en hogar y de país en país, como caracol que carga con su casa.<br/><br/>
+						Si tenéis el gusto de hacernos algún obsequio, estas son las cuentas que hemos abierto en los distintos países.
+						<br/>
 					</Typography>
 				</Grid>
 				<Grid item xs={1} sm={1} md={2} lg={3} xl={3} />
@@ -183,7 +183,7 @@ export default function ListaBoda(props) {
 					</div>
 					<p className={classes.textoCuenta}>
 						<strong>Lluvia de sobres</strong><br/>
-						Si lo prefieres, entréganos tu sobre los días de La Bodica.
+						Si lo prefieres, puedes entregarnos un sobre los días de La Bodica.
 					</p>
 				</Grid>
 				<Grid item xs={1} sm={1}  md={1} lg={1} xl={1}/>
