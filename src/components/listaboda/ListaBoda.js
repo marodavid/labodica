@@ -3,7 +3,7 @@ import React from 'react'
 import {Grid, Typography} from '@material-ui/core'
 import {makeStyles} from "@material-ui/core/styles";
 
-import GeneralMenu2 from "../generalmenu/GeneralMenu2";
+import GeneralMenu from "../generalmenu/GeneralMenu";
 import PiePagina from "../footer/PiePagina";
 import ListaBodaCard from './ListaBodaCard'
 import weddingGif from '../../images/listaboda/ourweddingregistry.gif'
@@ -108,7 +108,7 @@ export default function ListaBoda(props) {
 	
 	return (
 		<>
-		<GeneralMenu2 />
+		<GeneralMenu />
 			<Grid
 				container
 				direction="row"
