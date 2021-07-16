@@ -9,6 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import HotelIcon from '@material-ui/icons/Hotel';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import EventIcon from '@material-ui/icons/Event';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff'
+import LiveHelpIcon from '@material-ui/icons/LiveHelp'
+import RedeemIcon from '@material-ui/icons/Redeem'
 
 import CurvyLines from '../images/sugerencias/appCurvyLines.png'
 import Dialog from "@material-ui/core/Dialog";
@@ -89,7 +92,7 @@ function PasosASeguir(props) {
   const handleCloseDialog = () => {
     setOpenDialog(false);
   };
-
+  
   return (
     <section className={classes.root}>
       <Container className={classes.container}>
@@ -164,6 +167,65 @@ function PasosASeguir(props) {
                   to="/informacion#hoteles"
                 >
                   Hoteles
+                </Button>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={12} />
+            <Grid item xs={12} md={4}>
+              <div className={classes.item}>
+                <div className={classes.number}>4.</div>
+                <FlightTakeoffIcon size="large" className={classes.image} />
+                <Typography variant="h5" align="center">
+                  Descubre cómo llegar a Murcia y disfrutar de La Bodica.
+                </Typography>
+                <Button
+                  color="secondary"
+                  variant="outlined"
+                  className={classes.button}
+                  component={ Link }
+                  // onClick = { () => handleClickOpenDialog() }
+                  to="/informacion#comollegar"
+                >
+                  COMO LLEGAR
+                </Button>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <div className={classes.item}>
+                <div className={classes.number}>5.</div>
+                <LiveHelpIcon font="large" className={classes.image}/>
+                <Typography variant="h5" align="center">
+                  {'Todas tus dudas sobre La Bodica (clima, dress code, peluquerías, etc.)'}
+                  {/*{'¡El clima, Dress code, Peluquerias, todo aquí!.'}*/}
+                </Typography>
+                <Button
+                  color="secondary"
+                  size="large"
+                  variant="outlined"
+                  className={classes.button}
+                  component={ Link }
+                  to="/informacion#informacion"
+                >
+                  {'Dudas Q&A'}
+                </Button>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <div className={classes.item}>
+                <div className={classes.number}>6.</div>
+                <RedeemIcon font="large" className={classes.image}/>
+                <Typography variant="h5" align="center">
+                  {'Hemos preparado una lista de bodas diferente. Encuéntrala aquí'}
+                </Typography>
+                <Button
+                  color="secondary"
+                  size="large"
+                  variant="outlined"
+                  className={classes.button}
+                  component={ Link }
+                  to="/listaboda/"
+                >
+                  Lista de Boda
                 </Button>
               </div>
             </Grid>
