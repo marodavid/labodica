@@ -20,6 +20,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import { IconFlagUK } from 'material-ui-flags';
+import MenuOpciones from "../generalmenu/MenuOpciones";
 
 
 const styles = (theme) => ({
@@ -66,14 +67,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function TopMenu(props) {
   const { window } = props
   const { classes } = props;
-
-  //Dialog
-  const [openDialog, setOpenDialog] = React.useState(false);
+  
+  // const [openDialog, setOpenDialog] = React.useState(false);
   const [openSos, setOpenSos] = React.useState(false)
 
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-  };
+  // const handleCloseDialog = () => {
+  //   setOpenDialog(false);
+  // };
 
   const handleClickOpenSos = () => {
     setOpenSos(true);
@@ -89,37 +89,38 @@ function TopMenu(props) {
     <div>
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
-          {/*<div className={classes.left}>*/}
           <div className={classes.left}>
-            <Tooltip title={'Confirmar asistencia'}>
-            <Link
-              color="inherit"
-              variant="h6"
-              underline="none"
-              href="/rsvp"
-              // onClick = { () => handleClickOpenDialog() }
-            >
-              {'RSVP'}
-            </Link>
-            </Tooltip>
-            <Link
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink)}
-              href="/informacion#agenda"
-            >
-              {'AGENDA'}
-            </Link>
-            <Link
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink)}
-              // , classes.linkSecondary)}
-              // href="/informacion#hoteles"
-              href="/listaboda"
-            >
-              {'LISTA BODA'}
-            </Link>
+            <MenuOpciones />
+            {/*<Tooltip title={'Confirmar asistencia'}>*/}
+            {/*<Link*/}
+            {/*  color="inherit"*/}
+            {/*  variant="h6"*/}
+            {/*  underline="none"*/}
+            {/*  href="/rsvp"*/}
+            {/*  // onClick = { () => handleClickOpenDialog() }*/}
+            {/*>*/}
+            {/*  {'RSVP'}*/}
+            {/*</Link>*/}
+            {/*</Tooltip>*/}
+            {/*<Link*/}
+            {/*  variant="h6"*/}
+            {/*  underline="none"*/}
+            {/*  className={clsx(classes.rightLink)}*/}
+            {/*  href="/informacion#agenda"*/}
+            {/*>*/}
+            {/*  {'AGENDA'}*/}
+            {/*</Link>*/}
+            
+            {/*<Link*/}
+            {/*  variant="h6"*/}
+            {/*  underline="none"*/}
+            {/*  className={clsx(classes.rightLink)}*/}
+            {/*  // , classes.linkSecondary)}*/}
+            {/*  // href="/informacion#hoteles"*/}
+            {/*  href="/listaboda"*/}
+            {/*>*/}
+            {/*  {'LISTA BODA'}*/}
+            {/*</Link>*/}
           </div>
           <div className={classes.right}>
             <Link
@@ -166,27 +167,27 @@ function TopMenu(props) {
       </AppBar>
       <div className={classes.placeholder} />
       <div>
-        <Dialog
-          open={openDialog}
-          TransitionComponent={Transition}
-          keepMounted
-          onClose={handleCloseDialog}
-          aria-labelledby="alert-dialog-slide-title"
-          aria-describedby="alert-dialog-slide-description"
-        >
-          <DialogTitle id="alert-dialog-slide-title">{"No nos confirmeis la asistencia todavia"}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-slide-description">
-              Debido a la pandemia, entendemos que no nos podeis confirmar la asistencia todavia.
-              Mas adelante, te avisaremos para que nos confirmes y puedas acompañarnos.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleCloseDialog} color="transparent">
-              Ok
-            </Button>
-          </DialogActions>
-        </Dialog>
+        {/*<Dialog*/}
+        {/*  open={openDialog}*/}
+        {/*  TransitionComponent={Transition}*/}
+        {/*  keepMounted*/}
+        {/*  onClose={handleCloseDialog}*/}
+        {/*  aria-labelledby="alert-dialog-slide-title"*/}
+        {/*  aria-describedby="alert-dialog-slide-description"*/}
+        {/*>*/}
+        {/*  <DialogTitle id="alert-dialog-slide-title">{"No nos confirmeis la asistencia todavia"}</DialogTitle>*/}
+        {/*  <DialogContent>*/}
+        {/*    <DialogContentText id="alert-dialog-slide-description">*/}
+        {/*      Debido a la pandemia, entendemos que no nos podeis confirmar la asistencia todavia.*/}
+        {/*      Mas adelante, te avisaremos para que nos confirmes y puedas acompañarnos.*/}
+        {/*    </DialogContentText>*/}
+        {/*  </DialogContent>*/}
+        {/*  <DialogActions>*/}
+        {/*    <Button onClick={handleCloseDialog} color="transparent">*/}
+        {/*      Ok*/}
+        {/*    </Button>*/}
+        {/*  </DialogActions>*/}
+        {/*</Dialog>*/}
         <Dialog
           open={openSos}
           TransitionComponent={Transition}
@@ -226,9 +227,6 @@ function TopMenu(props) {
 }
 
 TopMenu.propTypes = {
-  /**
-   * Override or extend the styles applied to the component.
-   */
   classes: PropTypes.object.isRequired,
 };
 

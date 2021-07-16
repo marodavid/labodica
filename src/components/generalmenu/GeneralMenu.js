@@ -1,34 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
+import React from 'react'
+import PropTypes from 'prop-types'
+import clsx from 'clsx'
 import { useLocation } from 'react-router-dom'
 
-import { withStyles } from '@material-ui/core/styles';
+import { IconFlagUK } from 'material-ui-flags'
+import { withStyles } from '@material-ui/core/styles'
 import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   Grid,
   Link,
   Slide,
   Typography,
   SvgIcon,
   Tooltip
-} from "@material-ui/core";
+} from '@material-ui/core'
+import useScrollTrigger from '@material-ui/core/useScrollTrigger'
+// import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined'
+import FacebookIcon from '@material-ui/icons/Facebook'
+import WhatsAppIcon from '@material-ui/icons/WhatsApp'
 
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import FacebookIcon from '@material-ui/icons/Facebook';
-
-import AppBar from './GeneralAppBar';
-import Toolbar, { styles as toolbarStyles } from './GeneralToolbar';
-import { IconFlagUK } from 'material-ui-flags';
 // import {ReactComponent as sos} from '../../images/piedepagina/sosIcon.svg'
 import {ReactComponent as sos} from '../../images/piedepagina/sos2.svg'
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogActions from "@material-ui/core/DialogActions";
-import Button from "@material-ui/core/Button";
-import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import AppBar from './GeneralAppBar'
+import Toolbar, { styles as toolbarStyles } from './GeneralToolbar'
+import MenuOpciones from './MenuOpciones'
 
 
 const styles = (theme) => ({
@@ -110,22 +110,22 @@ function GeneralMenu(props) {
           <Grid container row justify="center" alignItems="center">
             <Grid item xs={2} sm={2} md={2} lg={2}>
             <div className={classes.izquierda}>
-              <Link
-                variant="h6"
-                underline="none"
-                style={{alignSelf: 'flex-start'}}
-                className={clsx(classes.izquierdaLink)}
-                href="/"
-              >
-                <Tooltip title={'Inicio'}>
-                  <HomeOutlinedIcon fontSize={'large'}/>
-                </Tooltip>
-              </Link>
+              <MenuOpciones />
+              {/*<Link*/}
+              {/*  variant="h6"*/}
+              {/*  underline="none"*/}
+              {/*  style={{alignSelf: 'flex-start'}}*/}
+              {/*  className={clsx(classes.izquierdaLink)}*/}
+              {/*  href="/"*/}
+              {/*>*/}
+              {/*  <Tooltip title={'Inicio'}>*/}
+              {/*    <HomeOutlinedIcon fontSize={'large'}/>*/}
+              {/*  </Tooltip>*/}
+              {/*</Link>*/}
               <Link
                 variant="h6"
                 underline="none"
                 className={clsx(classes.derechaLink)}
-                // href="https://wa.me/34665898440"
                 rel="noopener noreferrer"
                 target="_blank"
                 onClick = { () => handleClickOpenSos() }

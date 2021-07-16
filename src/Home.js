@@ -36,9 +36,9 @@ function Index() {
         <Route exact path="/">
           <Portada/>
           <AnchorSpan />
-          <NuestraHistoria/>
-          <AnchorSpan />
           <PasosASeguir />
+          <AnchorSpan />
+          <NuestraHistoria/>
           <PiePagina/>
         </Route>
         <Route path="/rsvp" >
