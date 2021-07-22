@@ -112,12 +112,20 @@ export const Agenda = React.memo(function SingleCard() {
 							</CardContent>
 							<CardContent>
 								<Box px={3} pb={3}>
-									<iframe
-										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.7331261839518!2d-1.1326411843892645!3d37.98335697972195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6382035392c7eb%3A0xca762e4b1ced702e!2sGlorieta%20de%20Espa%C3%B1a%2C%2030004%20Murcia%2C%20Spain!5e0!3m2!1sen!2sde!4v1621610310192!5m2!1sen!2sde"
-										style={{width:"800", height:"650", frameBorder:"0", allowFullScreen:"", ariaHidden:"true"}}
-										tabIndex="0"
-										title="preboda-map"
-									/>
+									{/*<iframe*/}
+									{/*	src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.7331261839518!2d-1.1326411843892645!3d37.98335697972195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6382035392c7eb%3A0xca762e4b1ced702e!2sGlorieta%20de%20Espa%C3%B1a%2C%2030004%20Murcia%2C%20Spain!5e0!3m2!1sen!2sde!4v1621610310192!5m2!1sen!2sde"*/}
+									{/*	style={{width:"800", height:"650", frameBorder:"0", allowFullScreen:"", ariaHidden:"true"}}*/}
+									{/*	tabIndex="0"*/}
+									{/*	title="preboda-map"*/}
+									{/*/>*/}
+									<Button
+										onClick={() => {
+											history.push('/informacion#tapas')
+											window.location.reload();
+										}}
+									>
+										Ver Tapas Murcianas
+									</Button>
 								</Box>
 							</CardContent>
 						</Card>
