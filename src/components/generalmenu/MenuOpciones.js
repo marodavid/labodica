@@ -90,10 +90,10 @@ function MenuOpciones(props) {
 									<MenuItem onClick={() => history.push('/rsvp')}>RSVP</MenuItem>
 									<MenuItem onClick={() => history.push('/informacion#agenda')}>Agenda</MenuItem>
 									<MenuItem onClick={() => history.push('/informacion#hoteles')}>Hoteles</MenuItem>
-									<MenuItem onClick={() => history.push('/informacion#informacion')}>Informacion Q&A</MenuItem>
-									<MenuItem onClick={() => history.push('/informacion#mapaboda')}>Mapa Murcia</MenuItem>
+									<MenuItem onClick={() => history.push('/informacion#belleza')}>Salones Belleza</MenuItem>
 									<MenuItem onClick={() => history.push('/informacion#tapas')}>Tapas Murcia</MenuItem>
 									<MenuItem onClick={() => history.push('/listaboda')}>Lista Boda</MenuItem>
+									<MenuItem onClick={() => history.push('/informacion#informacion')}>Informacion Q&A</MenuItem>
 								</MenuList>
 							</ClickAwayListener>
 						</Paper>
