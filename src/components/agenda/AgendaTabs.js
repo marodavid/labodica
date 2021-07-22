@@ -13,6 +13,8 @@ import PiePagina from "../footer/PiePagina";
 import Informacionutil from "../informacionutil/Informacionutil";
 import MapaBodica from "../mapabodica/MapaBodica";
 import TapasMurcianas from "../tapasmurcianas/TapasMurcianas";
+// import Turismo from "../turismo/TurismoPage";
+import SalonesBelleza from '../salonesbelleza/SalonesBelleza'
 
 
 const styles = {
@@ -66,7 +68,7 @@ const styles = {
 	},
 };
 
-const navigationTabs = ['#agenda', '#comollegar', '#hoteles', '#informacion', "#mapaboda", '#tapas', ]
+const navigationTabs = ['#agenda', '#comollegar', '#hoteles', '#belleza', '#tapas', '#informacion', "#mapaboda" ]
 export default class AgendaTabs extends React.Component {
 
 	constructor(props) {
@@ -124,9 +126,10 @@ export default class AgendaTabs extends React.Component {
 					<Tab label="Agenda" style={styles.tabLabel}/>
 					<Tab label="Cómo llegar" style={styles.tabLabel}/>
 					<Tab label="Hoteles" style={styles.tabLabel}/>
+					<Tab label="Salones de Belleza" style={styles.tabLabel}/>
+					<Tab label="Tapas" style={styles.tabLabel}/>
 					<Tab label="Información Q&A" style={styles.tabLabel}/>
 					<Tab label="Mapa Murcia" style={styles.tabLabel}/>
-					<Tab label="Tapas" style={styles.tabLabel}/>
 				</Tabs>
 				<SwipeableViews index={index} onChangeIndex={this.handleChangeIndex} animateHeight>
 					<div style={Object.assign({}, styles.slide, styles.slide1)}>
@@ -134,11 +137,17 @@ export default class AgendaTabs extends React.Component {
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide2)}>
 						<Comollegar/>
-						<PiePagina/>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide3)}>
 						<Hoteles/>
-						<PiePagina/>
+					</div>
+					<div style={Object.assign({}, styles.slide, styles.slide5)}>
+						{/*<Sugerencias />*/}
+						<SalonesBelleza/>
+					</div>
+					<div style={Object.assign({}, styles.slide, styles.slide5)}>
+						{/*<Sugerencias />*/}
+						<TapasMurcianas/>
 					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide4)}>
 						{/*<SimpleAccordion />*/}
@@ -151,12 +160,8 @@ export default class AgendaTabs extends React.Component {
 						{/*</div>*/}
 						<MapaBodica/>
 					</div>
-					<div style={Object.assign({}, styles.slide, styles.slide5)}>
-						{/*<Sugerencias />*/}
-						<TapasMurcianas/>
-						<PiePagina/>
-					</div>
 				</SwipeableViews>
+				<PiePagina/>
 			</div>
 		);
 	}
