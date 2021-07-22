@@ -201,7 +201,7 @@ const Hoteles = (props) => {
 							<span className={classes.content}>Precio especial del desayuno contratándolo con antelación 10€ por persona y día</span><br/>
 							<span className={classes.content}>Cancelación sin gastos hasta 24 horas antes de la llegada</span><br/>
 							<span className={classes.content}>No show 1 noche de gastos</span><br/><br/>
-							<strong>Oferta válida para reservas hasta el 5 de Julio </strong><br/>
+							<strong>Oferta válida mientras queden habitaciones disponibles</strong><br/>
 						</p>
 			
 					</div>
