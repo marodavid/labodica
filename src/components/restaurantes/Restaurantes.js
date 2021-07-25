@@ -13,7 +13,7 @@ import puertasdemurciaAvatar from '../../images/restaurantes/puertasdemurciaAvat
 import puracepaAvatar from '../../images/restaurantes/puracepaAvatar.png'
 import rinconpepeAvatar from '../../images/restaurantes/rinconpepeAvatar.png'
 
-import cosafina from '../../images/restaurantes/cosafina.png'
+import cosafina from '../../images/restaurantes/cosafina.jpg'
 import elchurra from '../../images/restaurantes/elchurra.png'
 import emboka from '../../images/restaurantes/emboka.webp'
 import hispano from '../../images/restaurantes/hispano.png'
@@ -62,7 +62,7 @@ const Restaurantes = () => {
 			telefono: '+34 968 21 73 97',
 			web: 'https://www.puracepamurcia.com/',
 			imagen: {puracepa}.puracepa,
-			direccion: 'Plaza Cristo del Rescate, 8, 30001 Murciaa',
+			direccion: 'Plaza Cristo del Rescate, 8, 30001 Murcia',
 			googlemap: 'https://g.page/PuraCepaMurcia?share',
 			extendida: 'Gastronomía murciana con un toque especial. Un año más tenemos el enorme placer de ser uno de los restaurantes recomendados por la Guía Michelín en la Región de Murcia.',
 		},
