@@ -14,6 +14,7 @@ import GeneralMenu from "./components/generalmenu/GeneralMenu";
 import RSVP from './components/RSVP'
 // import Estadisticas from './components/estadisticas/Estadisticas'
 import ListaBoda from './components/listaboda/ListaBoda'
+import TurismoMurciaTabs from "./components/turismomurcia/TurismoMurciaTabs";
 
 function Index() {
 
@@ -50,6 +51,10 @@ function Index() {
         </Route>
         <Route path="/listaboda" >
           <ListaBoda />
+        </Route>
+        <Route path="/turismo" >
+          <GeneralMenu/>
+          <TurismoMurciaTabs />
         </Route>
         {/*<Route path="/estadisticas" >*/}
         {/*  <Estadisticas />*/}

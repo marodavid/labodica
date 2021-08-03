@@ -91,8 +91,7 @@ function MenuOpciones(props) {
 									<MenuItem onClick={() => history.push('/informacion#agenda')}>Agenda</MenuItem>
 									<MenuItem onClick={() => history.push('/informacion#hoteles')}>Hoteles</MenuItem>
 									<MenuItem onClick={() => history.push('/informacion#belleza')}>Salones Belleza</MenuItem>
-									<MenuItem onClick={() => history.push('/informacion#restaurantes')}>Restaurantes</MenuItem>
-									<MenuItem onClick={() => history.push('/informacion#tapas')}>Tapas Murcia</MenuItem>
+									<MenuItem onClick={() => history.push('/turismo')}>Descubre Murcia</MenuItem>
 									<MenuItem onClick={() => history.push('/listaboda')}>Lista Boda</MenuItem>
 									<MenuItem onClick={() => history.push('/informacion#informacion')}>Informacion Q&A</MenuItem>
 								</MenuList>

@@ -12,10 +12,7 @@ import GeneralMenu from "../generalmenu/GeneralMenu";
 import PiePagina from "../footer/PiePagina";
 import Informacionutil from "../informacionutil/Informacionutil";
 // import MapaBodica from "../mapabodica/MapaBodica";
-import TapasMurcianas from "../tapasmurcianas/TapasMurcianas";
-// import Turismo from "../turismo/TurismoPage";
 import SalonesBelleza from '../salonesbelleza/SalonesBelleza'
-import Restaurantes from '../restaurantes/Restaurantes'
 
 
 const styles = {
@@ -69,7 +66,8 @@ const styles = {
 	},
 };
 
-const navigationTabs = ['#agenda', '#comollegar', '#hoteles', '#belleza', '#restaurantes', '#tapas', '#informacion' ]
+// const navigationTabs = ['#agenda', '#comollegar', '#hoteles', '#belleza', '#restaurantes', '#tapas', '#informacion' ]
+const navigationTabs = ['#agenda', '#comollegar', '#hoteles', '#belleza', '#informacion' ]
 export default class AgendaTabs extends React.Component {
 
 	constructor(props) {
@@ -128,10 +126,7 @@ export default class AgendaTabs extends React.Component {
 					<Tab label="Cómo llegar" style={styles.tabLabel}/>
 					<Tab label="Hoteles" style={styles.tabLabel}/>
 					<Tab label="Salones de Belleza" style={styles.tabLabel}/>
-					<Tab label="Restaurantes" style={styles.tabLabel}/>
-					<Tab label="Tapas" style={styles.tabLabel}/>
 					<Tab label="Información Q&A" style={styles.tabLabel}/>
-					{/*<Tab label="Mapa Murcia" style={styles.tabLabel}/>*/}
 				</Tabs>
 				<SwipeableViews index={index} onChangeIndex={this.handleChangeIndex} animateHeight>
 					<div style={Object.assign({}, styles.slide, styles.slide1)}>
@@ -146,22 +141,9 @@ export default class AgendaTabs extends React.Component {
 					<div style={Object.assign({}, styles.slide, styles.slide5)}>
 						<SalonesBelleza/>
 					</div>
-					<div style={Object.assign({}, styles.slide, styles.slide5)}>
-						<Restaurantes/>
-					</div>
-					<div style={Object.assign({}, styles.slide, styles.slide5)}>
-						<TapasMurcianas/>
-					</div>
 					<div style={Object.assign({}, styles.slide, styles.slide4)}>
 						<Informacionutil/>
 					</div>
-					{/*<div style={Object.assign({}, styles.slide, styles.slide5)}>*/}
-					{/*	/!*<div align="center" style={styles.mapaBodica}>*!/*/}
-					{/*	/!*	<iframe title="La-Bodica" width="900" height="675" src="https://maphub.net/embed/142750?panel=1&panel_closed=1"*!/*/}
-					{/*	/!*					frameBorder="0" />*!/*/}
-					{/*	/!*</div>*!/*/}
-					{/*	<MapaBodica/>*/}
-					{/*</div>*/}
 				</SwipeableViews>
 				<PiePagina/>
 			</div>

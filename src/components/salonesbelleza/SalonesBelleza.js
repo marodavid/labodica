@@ -79,8 +79,8 @@ const SalonesBelleza = () => {
 					<>
 					<Grid item xs={1} sm={1} md={1} lg={1} xl={1}/>
 					<Grid item xs={10} sm={10} md={4} lg={4} xl={4}>
-						<Typography variant="h5">{peluqueria.nombre}</Typography>
 						<p>
+							<Typography variant="h5">{peluqueria.nombre}</Typography>
 							<span><strong>Teléfono: </strong>{peluqueria.telefono}</span><br/>
 							<span><strong>Web: </strong>
 									<a href={peluqueria.web}
