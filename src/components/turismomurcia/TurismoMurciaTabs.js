@@ -78,12 +78,19 @@ const AntTab = withStyles((theme) => ({
 	selected: {},
 }))((props) => <Tab disableRipple {...props} />);
 
+const turismoTabs = ['#turismo', '#restaurantes', '#tapas']
+
 const TurismoMurciaTabs = () => {
 	const styles = useStyles()
-	const [tabIndex, setTabIndex] = React.useState(0)
+	const { location: { hash } } = window
+	
+	// const [tabIndex, setTabIndex] = React.useState(0)
+	const [tabIndex, setTabIndex] = React.useState(turismoTabs.includes(hash) ? turismoTabs.indexOf(hash) : 0)
+	window.location.hash = turismoTabs[tabIndex]
 
 	const handleChange = (event, newValue) => {
 		setTabIndex(newValue);
+		window.location.hash = turismoTabs[newValue]
 	}
 
 	return (
