@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
 
+import { makeStyles } from '@material-ui/core/styles';
 import {Accordion, AccordionDetails, AccordionSummary, Grid} from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Typography from "@material-ui/core/Typography";
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'; 
 
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import climaMurcia from '../../images/informacionutil/MurciaClimaHistorico.png'
 
 
@@ -20,24 +21,41 @@ const useStyles = makeStyles((theme) => ({
 		flexShrink: 0,
 		fontWeight: 'bold',
 	},
-	secondaryHeading: {
-		fontSize: theme.typography.pxToRem(15),
-		color: theme.palette.text.secondary,
-	},
-	emails: {
-		width: '100%',
-		wordWrap:'break-word',
-	},
+	// secondaryHeading: {
+	// 	fontSize: theme.typography.pxToRem(15),
+	// 	color: theme.palette.text.secondary,
+	// },
+	// emails: {
+	// 	width: '100%',
+	// 	wordWrap:'break-word',
+	// },
 	parrafoClima: {
 		fontSize: '18px',
 		paddingLeft: '20px',
 		textAlign: 'center',
+		[theme.breakpoints.down('md')]: {
+			paddingLeft: '0px',
+			fontSize: '16px',
+		},
 	},
 	parrafo: {
 		fontSize: '18px',
 		paddingLeft: '20px',
 		textAlign: 'justify',
-	}
+		[theme.breakpoints.down('md')]: {
+			paddingLeft: '0px',
+			fontSize: '16px',
+		},
+	},
+	listaItem: {
+		fontSize: '18px',
+		textAlign: 'justify',
+		textTransform: 'none',
+		color: 'black',
+		[theme.breakpoints.down('md')]: {
+			fontSize: '16px',
+		},
+	},
 }));
 
 const Informacionutil = () => {
@@ -48,51 +66,6 @@ const Informacionutil = () => {
 		setExpanded(isExpanded ? panel : false)
 	}
 	
-	// const restaurantes = [
-	// 	{
-	// 		nombre: 'Cosafina Gastrobar',
-	// 		telefono: '+34 615 03 58 63',
-	// 		web: 'http://www.cosafinagastrobar.com/',
-	// 		direccion: 'Plaza Puxmarina, 2, Planta Baja, 30004 Murcia',
-	// 		googlemap: 'https://goo.gl/maps/2d4V8z4KAXf6UbyA7'
-	// 	},
-	// 	{
-	// 		nombre: 'Restaurante EL Churra *',
-	// 		telefono: '+34 968 27 15 22',
-	// 		web: 'https://www.elchurra.net/restaurante',
-	// 		direccion: 'Calle Obispo Sancho Dávila, 13, 30007 Murcia',
-	// 		googlemap: 'https://g.page/ElChurraRestaurante?share'
-	// 	},
-	// 	{
-	// 		nombre: 'Restaurante Pura Cepa *',
-	// 		telefono: '+34 968 21 73 97',
-	// 		web: 'https://www.puracepamurcia.com/',
-	// 		direccion: 'Plaza Cristo del Rescate, 8, 30001 Murciaa',
-	// 		googlemap: 'https://g.page/PuraCepaMurcia?share'
-	// 	},
-	// 	{
-	// 		nombre: 'Restaurante Emboka *',
-	// 		telefono: '+34 968 24 16 68',
-	// 		web: 'http://www.emboka.com/',
-	// 		direccion: 'Av. Don Juan de Borbón, 29, 30007 Murcia',
-	// 		googlemap: 'https://g.page/Emboka?share'
-	// 	},
-	// 	{
-	// 		nombre: 'Restaurante Puerta de Murcia',
-	// 		telefono: '+34 968 27 73 05',
-	// 		web: 'https://puertademurciarestaurante.es/',
-	// 		direccion: 'Av. Rio Madera, 30110 Murcia',
-	// 		googlemap: 'https://g.page/puertademurcia?share'
-	// 	},
-	// 	{
-	// 		nombre: 'La Pequeña Taberna *',
-	// 		telefono: '+34 968 21 98 40',
-	// 		web: 'https://www.lapequenataberna.com/carta/',
-	// 		direccion: 'Plaza San Juan, 7, 30003 Murcia',
-	// 		googlemap: 'https://g.page/LaPequenaTabernaMurcia?share'
-	// 	},
-	// ]
-
 	return(
 		<div className={classes.root} style={{textTransform:'none', color: 'black'}}>
 			<Accordion expanded={expanded === 'dressing'} onChange={handleChange('dressing')} style={{textTransform:'none', color: 'black', topPadding: '20px'}}>
@@ -139,13 +112,6 @@ const Informacionutil = () => {
 							<p className={classes.parrafoClima}>Estas son las temperaturas históricas.<br/>Cuando se acerquen los días de La Bodica,<br/>actualizaremos esta sección con la previsión meteorológica.</p>
 						</Grid>
 					</Grid>
-					{/*<div style={{width: '45%', color: 'black'}}>*/}
-					{/*	<img src={climaMurcia} alt="clima" height="auto" width="100%"/>*/}
-					{/*</div>*/}
-					{/*<div style={{width: '55%', color: 'black'}}>*/}
-					{/*	<h3 style={{color: 'black', textAlign:'center'}}>Tiempo histórico en Murcia</h3>*/}
-					{/*	<p className={classes.parrafoClima}>Estas son las temperaturas históricas.<br/>Cuando se acerquen los días de La Bodica,<br/>actualizaremos esta sección con la previsión meteorológica.</p>*/}
-					{/*</div>*/}
 				</AccordionDetails>
 			</Accordion>
 			<Accordion expanded={expanded === 'restaurantes'} onChange={handleChange('restaurantes')} style={{textTransform:'none', color: 'black', topPadding: '20px'}}>
@@ -162,8 +128,65 @@ const Informacionutil = () => {
 								justify="space-evenly"
 								alignItems="flex-start"
 								spacing={1}>
-						<Grid item xs={12} sm={12} md={6} lg={6}>
-							<p>Próximamente</p>
+						<Grid item xs={12} sm={12} md={12} lg={12}>
+							<p className={classes.parrafo}>
+								Consulte nuestra sección de restaurantes en nuestra sección de turismo <i>"Descubre Murcia"</i>.<br/>
+								Haga click en el siguiente enlace:&nbsp;
+								<Link to={'/turismo#restaurantes'}><i>Restaurantes Murcia</i></Link>
+							</p>
+						</Grid>
+					</Grid>
+				</AccordionDetails>
+			</Accordion>
+			<Accordion expanded={expanded === 'emergencias'} onChange={handleChange('emergencias')} style={{textTransform:'none', color: 'black', topPadding: '20px'}}>
+				<AccordionSummary
+					expandIcon={<ExpandMoreIcon />}
+					aria-controls="panel1bh-content"
+					id="panel1bh-header"
+				>
+					<Typography className={classes.heading}>Emergencias 112</Typography>
+				</AccordionSummary>
+				<AccordionDetails>
+					<Grid container
+								direction="row"
+								justify="space-evenly"
+								alignItems="flex-start"
+								spacing={1}>
+						<Grid item xs={12} sm={12} md={12} lg={12}>
+							<p className={classes.parrafo}>
+								En España el número a marcar para emergencias es el 112. Desde ese número se contacta con policia, bomberos o una ambulancia.
+								<br/>
+								<br/>
+								Si su emergencia es relacionada con <i>La Bodica</i>, nuestra Wedding Planner (Arancha) 
+								le soluciona todo lo que pueda necesitar. Pueden marcarle o escribirle por Whatsapp al 
+								número <a href="https://wa.me/34665898440" target='_blank' rel="noopener noreferrer">+34 665 898 440 </a>. 
+							</p>
+						</Grid>
+					</Grid>
+				</AccordionDetails>
+			</Accordion>
+			<Accordion expanded={expanded === 'testcorona'} onChange={handleChange('testcorona')} style={{textTransform:'none', color: 'black', topPadding: '20px'}}>
+				<AccordionSummary
+					expandIcon={<ExpandMoreIcon />}
+					aria-controls="panel1bh-content"
+					id="panel1bh-header"
+				>
+					<Typography className={classes.heading}>Tests Coronavirus</Typography>
+				</AccordionSummary>
+				<AccordionDetails>
+					<Grid container
+								direction="row"
+								justify="space-evenly"
+								alignItems="flex-start"
+								spacing={1}>
+						<Grid item xs={12} sm={12} md={12} lg={12}>
+							<p className={classes.parrafo}>
+								En el siguiente enlace de una clínica muy cercana a los hoteles de La Bodica, podrán encontrar información
+								para realizarse los distintos tests, en caso de que lo necesiten para regresar a sus destinos.<br/>
+								<a href="https://www.quironsalud.es/en/informacion-pruebas-covid#PCR" target='_blank' rel="noopener noreferrer"><i>Enlace a Web de la Clínica</i></a>.
+								<br/>
+								Dirección: <a href="https://g.page/HQuironsaludMurcia?share" target='_blank' rel="noopener noreferrer">Calle Miguel Hernández, 12, 30011 Murcia</a>.
+							</p>
 						</Grid>
 					</Grid>
 				</AccordionDetails>

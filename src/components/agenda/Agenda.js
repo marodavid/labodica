@@ -171,7 +171,7 @@ export const Agenda = React.memo(function SingleCard() {
 									<Box px={3} pb={3} alignContent="center">
 										<Button
 											onClick={() => {
-												history.push('/informacion#turismo')
+												history.push('/turismo#turismo')
 												window.location.reload();
 											}}
 										>
