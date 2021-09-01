@@ -7,7 +7,7 @@ import './css/noscript.css'
 // import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'; 
 
 import hotelsietecoronas from '../../images/hoteles/hotel7coronas.jpg'
-import nhamistadmurcia from '../../images/hoteles/NH_Amistad_Murcia.jpg'
+// import nhamistadmurcia from '../../images/hoteles/NH_Amistad_Murcia.jpg'
 import rincondepepe from '../../images/hoteles/rincon-de-pepe.jpeg'
 
 const styles = (theme) => ({
@@ -250,38 +250,38 @@ const Hoteles = (props) => {
 				</div>
 				
 			</section>
-			<section className="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-				<div className="content">
-					<h2>Hotel NH Amistad</h2>
-					<h6 style={{fontSize: '16px'}}>Calle Condestable, 1, 30009 Murcia, España</h6>
-					<div className="tamanoLetra">
-						<p>
-							Hotel de 4 estrellas situado en el centro de Murcia justo a la espalda de El Corte Inglés y rodeado de una gran variedad de opciones de shopping, restaurantes y ocio.<br/>
-						</p> 
-						<p>
-							El hotel se encuentra a 1,3 kms (15 minutos caminando) de la Iglesia donde se celebrará la boda.
-						</p>
-						<p>
-							<strong>Reservas: </strong>En el siguiente enlace personalizado del hotel. <a href="https://www.nh-hoteles.es/event/enlace-laura-y-david">Click aqui</a><br/><br/>
-							<strong>Tarifas Jueves 30-09, Viernes 31-09 y Sábado 2-10 del 2021:</strong><br/>
-							<span className={classes.content}>Habitacion Doble: 58 Eur/noche</span><br/><br/>
-
-							<strong>Condiciones especiales: </strong><br/>
-							<span className={classes.content}>Late check out domingo a las 16:00 sin cargo</span><br/>
-							<span className={classes.content}>Desayuno buffet: 13€ por persona y día</span><br/>
-							<span className={classes.content}>Cama supletoria menores 12 años: sin cargo</span><br/>
-							<span className={classes.content}>Cuna: sin cargo</span><br/>
-							<span className={classes.content}>Cancelación sin gastos hasta 24 horas antes de la llegada</span><br/><br/>
-							<strong>Oferta válida para reservas hasta el 10 de Septiembre </strong><br/>
-						</p>
-					</div>
-					<hr/>
-					<a href="https://www.nh-hoteles.es/hotel/nh-amistad-murcia/habitaciones" rel="noopener noreferrer" target="_blank" className="button">Web del hotel</a>
-				</div>
-				<div className="image">
-					<img src={nhamistadmurcia} alt=""/>
-				</div>
-			</section>
+			{/*<section className="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">*/}
+			{/*	<div className="content">*/}
+			{/*		<h2>Hotel NH Amistad</h2>*/}
+			{/*		<h6 style={{fontSize: '16px'}}>Calle Condestable, 1, 30009 Murcia, España</h6>*/}
+			{/*		<div className="tamanoLetra">*/}
+			{/*			<p>*/}
+			{/*				Hotel de 4 estrellas situado en el centro de Murcia justo a la espalda de El Corte Inglés y rodeado de una gran variedad de opciones de shopping, restaurantes y ocio.<br/>*/}
+			{/*			</p> */}
+			{/*			<p>*/}
+			{/*				El hotel se encuentra a 1,3 kms (15 minutos caminando) de la Iglesia donde se celebrará la boda.*/}
+			{/*			</p>*/}
+			{/*			<p>*/}
+			{/*				<strong>Reservas: </strong>En el siguiente enlace personalizado del hotel. <a href="https://www.nh-hoteles.es/event/enlace-laura-y-david">Click aqui</a><br/><br/>*/}
+			{/*				<strong>Tarifas Jueves 30-09, Viernes 31-09 y Sábado 2-10 del 2021:</strong><br/>*/}
+			{/*				<span className={classes.content}>Habitacion Doble: 58 Eur/noche</span><br/><br/>*/}
+			
+			{/*				<strong>Condiciones especiales: </strong><br/>*/}
+			{/*				<span className={classes.content}>Late check out domingo a las 16:00 sin cargo</span><br/>*/}
+			{/*				<span className={classes.content}>Desayuno buffet: 13€ por persona y día</span><br/>*/}
+			{/*				<span className={classes.content}>Cama supletoria menores 12 años: sin cargo</span><br/>*/}
+			{/*				<span className={classes.content}>Cuna: sin cargo</span><br/>*/}
+			{/*				<span className={classes.content}>Cancelación sin gastos hasta 24 horas antes de la llegada</span><br/><br/>*/}
+			{/*				<strong>Oferta válida para reservas hasta el 10 de Septiembre </strong><br/>*/}
+			{/*			</p>*/}
+			{/*		</div>*/}
+			{/*		<hr/>*/}
+			{/*		<a href="https://www.nh-hoteles.es/hotel/nh-amistad-murcia/habitaciones" rel="noopener noreferrer" target="_blank" className="button">Web del hotel</a>*/}
+			{/*	</div>*/}
+			{/*	<div className="image">*/}
+			{/*		<img src={nhamistadmurcia} alt=""/>*/}
+			{/*	</div>*/}
+			{/*</section>*/}
 		</div>
 	)
 }
