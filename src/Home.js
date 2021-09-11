@@ -9,6 +9,7 @@ import AnchorSpan from "./components/AnchorSpan";
 import NuestraHistoria from "./components/nuestrahistoria/NuestraHistoria";
 import PiePagina from "./components/footer/PiePagina";
 import Portada from "./pages/Portada";
+// import PortadaYoutube from "./pages/PortadaYoutube";
 import PasosASeguir from "./pages/PasosASeguir";
 import GeneralMenu from "./components/generalmenu/GeneralMenu";
 import RSVP from './components/RSVP'
@@ -36,6 +37,7 @@ function Index() {
       >
         <Route exact path="/">
           <Portada/>
+          {/*<PortadaYoutube/>*/}
           <AnchorSpan />
           <PasosASeguir />
           <AnchorSpan />
